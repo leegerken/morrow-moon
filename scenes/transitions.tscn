@@ -69,11 +69,13 @@ process_mode = 3
 script = ExtResource("1_jpts4")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(1, 1, 1, 0)
 metadata/_edit_lock_ = true
 
 [node name="TransitionPlayer" type="AnimationPlayer" parent="."]
