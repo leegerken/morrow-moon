@@ -1,0 +1,30 @@
+[gd_scene load_steps=8 format=3 uid="uid://clgahvmopdmuf"]
+
+[ext_resource type="StyleBox" uid="uid://dlfrtbqn1hpij" path="res://art/ui/button_focused.tres" id="1_u5tui"]
+[ext_resource type="StyleBox" uid="uid://c1unjdpttuh33" path="res://art/ui/button_pressed.tres" id="2_3bjmg"]
+[ext_resource type="StyleBox" uid="uid://b2wdtsa1gujy2" path="res://art/ui/button_hover.tres" id="2_h8qrr"]
+[ext_resource type="StyleBox" uid="uid://dup5c8ii13wdx" path="res://art/ui/button_style.tres" id="3_8ds6u"]
+[ext_resource type="Script" path="res://scripts/menubutton.gd" id="4_cj05g"]
+[ext_resource type="AudioStream" uid="uid://b5bk5l38nesf7" path="res://audio/button_press.ogg" id="6_28yyi"]
+
+[sub_resource type="Theme" id="Theme_3i3q1"]
+Button/fonts/font = null
+Button/styles/disabled = ExtResource("2_h8qrr")
+Button/styles/focus = ExtResource("1_u5tui")
+Button/styles/hover = ExtResource("2_h8qrr")
+Button/styles/normal = ExtResource("3_8ds6u")
+Button/styles/pressed = ExtResource("2_3bjmg")
+
+[node name="MenuButton" type="Button"]
+offset_right = 60.0
+offset_bottom = 31.0
+theme = SubResource("Theme_3i3q1")
+script = ExtResource("4_cj05g")
+
+[node name="ButtonSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_28yyi")
+pitch_scale = 0.77
+mix_target = 2
+
+[connection signal="button_up" from="." to="." method="_on_button_up"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

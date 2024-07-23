@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://klk1ayamayco"]
+
+[ext_resource type="Texture2D" uid="uid://ct1fmtjagaklq" path="res://art/objects/bed.png" id="1_b3uju"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w7vs8"]
+size = Vector2(16, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cb2fl"]
+size = Vector2(15, 11)
+
+[node name="Bed" type="StaticBody2D"]
+z_index = 2
+
+[node name="Bed" type="Sprite2D" parent="."]
+position = Vector2(0, 0.25)
+texture = ExtResource("1_b3uju")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 16)
+shape = SubResource("RectangleShape2D_w7vs8")
+
+[node name="BedInteractArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BedInteractArea"]
+position = Vector2(8.5, 12.5)
+shape = SubResource("RectangleShape2D_cb2fl")

@@ -1,0 +1,446 @@
+[gd_scene load_steps=28 format=3 uid="uid://b5te2fsxf6fiv"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_imolf"]
+[ext_resource type="PackedScene" uid="uid://dqrlfsspvgut0" path="res://scenes/checkerboard.tscn" id="2_24qoh"]
+[ext_resource type="Texture2D" uid="uid://b2txrq5tyjtej" path="res://art/ui/player_mainmenu/frame_0.png" id="7_vnmxp"]
+[ext_resource type="Texture2D" uid="uid://13nmreix8idi" path="res://art/ui/player_mainmenu/frame_1.png" id="8_6llj6"]
+[ext_resource type="Texture2D" uid="uid://bd6kwmxyvlfuf" path="res://art/objects/sign.png" id="8_t3u6x"]
+[ext_resource type="Texture2D" uid="uid://ca2f1orv63jf3" path="res://art/ui/border_thick.png" id="26_nt51x"]
+[ext_resource type="FontFile" uid="uid://brsuylqxpu63h" path="res://art/system/hero-speak.ttf" id="27_jeps2"]
+[ext_resource type="Texture2D" uid="uid://ctpog8vwrc8v5" path="res://art/ui/border3.png" id="28_plp5m"]
+[ext_resource type="PackedScene" uid="uid://clgahvmopdmuf" path="res://scenes/menu_button.tscn" id="30_03f0v"]
+[ext_resource type="Script" path="res://scripts/transitions.gd" id="31_re5yf"]
+[ext_resource type="AudioStream" uid="uid://yvd4xt1hlnjm" path="res://audio/main_menu_music.ogg" id="32_lp3y8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_66qyy"]
+font = ExtResource("27_jeps2")
+font_size = 28
+font_color = Color(0.890196, 0.396078, 0.576471, 1)
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(-1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_gbryf"]
+font = ExtResource("27_jeps2")
+font_size = 14
+font_color = Color(0.635294, 0.94902, 0.952941, 1)
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(-1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_f2toc"]
+font = ExtResource("27_jeps2")
+font_size = 14
+font_color = Color(0.882353, 0.921569, 0.631373, 1)
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(-1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_85t5b"]
+font = ExtResource("27_jeps2")
+font_size = 14
+font_color = Color(0.333333, 0.921569, 0.631373, 1)
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_q7fk3"]
+font = ExtResource("27_jeps2")
+font_size = 14
+font_color = Color(0.752941, 1, 0.588235, 1)
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(-1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_daqvu"]
+font = ExtResource("27_jeps2")
+font_size = 14
+font_color = Color(0.752941, 1, 0.588235, 1)
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(-1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i2m2k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s15fv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5p7at"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0yjmx"]
+
+[sub_resource type="Theme" id="Theme_bbnyj"]
+Button/colors/font_color = Color(0.752941, 1, 0.588235, 1)
+Button/colors/font_pressed_color = Color(0.52026, 0.69, 0.4071, 1)
+Button/font_sizes/font_size = 14
+Button/fonts/font = ExtResource("27_jeps2")
+Button/styles/focus = SubResource("StyleBoxEmpty_i2m2k")
+Button/styles/hover = SubResource("StyleBoxEmpty_s15fv")
+Button/styles/normal = SubResource("StyleBoxEmpty_5p7at")
+Button/styles/pressed = SubResource("StyleBoxEmpty_0yjmx")
+
+[sub_resource type="LabelSettings" id="LabelSettings_ueesj"]
+font = ExtResource("27_jeps2")
+font_size = 14
+font_color = Color(0.882353, 0.921569, 0.631373, 1)
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_eevx2"]
+frames = 2
+frame_0/texture = ExtResource("7_vnmxp")
+frame_1/texture = ExtResource("8_6llj6")
+frame_1/duration = 1.0
+
+[sub_resource type="Animation" id="Animation_m3dhy"]
+resource_name = "Fade In"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+
+[sub_resource type="Animation" id="Animation_pknib"]
+resource_name = "Fade Out"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wymux"]
+_data = {
+"Fade In": SubResource("Animation_m3dhy"),
+"Fade Out": SubResource("Animation_pknib")
+}
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_imolf")
+
+[node name="Checkerboard" parent="." instance=ExtResource("2_24qoh")]
+metadata/_edit_lock_ = true
+
+[node name="TitleShadow" type="NinePatchRect" parent="."]
+modulate = Color(0.360784, 0.360784, 0.360784, 0.623529)
+offset_left = 8.0
+offset_top = 14.0
+offset_right = 192.0
+offset_bottom = 61.0
+texture = ExtResource("26_nt51x")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="Title" type="MarginContainer" parent="."]
+offset_right = 197.0
+offset_bottom = 58.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="Box" type="NinePatchRect" parent="Title"]
+layout_mode = 2
+texture = ExtResource("26_nt51x")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="TitleMargin" type="MarginContainer" parent="Title/Box"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+
+[node name="TitleLabel" type="Label" parent="Title/Box/TitleMargin"]
+layout_mode = 2
+text = "Morrow Moon"
+label_settings = SubResource("LabelSettings_66qyy")
+horizontal_alignment = 1
+
+[node name="BuildNotesShadow" type="NinePatchRect" parent="."]
+modulate = Color(0.439216, 0.439216, 0.439216, 0.560784)
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -122.0
+offset_top = 13.0
+offset_right = -15.0
+offset_bottom = -6.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("28_plp5m")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="BuildNotes" type="MarginContainer" parent="."]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -119.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Box" type="NinePatchRect" parent="BuildNotes"]
+layout_mode = 2
+texture = ExtResource("28_plp5m")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="TopContainer" type="MarginContainer" parent="BuildNotes/Box"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 9
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BuildNotes/Box/TopContainer"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="BuildNotesLabel" type="Label" parent="BuildNotes/Box/TopContainer/VBoxContainer"]
+layout_mode = 2
+text = "Build 10
+Jul 22, 2024"
+label_settings = SubResource("LabelSettings_gbryf")
+horizontal_alignment = 1
+
+[node name="ContentLabel" type="Label" parent="BuildNotes/Box/TopContainer/VBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+text = "UI update.
+Complete code rewrite."
+label_settings = SubResource("LabelSettings_f2toc")
+autowrap_mode = 2
+
+[node name="BottomContainer" type="MarginContainer" parent="BuildNotes/Box"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 2
+
+[node name="WebsiteLabel" type="Label" parent="BuildNotes/Box/BottomContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_vertical = 1
+text = "leegerken.org
+"
+label_settings = SubResource("LabelSettings_85t5b")
+autowrap_mode = 2
+
+[node name="BuildNumber" type="MarginContainer" parent="."]
+offset_left = 10.0
+offset_top = 55.0
+offset_right = 74.0
+offset_bottom = 79.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_bottom = 3
+
+[node name="BuildLabel" type="Label" parent="BuildNumber"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+text = "Build 10"
+label_settings = SubResource("LabelSettings_q7fk3")
+
+[node name="AspectRatio" type="MarginContainer" parent="."]
+offset_left = 153.0
+offset_top = 58.0
+offset_right = 211.0
+offset_bottom = 79.0
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 3
+
+[node name="AspectRatioLabel" type="Label" parent="AspectRatio"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "16 : 10"
+label_settings = SubResource("LabelSettings_daqvu")
+
+[node name="Button" type="Button" parent="AspectRatio"]
+layout_mode = 2
+theme = SubResource("Theme_bbnyj")
+
+[node name="Start" type="MarginContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -72.0
+offset_right = 70.0
+grow_vertical = 0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_bottom = 42
+
+[node name="StartButton" parent="Start" instance=ExtResource("30_03f0v")]
+custom_minimum_size = Vector2(2.08165e-12, 30)
+layout_mode = 2
+
+[node name="LabelMargin" type="MarginContainer" parent="Start/StartButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+metadata/_edit_lock_ = true
+
+[node name="StartLabel" type="Label" parent="Start/StartButton/LabelMargin"]
+layout_mode = 2
+text = "Start"
+label_settings = SubResource("LabelSettings_ueesj")
+horizontal_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Options" type="MarginContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 70.0
+grow_vertical = 0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_bottom = 10
+
+[node name="OptionsButton" parent="Options" instance=ExtResource("30_03f0v")]
+custom_minimum_size = Vector2(2.08165e-12, 30)
+layout_mode = 2
+disabled = true
+
+[node name="LabelMargin" type="MarginContainer" parent="Options/OptionsButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="OptionsLabel" type="Label" parent="Options/OptionsButton/LabelMargin"]
+layout_mode = 2
+text = "Options"
+label_settings = SubResource("LabelSettings_ueesj")
+horizontal_alignment = 1
+
+[node name="PlayerMainMenu" type="TextureRect" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -232.0
+offset_top = -102.0
+offset_right = -200.0
+offset_bottom = -70.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(3, 3)
+texture = SubResource("AnimatedTexture_eevx2")
+flip_h = true
+
+[node name="Sign" type="TextureRect" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -168.0
+offset_top = -49.0
+offset_right = -152.0
+offset_bottom = -33.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(3, 3)
+texture = ExtResource("8_t3u6x")
+
+[node name="Transitions" type="CanvasLayer" parent="."]
+script = ExtResource("31_re5yf")
+
+[node name="ColorRect" type="ColorRect" parent="Transitions"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="TransitionPlayer" type="AnimationPlayer" parent="Transitions"]
+libraries = {
+"": SubResource("AnimationLibrary_wymux")
+}
+autoplay = "Fade Out"
+
+[node name="MainMenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("32_lp3y8")
+volume_db = -15.222
+pitch_scale = 0.88
+autoplay = true
+
+[connection signal="button_up" from="AspectRatio/Button" to="." method="_on_button_button_up"]
+[connection signal="button_up" from="Start/StartButton" to="." method="_on_start_button_button_up"]
+[connection signal="animation_finished" from="Transitions/TransitionPlayer" to="." method="_on_transition_player_animation_finished"]
