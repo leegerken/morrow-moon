@@ -1,8 +1,19 @@
 extends StaticBody2D
 
+@export var Dialogue :DialogueResource
+
+var player_near := false
+
 func _input(event):
 	if event.is_action_pressed("confirm"):
-		read_sign()
+		if player_near: read_sign()
+		
 
 func read_sign():
-	DialogueManager.show_dialogue_balloon(load("res://scripts/dialog/main.dialogue"),"main")
+	DialogueManager.show_dialogue_balloon(Dialogue,"main")
+	DialogueManager.dialogue_ended
+func _on_sign_interact_area_area_entered(area):
+	player_near = true
+
+func _on_sign_interact_area_area_exited(area):
+	player_near = false

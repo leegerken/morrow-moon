@@ -188,7 +188,7 @@ dialogic_default_action={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://scripts/dialog/main.dialogue")
+locale/translations_pot_files=PackedStringArray("res://scripts/dialog/main.dialogue", "res://scripts/dialog/sign1.dialogue")
 
 [rendering]
 

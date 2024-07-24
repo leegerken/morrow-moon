@@ -25,3 +25,6 @@ shape = SubResource("RectangleShape2D_coogu")
 z_index = 2
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_llbs7")
+
+[connection signal="area_entered" from="SignInteractArea" to="." method="_on_sign_interact_area_area_entered"]
+[connection signal="area_exited" from="SignInteractArea" to="." method="_on_sign_interact_area_area_exited"]

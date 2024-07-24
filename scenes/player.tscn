@@ -83,9 +83,9 @@ shape = SubResource("CapsuleShape2D_rwhng")
 
 [node name="Direction" type="Marker2D" parent="."]
 
-[node name="Area2D" type="Area2D" parent="Direction"]
+[node name="Player" type="Area2D" parent="Direction"]
 
-[node name="Interact Area" type="CollisionShape2D" parent="Direction/Area2D"]
+[node name="Interact Area" type="CollisionShape2D" parent="Direction/Player"]
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_w3jsi")
 
@@ -97,6 +97,7 @@ autoplay = "idle_side"
 offset = Vector2(0, -9)
 
 [node name="Bang" type="Sprite2D" parent="."]
+modulate = Color(0.989333, 1, 0.36, 1)
 z_index = 4
 position = Vector2(2.08165e-12, -10)
 scale = Vector2(0.1, 0.1)
@@ -119,6 +120,6 @@ volume_db = 14.054
 stream = ExtResource("4_4p6ii")
 volume_db = 14.055
 
-[connection signal="area_entered" from="Direction/Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="Direction/Area2D" to="." method="_on_area_2d_area_exited"]
-[connection signal="body_entered" from="Direction/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="area_entered" from="Direction/Player" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Direction/Player" to="." method="_on_area_2d_area_exited"]
+[connection signal="body_entered" from="Direction/Player" to="." method="_on_area_2d_body_entered"]
