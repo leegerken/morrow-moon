@@ -1,0 +1,13 @@
+~ main
+
+[[Hi|Hello|Howdy]], this is some dialogue.
+Here are some choices.
+- First one
+	You picked the first one.
+- Second one
+	You picked the second one.
+- Start again => main
+- End the conversation => END
+For more information see the online documentation.
+
+=> END
