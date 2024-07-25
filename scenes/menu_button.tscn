@@ -26,5 +26,4 @@ stream = ExtResource("6_28yyi")
 pitch_scale = 0.77
 mix_target = 2
 
-[connection signal="button_up" from="." to="." method="_on_button_up"]
 [connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -3,8 +3,8 @@ extends Node
 func _process(_delta :float) -> void:
 	pass
 	
-func _unhandled_input(_event :InputEvent) -> void:	
-	if Input.is_action_just_pressed("pause"): toggle_pause()
+#func _unhandled_input(_event :InputEvent) -> void:	
+	#if Input.is_action_just_pressed("pause"): toggle_pause()
 	
 func toggle_pause() -> void:
 	if get_tree().paused:

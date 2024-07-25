@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://ciyfg8o3d0g84"]
+[gd_scene load_steps=54 format=4 uid="uid://ciyfg8o3d0g84"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_dm15a"]
 [ext_resource type="PackedScene" uid="uid://d6b1o4eui1ff" path="res://scenes/player.tscn" id="1_kwsod"]
@@ -167,16 +167,132 @@ sources/0 = SubResource("TileSetAtlasSource_upp8k")
 sources/1 = SubResource("TileSetAtlasSource_qbeyw")
 sources/2 = SubResource("TileSetAtlasSource_sh0no")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qf7yb"]
+size = Vector2(320, 200)
+
+[sub_resource type="InputEventKey" id="InputEventKey_rpapi"]
+device = -1
+pressed = true
+keycode = 80
+unicode = 112
+
+[sub_resource type="Shortcut" id="Shortcut_46wx7"]
+events = [SubResource("InputEventKey_rpapi")]
+
 [sub_resource type="LabelSettings" id="LabelSettings_mk4gv"]
 font = ExtResource("36_wnylu")
 font_size = 14
 font_color = Color(0.882353, 0.921569, 0.631373, 1)
 shadow_color = Color(0, 0, 0, 1)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qf7yb"]
-size = Vector2(320, 200)
+[sub_resource type="LabelSettings" id="LabelSettings_st2s4"]
+font = ExtResource("36_wnylu")
+font_color = Color(0.882353, 0.921569, 0.631373, 1)
+shadow_color = Color(0, 0, 0, 1)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a6i5p"]
+[sub_resource type="Animation" id="Animation_d1wtd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_d3gu4"]
+resource_name = "Slide In"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 20), Vector2(-107, 20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_fuupi"]
+resource_name = "Slide Out"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-107, 20), Vector2(0, 20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8bx6t"]
+_data = {
+"RESET": SubResource("Animation_d1wtd"),
+"Slide In": SubResource("Animation_d3gu4"),
+"Slide Out": SubResource("Animation_fuupi")
+}
+
+[sub_resource type="Theme" id="Theme_l0ub4"]
+Label/colors/font_color = Color(0.882353, 0.921569, 0.631373, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dbhdw"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_edsqw"]
+device = -1
+pressed = true
+keycode = 75
+unicode = 107
+
+[sub_resource type="Shortcut" id="Shortcut_lf36b"]
+events = [SubResource("InputEventKey_edsqw")]
 
 [sub_resource type="Animation" id="Animation_v078i"]
 resource_name = "Slide Down"
@@ -263,6 +379,15 @@ _data = {
 "Slide Down": SubResource("Animation_v078i"),
 "Slide Up": SubResource("Animation_nvdsa")
 }
+
+[sub_resource type="InputEventKey" id="InputEventKey_1jxxq"]
+device = -1
+pressed = true
+keycode = 83
+unicode = 115
+
+[sub_resource type="Shortcut" id="Shortcut_a6x5x"]
+events = [SubResource("InputEventKey_1jxxq")]
 
 [sub_resource type="Animation" id="Animation_h6nd7"]
 resource_name = "Slide Down"
@@ -357,12 +482,14 @@ y_sort_enabled = true
 [node name="TileMap" type="Node2D" parent="."]
 z_as_relative = false
 y_sort_enabled = true
+metadata/_edit_lock_ = true
 
 [node name="0" type="TileMapLayer" parent="TileMap"]
 z_as_relative = false
 use_parent_material = true
 tile_map_data = PackedByteArray("AAAAAAAAAAAAAAgAAAAAAAEAAAAAAAgAAAABAAEAAAAAAAgAAAABAAAAAAAAAAgAAAACAAEAAAAAAAgAAAACAAAAAAAAAAgAAAAAAAIAAAAAAAgAAAAAAAMAAAAAAAgAAAAAAAQAAAAAAAgAAAAAAAUAAAACAAAAAAAAAAYAAAACAAIAAAAAAAcAAAAAAAgAAAABAAcAAAAAAAgAAAABAAgAAAAAAAgAAAABAAkAAAAAAAgAAAABAAoAAAAAAAgAAAAAAAoAAAADAAgAAAAAAAkAAAAAAAgAAAAAAAgAAAAAAAgAAAABAAYAAAACAAIAAAABAAUAAAACAAAAAAABAAQAAAADAAgAAAABAAMAAAAAAAgAAAABAAIAAAAAAAgAAAADAAAAAAAAAAgAAAAEAAAAAAAAAAgAAAAFAAAAAAAAAAgAAAAGAAAAAAAAAAgAAAAHAAAAAAAAAAgAAAAIAAAAAAAAAAgAAAAJAAAAAAAAAAgAAAAKAAAAAAAAAAgAAAALAAAAAAAAAAgAAAAMAAAAAAAAAAgAAAANAAAAAAAAAAgAAAAOAAAAAAAAAAgAAAAPAAAAAAAAAAgAAAAQAAAAAAAAAAgAAAARAAAAAAAAAAgAAAASAAAAAAAAAAgAAAATAAAAAAAAAAgAAAATAAEAAAAAAAgAAAATAAIAAAAAAAgAAAATAAMAAAAAAAgAAAATAAQAAAAEAAgAAAATAAUAAAACAAAAAAATAAYAAAACAAEAAAATAAcAAAACAAIAAAATAAgAAAAAAAgAAAATAAkAAAAAAAgAAAATAAoAAAAAAAgAAAASAAoAAAAAAAgAAAARAAoAAAAAAAgAAAAQAAoAAAAEAAgAAAAPAAoAAAADAAgAAAAOAAoAAAADAAIAAAANAAoAAAACAAIAAAAMAAoAAAAEAAAAAAALAAoAAAAFAAAAAAAKAAoAAAACAAIAAAAJAAoAAAABAAIAAAAIAAoAAAAAAAgAAAAHAAoAAAACAAgAAAAGAAoAAAAAAAgAAAAFAAoAAAAAAAgAAAAEAAoAAAAAAAgAAAADAAoAAAAAAAgAAAACAAoAAAAAAAgAAAACAAkAAAAAAAgAAAADAAkAAAAEAAgAAAAEAAkAAAAAAAgAAAAFAAkAAAADAAgAAAAGAAkAAAAAAAgAAAAHAAkAAAAAAAgAAAAIAAkAAAAAAAgAAAAJAAkAAAABAAEAAAAKAAkAAAACAAEAAAALAAkAAAACAAEAAAAMAAkAAAACAAEAAAANAAkAAAACAAEAAAAOAAkAAAADAAEAAAAPAAkAAAAAAAgAAAAQAAkAAAABAAgAAAARAAkAAAAAAAgAAAASAAkAAAAAAAgAAAASAAgAAAABAAgAAAARAAgAAAACAAgAAAAQAAgAAAADAAIAAAAPAAgAAAACAAIAAAAOAAgAAAAEAAAAAAANAAgAAAACAAEAAAAMAAgAAAACAAEAAAALAAgAAAACAAEAAAAKAAgAAAACAAEAAAAJAAgAAAAFAAAAAAAIAAgAAAACAAIAAAADAAgAAAAAAAgAAAACAAgAAAAAAAgAAAAEAAgAAAABAAIAAAAFAAgAAAACAAIAAAAGAAgAAAACAAIAAAAHAAgAAAACAAIAAAAOAAcAAAACAAAAAAAPAAcAAAAFAAEAAAAQAAcAAAAEAAAAAAARAAcAAAACAAIAAAASAAcAAAACAAIAAAANAAcAAAACAAAAAAAMAAcAAAACAAAAAAALAAcAAAACAAAAAAAKAAcAAAACAAAAAAAJAAcAAAACAAAAAAAIAAcAAAACAAAAAAAHAAcAAAACAAAAAAAGAAcAAAAEAAEAAAAFAAcAAAACAAEAAAAEAAcAAAABAAEAAAADAAcAAAABAAgAAAACAAcAAAAAAAgAAAACAAYAAAACAAIAAAADAAYAAAACAAIAAAAEAAYAAAAFAAAAAAAFAAYAAAACAAEAAAAGAAYAAAADAAEAAAAHAAYAAAABAAgAAAAOAAYAAAAAAAgAAAAPAAYAAAABAAAAAAAQAAYAAAAFAAEAAAARAAYAAAACAAEAAAASAAYAAAACAAEAAAASAAUAAAACAAAAAAARAAUAAAAEAAEAAAAQAAUAAAABAAEAAAAPAAUAAAAAAAgAAAAOAAUAAAADAAgAAAANAAUAAgAAAAAAAAAMAAUAAgAAAAAAAAALAAUAAgAAAAAAAAAKAAUAAgAAAAAAAAAHAAUAAAAEAAgAAAAGAAUAAAADAAEAAAAFAAUAAAACAAEAAAAEAAUAAAACAAEAAAADAAUAAAACAAEAAAACAAUAAAAFAAEAAAACAAQAAAABAAAAAAADAAQAAAACAAAAAAAEAAQAAAACAAAAAAAFAAQAAAACAAAAAAAGAAQAAAADAAAAAAAHAAQAAAAAAAgAAAAIAAQAAgAAAAAAAAAJAAQAAgAAAAAAAAAKAAQAAgAAAAAAAAALAAQAAgAAAAAAAAAMAAQAAgAAAAAAAAANAAQAAgAAAAAAAAAOAAQAAAABAAgAAAAPAAQAAAAEAAgAAAAQAAQAAAABAAAAAAARAAQAAAADAAAAAAASAAQAAAAAAAgAAAASAAMAAAAAAAgAAAARAAMAAAAEAAgAAAAQAAMAAAAAAAgAAAAPAAMAAAAAAAgAAAAOAAMAAAACAAgAAAANAAMAAgAAAAAAAAAMAAMAAgAAAAAAAAALAAMAAgAAAAAAAAAKAAMAAgAAAAAAAAAJAAMAAgAAAAAAAAAIAAMAAgAAAAAAAAAHAAMAAAABAAgAAAAGAAMAAAAAAAgAAAAFAAMAAAAAAAgAAAAEAAMAAAACAAgAAAADAAMAAAAAAAgAAAACAAMAAAAAAAgAAAACAAIAAAADAAgAAAADAAIAAAAAAAgAAAAEAAIAAAAAAAgAAAAFAAIAAAAEAAgAAAAGAAIAAAAAAAgAAAAHAAIAAAAAAAgAAAAIAAIAAgAAAAAAAAAJAAIAAgAAAAAAAAAKAAIAAgAAAAAAAAALAAIAAgAAAAAAAAAMAAIAAgAAAAAAAAANAAIAAgAAAAAAAAAOAAIAAAADAAgAAAAPAAIAAAAAAAgAAAAQAAIAAAAAAAgAAAARAAIAAAAAAAgAAAASAAIAAAAAAAgAAAASAAEAAAAAAAgAAAARAAEAAAAAAAgAAAAQAAEAAAAAAAgAAAAPAAEAAAAAAAgAAAAOAAEAAAAAAAgAAAAHAAEAAAAAAAgAAAAGAAEAAAAEAAgAAAAFAAEAAAAAAAgAAAAEAAEAAAAAAAgAAAADAAEAAAAAAAgAAAAAAAsAAAAAAAgAAAAAAAwAAAAAAAgAAAABAAwAAAACAAgAAAABAAsAAAAAAAgAAAAAAA0AAAAAAAgAAAABAA0AAAAAAAgAAAACAA0AAAAAAAgAAAADAA0AAAAAAAgAAAAEAA0AAAAAAAgAAAAFAA0AAAAAAAgAAAAGAA0AAAAAAAgAAAAHAA0AAAAAAAgAAAAIAAwAAAAAAAgAAAAJAAwAAAAAAAgAAAAKAAwAAAAAAAgAAAALAAwAAAABAAEAAAAMAAwAAAADAAEAAAATAAsAAAAAAAgAAAATAAwAAAAAAAgAAAATAA0AAAAAAAgAAAASAA0AAAAAAAgAAAARAA0AAAAAAAgAAAAQAA0AAAAAAAgAAAAPAA0AAAAAAAgAAAAOAA0AAAAAAAgAAAANAA0AAAAAAAgAAAAMAA0AAAADAAEAAAALAA0AAAABAAEAAAAKAA0AAAAAAAgAAAAJAA0AAAAAAAgAAAAIAA0AAAAAAAgAAAACAAwAAAAAAAgAAAADAAwAAAADAAgAAAAEAAwAAAAEAAgAAAAFAAwAAAAAAAgAAAAGAAwAAAAAAAgAAAAHAAwAAAABAAgAAAACAAsAAAAAAAgAAAADAAsAAAAAAAgAAAAEAAsAAAAAAAgAAAAFAAsAAAAAAAgAAAAGAAsAAAAAAAgAAAAHAAsAAAAAAAgAAAAIAAsAAAAEAAgAAAAJAAsAAAACAAgAAAAKAAsAAAAAAAgAAAANAAsAAAADAAgAAAAOAAsAAAAAAAgAAAAPAAsAAAAAAAgAAAAQAAsAAAACAAgAAAARAAsAAAAAAAgAAAASAAsAAAACAAgAAAASAAwAAAAAAAgAAAARAAwAAAAAAAgAAAAQAAwAAAAAAAgAAAAPAAwAAAABAAgAAAAOAAwAAAAAAAgAAAANAAwAAAAEAAgAAAAMAAsAAAADAAEAAAALAAsAAAABAAEAAAAUAAAAAAAAAAgAAAAUAAEAAAAAAAgAAAAUAAIAAAAAAAgAAAAUAAMAAAAAAAgAAAAUAAQAAAACAAgAAAAVAAQAAAABAAgAAAAVAAMAAAADAAgAAAAWAAMAAAAAAAgAAAAWAAIAAAAAAAgAAAAVAAIAAAAAAAgAAAAVAAEAAAAAAAgAAAAWAAEAAAAAAAgAAAAVAAAAAAAAAAgAAAAWAAAAAAAAAAgAAAAWAAQAAAAAAAgAAAAWAAUAAAACAAAAAAAWAAYAAAACAAIAAAAWAAcAAAAAAAgAAAAWAAgAAAACAAgAAAAWAAkAAAAAAAgAAAAWAAoAAAAAAAgAAAAWAAsAAAAAAAgAAAAWAAwAAAAAAAgAAAAWAA0AAAAAAAgAAAAVAA0AAAAAAAgAAAAUAA0AAAAAAAgAAAAUAAwAAAAAAAgAAAAVAAwAAAAEAAgAAAAVAAsAAAAAAAgAAAAUAAsAAAAAAAgAAAAUAAoAAAADAAgAAAAUAAkAAAAEAAgAAAAVAAkAAAADAAgAAAAVAAoAAAAAAAgAAAAVAAgAAAAAAAgAAAAUAAgAAAAAAAgAAAAUAAcAAAADAAIAAAAVAAcAAAAAAAgAAAAUAAUAAAACAAAAAAAVAAUAAAACAAAAAAAUAAYAAAAEAAAAAAAVAAYAAAACAAIAAAAIAAUAAgAAAAAAAAAJAAUAAgAAAAAAAAAKAAYAAAAAAAgAAAAJAAYAAAACAAgAAAAIAAYAAAADAAgAAAAMAAYAAAAAAAgAAAANAAYAAAAAAAgAAAALAAYAAAAAAAgAAAAAAP//AAAAAAgAAAAAAPf/AAAAAAgAAAAAAPj/AAAAAAgAAAAAAPn/AAAAAAgAAAAAAPr/AAAAAAgAAAAAAPv/AAAAAAgAAAAAAPz/AAAAAAgAAAAAAP3/AAAAAAgAAAAAAP7/AAAAAAgAAAABAPf/AAAAAAgAAAABAPj/AAAAAAgAAAABAPn/AAAAAAgAAAABAPr/AAAAAAgAAAABAPv/AAAAAAgAAAABAPz/AAAAAAgAAAABAP3/AAAAAAgAAAABAP7/AAAAAAgAAAABAP//AAAAAAgAAAACAPf/AAAAAAgAAAACAPj/AAAAAAgAAAACAPn/AAAAAAgAAAACAPr/AAAAAAgAAAACAPv/AAAAAAgAAAACAPz/AAAAAAgAAAACAP3/AAAAAAgAAAACAP7/AAAAAAgAAAACAP//AAAAAAgAAAADAPf/AAAAAAgAAAADAPj/AAAAAAgAAAADAPn/AAAAAAgAAAADAPr/AAAAAAgAAAADAPv/AAAAAAgAAAADAPz/AAAAAAgAAAADAP3/AAAAAAgAAAADAP7/AAAAAAgAAAADAP//AAAAAAgAAAAEAPf/AAAAAAgAAAAEAPj/AAAAAAgAAAAEAPn/AAAAAAgAAAAEAPr/AAAAAAgAAAAEAPv/AAAAAAgAAAAEAPz/AAAAAAgAAAAEAP3/AAAAAAgAAAAEAP7/AAAAAAgAAAAEAP//AAAAAAgAAAAFAPf/AAAAAAgAAAAFAPj/AAAAAAgAAAAFAPn/AAAAAAgAAAAFAPr/AAAAAAgAAAAFAPv/AAAAAAgAAAAFAPz/AAAAAAgAAAAFAP3/AAAAAAgAAAAFAP7/AAAAAAgAAAAFAP//AAAAAAgAAAAGAPf/AAAAAAgAAAAGAPj/AAAAAAgAAAAGAPn/AAAAAAgAAAAGAPr/AAAAAAgAAAAGAPv/AAAAAAgAAAAGAPz/AAAAAAgAAAAGAP3/AAAAAAgAAAAGAP7/AAAAAAgAAAAGAP//AAAAAAgAAAAHAPf/AAAAAAgAAAAHAPj/AAAAAAgAAAAHAPn/AAAAAAgAAAAHAPr/AAAAAAgAAAAHAPv/AAAAAAgAAAAHAPz/AAAAAAgAAAAHAP3/AAAAAAgAAAAHAP7/AAAAAAgAAAAHAP//AAAAAAgAAAAIAPf/AAAAAAgAAAAIAPj/AAAAAAgAAAAIAPn/AAAAAAgAAAAIAPr/AAAAAAgAAAAIAPv/AAAAAAgAAAAIAPz/AAAAAAgAAAAIAP3/AAAAAAgAAAAIAP7/AAAAAAgAAAAIAP//AAAAAAgAAAAJAPf/AAAAAAgAAAAJAPj/AAAAAAgAAAAJAPn/AAAAAAgAAAAJAPr/AAAAAAgAAAAJAPv/AAAAAAgAAAAJAPz/AAAAAAgAAAAJAP3/AAAAAAgAAAAJAP7/AAAAAAgAAAAJAP//AAAAAAgAAAAKAPf/AAAAAAgAAAAKAPj/AAAAAAgAAAAKAPn/AAAAAAgAAAAKAPr/AAAAAAgAAAAKAPv/AAAAAAgAAAAKAPz/AAAAAAgAAAAKAP3/AAAAAAgAAAAKAP7/AAAAAAgAAAAKAP//AAAAAAgAAAALAPf/AAAAAAgAAAALAPj/AAAAAAgAAAALAPn/AAAAAAgAAAALAPr/AAAAAAgAAAALAPv/AAAAAAgAAAALAPz/AAAAAAgAAAALAP3/AAAAAAgAAAALAP7/AAAAAAgAAAALAP//AAAAAAgAAAAMAPf/AAAAAAgAAAAMAPj/AAAAAAgAAAAMAPn/AAAAAAgAAAAMAPr/AAAAAAgAAAAMAPv/AAAAAAgAAAAMAPz/AAAAAAgAAAAMAP3/AAAAAAgAAAAMAP7/AAAAAAgAAAAMAP//AAAAAAgAAAANAPf/AAAAAAgAAAANAPj/AAAAAAgAAAANAPn/AAAAAAgAAAANAPr/AAAAAAgAAAANAPv/AAAAAAgAAAANAPz/AAAAAAgAAAANAP3/AAAAAAgAAAANAP7/AAAAAAgAAAANAP//AAAAAAgAAAAOAPf/AAAAAAgAAAAOAPj/AAAAAAgAAAAOAPn/AAAAAAgAAAAOAPr/AAAAAAgAAAAOAPv/AAAAAAgAAAAOAPz/AAAAAAgAAAAOAP3/AAAAAAgAAAAOAP7/AAAAAAgAAAAOAP//AAAAAAgAAAAPAPf/AAAAAAgAAAAPAPj/AAAAAAgAAAAPAPn/AAAAAAgAAAAPAPr/AAAAAAgAAAAPAPv/AAAAAAgAAAAPAPz/AAAAAAgAAAAPAP3/AAAAAAgAAAAPAP7/AAAAAAgAAAAPAP//AAAAAAgAAAAQAPf/AAAAAAgAAAAQAPj/AAAAAAgAAAAQAPn/AAAAAAgAAAAQAPr/AAAAAAgAAAAQAPv/AAAAAAgAAAAQAPz/AAAAAAgAAAAQAP3/AAAAAAgAAAAQAP7/AAAAAAgAAAAQAP//AAAAAAgAAAARAPf/AAAAAAgAAAARAPj/AAAAAAgAAAARAPn/AAAAAAgAAAARAPr/AAAAAAgAAAARAPv/AAAAAAgAAAARAPz/AAAAAAgAAAARAP3/AAAAAAgAAAARAP7/AAAAAAgAAAARAP//AAAAAAgAAAASAPf/AAAAAAgAAAASAPj/AAAAAAgAAAASAPn/AAAAAAgAAAASAPr/AAAAAAgAAAASAPv/AAAAAAgAAAASAPz/AAAAAAgAAAASAP3/AAAAAAgAAAASAP7/AAAAAAgAAAASAP//AAAAAAgAAAATAPf/AAAAAAgAAAATAPj/AAAAAAgAAAATAPn/AAAAAAgAAAATAPr/AAAAAAgAAAATAPv/AAAAAAgAAAATAPz/AAAAAAgAAAATAP3/AAAAAAgAAAATAP7/AAAAAAgAAAATAP//AAAAAAgAAAAUAPf/AAAAAAgAAAAUAPj/AAAAAAgAAAAUAPn/AAAAAAgAAAAUAPr/AAAAAAgAAAAUAPv/AAAAAAgAAAAUAPz/AAAAAAgAAAAUAP3/AAAAAAgAAAAUAP7/AAAAAAgAAAAUAP//AAAAAAgAAAAVAPf/AAAAAAgAAAAVAPj/AAAAAAgAAAAVAPn/AAAAAAgAAAAVAPr/AAAAAAgAAAAVAPv/AAAAAAgAAAAVAPz/AAAAAAgAAAAVAP3/AAAAAAgAAAAVAP7/AAAAAAgAAAAVAP//AAAAAAgAAAAWAPf/AAAAAAgAAAAWAPj/AAAAAAgAAAAWAPn/AAAAAAgAAAAWAPr/AAAAAAgAAAAWAPv/AAAAAAgAAAAWAPz/AAAAAAgAAAAWAP3/AAAAAAgAAAAWAP7/AAAAAAgAAAAWAP//AAAAAAgAAAA=")
 tile_set = SubResource("TileSet_ut8q3")
+metadata/_edit_lock_ = true
 
 [node name="1" type="TileMapLayer" parent="TileMap"]
 z_index = 1
@@ -371,6 +498,7 @@ y_sort_enabled = true
 use_parent_material = true
 tile_map_data = PackedByteArray("AAALAPj/AAACAAUAAAAKAPj/AAACAAUAAAAJAPj/AAACAAUAAAAIAPj/AAACAAUAAAAHAPj/AAAFAAQAAAAGAPj/AAACAAYAAAAFAPj/AAACAAYAAAAEAPj/AAACAAYAAAADAPj/AAAEAAQAAAAMAPj/AAACAAUAAAANAPj/AAACAAUAAAAOAPj/AAACAAUAAAAPAPj/AAACAAUAAAAQAPj/AAACAAUAAAARAPj/AAAEAAQAAAASAPj/AAACAAYAAAATAPj/AAAFAAQAAAATAPn/AAABAAYAAAAVAPr/AAACAAYAAAAWAPv/AAABAAUAAAAWAPn/AAACAAUAAAAWAPj/AAACAAUAAAAVAPj/AAACAAUAAAAVAPf/AAACAAUAAAAWAPf/AAACAAUAAAAVAPn/AAACAAUAAAAUAPf/AAACAAUAAAATAPf/AAACAAUAAAASAPf/AAACAAUAAAARAPf/AAACAAUAAAAQAPf/AAACAAUAAAAPAPf/AAACAAUAAAAOAPf/AAACAAUAAAANAPf/AAACAAUAAAAMAPf/AAACAAUAAAALAPf/AAACAAUAAAAKAPf/AAACAAUAAAAJAPf/AAACAAUAAAAIAPf/AAACAAUAAAAHAPf/AAACAAUAAAAGAPf/AAACAAUAAAAFAPf/AAACAAUAAAAEAPf/AAACAAUAAAADAPf/AAACAAUAAAACAPf/AAACAAUAAAABAPf/AAACAAUAAAAAAPf/AAACAAUAAAAKAPn/AAACAAYAAAALAPn/AAACAAYAAAAMAPn/AAACAAYAAAANAPn/AAACAAYAAAAOAPn/AAACAAYAAAAPAPn/AAACAAYAAAAQAPn/AAACAAYAAAAJAPn/AAACAAYAAAAIAPn/AAACAAYAAAAHAPn/AAABAAYAAAARAPn/AAADAAYAAAACAPr/AAADAAYAAAABAPv/AAADAAYAAAAAAP3/AAADAAYAAAAAAPz/AAADAAUAAAAAAPv/AAAEAAQAAAABAPr/AAAEAAQAAAACAPn/AAAEAAQAAAACAPj/AAACAAUAAAADAPn/AAADAAYAAAAAAPr/AAACAAUAAAAAAPn/AAACAAUAAAAAAPj/AAACAAUAAAABAPj/AAACAAUAAAABAPn/AAACAAUAAAAUAPr/AAABAAYAAAAWAPr/AAAFAAQAAAAWAPz/AAABAAYAAAAUAPn/AAACAAUAAAAUAPj/AAACAAUAAAAJAAUAAQACAAUAAAAKAAUAAQACAAUAAAAMAAUAAQACAAUAAAAIAAUAAQABAAUAAAANAAUAAQADAAUAAAA=")
 tile_set = SubResource("TileSet_ut8q3")
+metadata/_edit_lock_ = true
 
 [node name="2" type="TileMapLayer" parent="TileMap"]
 z_index = 2
@@ -379,6 +507,7 @@ y_sort_enabled = true
 use_parent_material = true
 tile_map_data = PackedByteArray("AAAIAAAAAQABAAAAAAANAAAAAQADAAAAAAAJAAAAAQACAAAAAAAKAAAAAQACAAAAAAALAAAAAQACAAAAAAAMAAAAAQACAAAAAAAGAAgAAAAAAAkAAAARAAkAAAADAAkAAAATAAoAAAADAAkAAAATAAgAAAADAAsAAAAGAAoAAAADAAsAAAAEAAkAAAADAAsAAAAEAAEAAAAAAAkAAAAPAAIAAAAAAAkAAAATAAMAAAADAAkAAAACAAsAAAAAAAkAAAAAAAgAAAADAAsAAAD//woAAAADAAsAAAAKAA0AAAADAAkAAAANAA0AAAADAAkAAAAIAA0AAAADAAsAAAAWAAwAAAADAAsAAAAXAAgAAAADAAsAAAAVAAcAAAADAAsAAAAWAAIAAAADAAsAAAAGAAIAAAADAAkAAAABAAMAAAAEAAcAAAACAAgAAAAAAAkAAAAPAAUAAAAEAAcAAAAVAAoAAAAEAAcAAAAQAAwAAAAEAAcAAAABAP3/AAAAAAkAAAAGAPv/AAAAAAkAAAACAAAAAAAAAAkAAAAAAAEAAAAAAAkAAAARAP7/AAAAAAkAAAASAAEAAAAAAAkAAAAVAP//AAAAAAkAAAAEAP3/AAADAAsAAAAGAP7/AAADAAsAAAAHAP3/AAADAAsAAAACAPv/AAADAAsAAAAEAPv/AAADAAkAAAAJAPz/AAADAAkAAAAVAPz/AAADAAkAAAARAPr/AAADAAkAAAANAPr/AAADAAkAAAASAPv/AAADAAsAAAALAPn/AAADAAsAAAAVAPf/AAADAAkAAAAJAPf/AAADAAkAAAABAPf/AAADAAkAAAAAAPj/AAADAAkAAAAOAPb/AAADAAkAAAAEAPb/AAADAAkAAAAXAPn/AAADAAkAAAAQAPb/AAAAAAkAAAD///n/AAAAAAkAAAAXAPf/AAAAAAkAAAALAPX/AAAAAAkAAAAHAPb/AAADAAsAAAATAPb/AAADAAsAAAACAPb/AAAAAAkAAAAUAPX/AAAAAAkAAAAJAPr/AAAAAAkAAAAPAPr/AAAAAAkAAAAOAPz/AAADAAkAAAAMAPv/AAAAAAkAAAAJAP//AAAAAAkAAAALAP7/AAAAAAkAAAAOAP//AAAAAAkAAAAMAP//AAAAAAkAAAAHAAAAAAAAAAkAAAAFAP//AAAAAAkAAAATAP//AAAAAAkAAAAQAAAAAAAAAAkAAAAXAAAAAAAAAAkAAAAFAPj/AAAAAAkAAAAEAPn/AAAAAAkAAAABAPn/AAADAAkAAAAMAPf/AAADAAkAAAAUAAAAAAAAAAkAAAATAPz/AAAAAAkAAAATAPn/AAAAAAkAAAANAPn/AAAAAAkAAAAUAPr/AAAAAAkAAAAXAP3/AAAAAAkAAAD/////AAAAAAkAAAD///v/AAAAAAkAAAD//wYAAAAAAAkAAAAAAAMAAAAAAAkAAAAWAAMAAAAAAAkAAAAPAAkAAAAAAAkAAAAIAAoAAAAAAAkAAAADAAYAAAAAAAkAAAAOAAsAAAAAAAkAAAAFAAwAAAAAAAkAAAARAAsAAAAAAAkAAAATAA0AAAADAAkAAAAIAAEAAQACAAQAAAAJAAEAAQACAAQAAAAKAAEAAQACAAQAAAALAAEAAQACAAQAAAAMAAEAAQACAAQAAAANAAEAAQACAAQAAAAKAAYAAQACAAYAAAAMAAYAAQACAAYAAAANAAYAAQADAAYAAAAIAAYAAQABAAYAAAAIAAUAAQAGAAUAAAAKAAUAAQAGAAUAAAAMAAUAAQAGAAUAAAANAAUAAQAGAAUAAAALAAYAAQACAAYAAAAJAAYAAQACAAYAAAAJAAUAAQAGAAUAAAALAAUAAQAGAAUAAAA=")
 tile_set = SubResource("TileSet_ut8q3")
+metadata/_edit_lock_ = true
 
 [node name="3" type="TileMapLayer" parent="TileMap"]
 z_index = 3
@@ -386,6 +515,7 @@ z_as_relative = false
 use_parent_material = true
 tile_map_data = PackedByteArray("AAANAAEAAQAGAAUAAAAIAAEAAQAGAAUAAAAFAA0AAAACAAQAAAAGAA0AAAADAAQAAAAEAA0AAAACAAQAAAADAA0AAAACAAQAAAACAA0AAAACAAQAAAABAA0AAAACAAQAAAAAAAwAAAADAAQAAAAAAA0AAAAEAAUAAAASAA0AAAACAAUAAAARAA0AAAACAAUAAAAUAA0AAAADAAUAAAAPAA0AAAABAAQAAAAQAA0AAAAFAAUAAAATAA0AAAACAAUAAAARAAwAAAACAAQAAAASAAwAAAACAAQAAAATAAwAAAACAAQAAAAQAAwAAAABAAQAAAAUAAwAAAADAAQAAAAIAAIAAQABAAEAAAANAAIAAQADAAEAAAA=")
 tile_set = SubResource("TileSet_ut8q3")
+metadata/_edit_lock_ = true
 
 [node name="4" type="TileMapLayer" parent="TileMap"]
 z_index = 4
@@ -393,52 +523,12 @@ z_as_relative = false
 use_parent_material = true
 tile_map_data = PackedByteArray("AAAJAAQAAQACAAIAAAAKAAQAAQACAAIAAAALAAQAAQACAAIAAAAMAAQAAQACAAIAAAAIAAQAAQABAAIAAAANAAQAAQADAAIAAAANAAMAAQADAAEAAAANAAIAAQAFAAcAAAANAAEAAQADAAEAAAAIAAMAAQABAAEAAAAIAAIAAQAGAAcAAAAIAAEAAQABAAEAAAAJAAIAAQACAAYAAAAKAAIAAQACAAYAAAALAAIAAQACAAYAAAAMAAIAAQACAAYAAAAJAAEAAQAGAAUAAAAKAAEAAQAGAAUAAAALAAEAAQAGAAUAAAAMAAEAAQAGAAUAAAA=")
 tile_set = SubResource("TileSet_ut8q3")
+metadata/_edit_lock_ = true
 
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true
 process_mode = 3
 script = ExtResource("1_dm15a")
-
-[node name="HUD" type="CanvasLayer" parent="GameManager"]
-layer = 0
-
-[node name="PauseButton" type="MarginContainer" parent="GameManager/HUD"]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -41.0
-offset_right = 95.0
-grow_vertical = 0
-theme_override_constants/margin_left = 38
-theme_override_constants/margin_top = 0
-theme_override_constants/margin_bottom = 10
-
-[node name="PauseButton" type="Button" parent="GameManager/HUD/PauseButton"]
-layout_mode = 2
-theme = ExtResource("3_fxxc5")
-
-[node name="ButtonSound" type="AudioStreamPlayer" parent="GameManager/HUD/PauseButton/PauseButton"]
-stream = ExtResource("13_6hd2o")
-pitch_scale = 0.77
-mix_target = 2
-
-[node name="LabelMargin" type="MarginContainer" parent="GameManager/HUD/PauseButton/PauseButton"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 2
-theme_override_constants/margin_top = 2
-theme_override_constants/margin_right = 0
-theme_override_constants/margin_bottom = 0
-
-[node name="PauseLabel" type="Label" parent="GameManager/HUD/PauseButton/PauseButton/LabelMargin"]
-layout_mode = 2
-text = "Pause"
-label_settings = SubResource("LabelSettings_mk4gv")
-horizontal_alignment = 1
 
 [node name="PauseMenu" type="CanvasLayer" parent="GameManager"]
 process_mode = 3
@@ -453,8 +543,87 @@ collision_layer = 2
 visible = false
 shape = SubResource("RectangleShape2D_qf7yb")
 
+[node name="PauseButton" type="MarginContainer" parent="GameManager/PauseMenu"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -41.0
+offset_right = 95.0
+grow_vertical = 0
+theme_override_constants/margin_left = 38
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_bottom = 10
+
+[node name="PauseButton" type="Button" parent="GameManager/PauseMenu/PauseButton"]
+layout_mode = 2
+theme = ExtResource("3_fxxc5")
+shortcut = SubResource("Shortcut_46wx7")
+
+[node name="ButtonSound" type="AudioStreamPlayer" parent="GameManager/PauseMenu/PauseButton/PauseButton"]
+stream = ExtResource("13_6hd2o")
+pitch_scale = 0.77
+mix_target = 2
+
+[node name="LabelMargin" type="MarginContainer" parent="GameManager/PauseMenu/PauseButton/PauseButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="PauseLabel" type="Label" parent="GameManager/PauseMenu/PauseButton/PauseButton/LabelMargin"]
+layout_mode = 2
+text = "Pause"
+label_settings = SubResource("LabelSettings_mk4gv")
+horizontal_alignment = 1
+
+[node name="Underline" type="Label" parent="GameManager/PauseMenu/PauseButton/PauseButton"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 15.0
+offset_right = 68.0
+offset_bottom = 33.0
+text = "-"
+label_settings = SubResource("LabelSettings_st2s4")
+
+[node name="KnowledgeMenu" type="MarginContainer" parent="GameManager/PauseMenu"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -180.0
+offset_right = 246.0
+grow_vertical = 0
+theme_override_constants/margin_left = 147
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 59
+
+[node name="Checkerboard" parent="GameManager/PauseMenu/KnowledgeMenu" instance=ExtResource("19_m1aqh")]
+layout_mode = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="Border" type="NinePatchRect" parent="GameManager/PauseMenu/KnowledgeMenu"]
+layout_mode = 2
+texture = ExtResource("15_01r7o")
+patch_margin_left = 14
+patch_margin_top = 32
+patch_margin_right = 14
+patch_margin_bottom = 32
+metadata/_edit_lock_ = true
+
+[node name="KnowledgeMenuAnim" type="AnimationPlayer" parent="GameManager/PauseMenu/KnowledgeMenu"]
+libraries = {
+"": SubResource("AnimationLibrary_8bx6t")
+}
+autoplay = "Slide In"
+
 [node name="StatusMenu" type="MarginContainer" parent="GameManager/PauseMenu"]
-visible = false
 clip_contents = true
 custom_minimum_size = Vector2(65, 2.08165e-12)
 anchors_preset = 2
@@ -498,6 +667,7 @@ layout_mode = 2
 
 [node name="Stats" type="VBoxContainer" parent="GameManager/PauseMenu/StatusMenu/Stats/HBoxContainer"]
 layout_mode = 2
+theme = SubResource("Theme_l0ub4")
 alignment = 1
 
 [node name="Label" type="Label" parent="GameManager/PauseMenu/StatusMenu/Stats/HBoxContainer/Stats"]
@@ -508,16 +678,27 @@ text = "Gumption"
 layout_mode = 2
 text = "Breath"
 
-[node name="Knowledge" type="Button" parent="GameManager/PauseMenu/StatusMenu/Stats/HBoxContainer/Stats"]
+[node name="Knowledge" parent="GameManager/PauseMenu/StatusMenu/Stats/HBoxContainer/Stats" instance=ExtResource("35_y0oq2")]
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_a6i5p")
+theme = null
+theme_override_styles/normal = SubResource("StyleBoxEmpty_dbhdw")
+shortcut = SubResource("Shortcut_lf36b")
 text = "Knowledge"
+alignment = 0
 
 [node name="Label" type="Label" parent="GameManager/PauseMenu/StatusMenu/Stats/HBoxContainer/Stats/Knowledge"]
 layout_mode = 0
-offset_right = 40.0
+offset_right = 60.0
 offset_bottom = 15.0
 text = "Knowledge"
+
+[node name="Underline" type="Label" parent="GameManager/PauseMenu/StatusMenu/Stats/HBoxContainer/Stats/Knowledge"]
+layout_mode = 0
+offset_top = 6.0
+offset_right = 54.0
+offset_bottom = 24.0
+text = "-"
+label_settings = SubResource("LabelSettings_st2s4")
 
 [node name="Label3" type="Label" parent="GameManager/PauseMenu/StatusMenu/Stats/HBoxContainer/Stats"]
 layout_mode = 2
@@ -615,6 +796,7 @@ theme_override_constants/margin_bottom = 10
 
 [node name="StatusButton" parent="GameManager/PauseMenu/PauseMenu/HBoxContainer/StatusButton" instance=ExtResource("35_y0oq2")]
 layout_mode = 2
+shortcut = SubResource("Shortcut_a6x5x")
 
 [node name="LabelMargin" type="MarginContainer" parent="GameManager/PauseMenu/PauseMenu/HBoxContainer/StatusButton/StatusButton"]
 layout_mode = 1
@@ -635,6 +817,15 @@ text = "Status"
 label_settings = SubResource("LabelSettings_mk4gv")
 horizontal_alignment = 1
 metadata/_edit_lock_ = true
+
+[node name="Underline" type="Label" parent="GameManager/PauseMenu/PauseMenu/HBoxContainer/StatusButton/StatusButton"]
+layout_mode = 2
+offset_left = 11.0
+offset_top = 15.0
+offset_right = 65.0
+offset_bottom = 33.0
+text = "-"
+label_settings = SubResource("LabelSettings_st2s4")
 
 [node name="PauseMenuAnim" type="AnimationPlayer" parent="GameManager/PauseMenu/PauseMenu"]
 root_node = NodePath(".")
@@ -704,8 +895,9 @@ autoplay = true
 [node name="Transitions" parent="." instance=ExtResource("22_5suwd")]
 visible = false
 
-[connection signal="button_up" from="GameManager/HUD/PauseButton/PauseButton" to="GameManager/PauseMenu" method="_on_pause_button_button_up"]
-[connection signal="pressed" from="GameManager/HUD/PauseButton/PauseButton" to="GameManager/HUD/PauseButton/PauseButton" method="_on_pressed"]
 [connection signal="input_event" from="GameManager/PauseMenu/ScreenArea" to="GameManager/PauseMenu" method="_on_screen_area_input_event"]
+[connection signal="pressed" from="GameManager/PauseMenu/PauseButton/PauseButton" to="GameManager/PauseMenu" method="_on_pause_button_pressed"]
+[connection signal="pressed" from="GameManager/PauseMenu/StatusMenu/Stats/HBoxContainer/Stats/Knowledge" to="GameManager/PauseMenu" method="_on_knowledge_pressed"]
 [connection signal="button_up" from="GameManager/PauseMenu/PauseMenu/HBoxContainer/StatusButton/StatusButton" to="GameManager/PauseMenu" method="_on_status_button_button_up"]
+[connection signal="pressed" from="GameManager/PauseMenu/PauseMenu/HBoxContainer/StatusButton/StatusButton" to="GameManager/PauseMenu" method="_on_status_button_pressed"]
 [connection signal="pressed" from="GameManager/PauseMenu/AspectRatio/Button" to="GameManager/PauseMenu" method="_on_button_pressed"]
