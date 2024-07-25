@@ -38,11 +38,11 @@ func _on_status_button_button_up() -> void:
 func _on_pause_button_button_up() -> void:
 	%GameManager.toggle_pause()
 
-#func _on_screen_area_input_event(_viewport :Viewport, event :InputEvent, _shape_idx :int) -> void:
-##Used to detect mouse clicks on the screen. Used to dismiss pause menu when outside screen space is clicked.
-	#if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		#if get_tree().paused:
-			#%GameManager.toggle_pause()
+func _on_screen_area_input_event(_viewport :Viewport, event :InputEvent, _shape_idx :int) -> void:
+#Used to detect mouse clicks on the screen. Used to dismiss pause menu when outside screen space is clicked.
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		if get_tree().paused:
+			%GameManager.toggle_pause()
 
 func _on_button_pressed() -> void:
 	aspect_i += 1

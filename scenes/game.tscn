@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://ciyfg8o3d0g84"]
+[gd_scene load_steps=42 format=4 uid="uid://ciyfg8o3d0g84"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_dm15a"]
 [ext_resource type="PackedScene" uid="uid://d6b1o4eui1ff" path="res://scenes/player.tscn" id="1_kwsod"]
@@ -167,14 +167,16 @@ sources/0 = SubResource("TileSetAtlasSource_upp8k")
 sources/1 = SubResource("TileSetAtlasSource_qbeyw")
 sources/2 = SubResource("TileSetAtlasSource_sh0no")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qf7yb"]
-size = Vector2(320, 200)
-
 [sub_resource type="LabelSettings" id="LabelSettings_mk4gv"]
 font = ExtResource("36_wnylu")
 font_size = 14
 font_color = Color(0.882353, 0.921569, 0.631373, 1)
 shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qf7yb"]
+size = Vector2(320, 200)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a6i5p"]
 
 [sub_resource type="Animation" id="Animation_v078i"]
 resource_name = "Slide Down"
@@ -189,7 +191,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(2.08165e-12, 29), Vector2(2.08165e-12, 180)]
+"values": [Vector2(2.08165e-12, 20), Vector2(2.08165e-12, 180)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -213,7 +215,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(120, 120), Vector2(120, 2.08165e-12)]
+"values": [Vector2(148, 130), Vector2(120, 2.08165e-12)]
 }
 
 [sub_resource type="Animation" id="Animation_nvdsa"]
@@ -229,7 +231,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(2.08165e-12, 180), Vector2(2.08165e-12, 29)]
+"values": [Vector2(2.08165e-12, 180), Vector2(2.08165e-12, 20)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -253,7 +255,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(120, 2.08165e-12), Vector2(120, 120)]
+"values": [Vector2(120, 2.08165e-12), Vector2(148, 130)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4sdwh"]
@@ -397,6 +399,47 @@ unique_name_in_owner = true
 process_mode = 3
 script = ExtResource("1_dm15a")
 
+[node name="HUD" type="CanvasLayer" parent="GameManager"]
+layer = 0
+
+[node name="PauseButton" type="MarginContainer" parent="GameManager/HUD"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -41.0
+offset_right = 95.0
+grow_vertical = 0
+theme_override_constants/margin_left = 38
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_bottom = 10
+
+[node name="PauseButton" type="Button" parent="GameManager/HUD/PauseButton"]
+layout_mode = 2
+theme = ExtResource("3_fxxc5")
+
+[node name="ButtonSound" type="AudioStreamPlayer" parent="GameManager/HUD/PauseButton/PauseButton"]
+stream = ExtResource("13_6hd2o")
+pitch_scale = 0.77
+mix_target = 2
+
+[node name="LabelMargin" type="MarginContainer" parent="GameManager/HUD/PauseButton/PauseButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="PauseLabel" type="Label" parent="GameManager/HUD/PauseButton/PauseButton/LabelMargin"]
+layout_mode = 2
+text = "Pause"
+label_settings = SubResource("LabelSettings_mk4gv")
+horizontal_alignment = 1
+
 [node name="PauseMenu" type="CanvasLayer" parent="GameManager"]
 process_mode = 3
 script = ExtResource("2_0qnqp")
@@ -410,44 +453,6 @@ collision_layer = 2
 visible = false
 shape = SubResource("RectangleShape2D_qf7yb")
 
-[node name="PauseButton" type="MarginContainer" parent="GameManager/PauseMenu"]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -41.0
-offset_right = 95.0
-grow_vertical = 0
-theme_override_constants/margin_left = 38
-theme_override_constants/margin_top = 0
-theme_override_constants/margin_bottom = 10
-
-[node name="PauseButton" type="Button" parent="GameManager/PauseMenu/PauseButton"]
-layout_mode = 2
-theme = ExtResource("3_fxxc5")
-
-[node name="ButtonSound" type="AudioStreamPlayer" parent="GameManager/PauseMenu/PauseButton/PauseButton"]
-stream = ExtResource("13_6hd2o")
-pitch_scale = 0.77
-mix_target = 2
-
-[node name="LabelMargin" type="MarginContainer" parent="GameManager/PauseMenu/PauseButton/PauseButton"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 2
-theme_override_constants/margin_top = 2
-theme_override_constants/margin_right = 0
-theme_override_constants/margin_bottom = 0
-
-[node name="PauseLabel" type="Label" parent="GameManager/PauseMenu/PauseButton/PauseButton/LabelMargin"]
-layout_mode = 2
-text = "Pause"
-label_settings = SubResource("LabelSettings_mk4gv")
-horizontal_alignment = 1
-
 [node name="StatusMenu" type="MarginContainer" parent="GameManager/PauseMenu"]
 visible = false
 clip_contents = true
@@ -455,10 +460,12 @@ custom_minimum_size = Vector2(65, 2.08165e-12)
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -171.0
-offset_right = 120.0
-offset_bottom = -51.0
+offset_top = -20.0
+offset_right = 148.0
+offset_bottom = 100.0
 grow_vertical = 0
+mouse_filter = 0
+theme = ExtResource("3_fxxc5")
 theme_override_constants/margin_left = 40
 theme_override_constants/margin_bottom = 9
 
@@ -468,6 +475,84 @@ theme_override_constants/margin_left = 2
 theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 2
 theme_override_constants/margin_bottom = 0
+
+[node name="StatBackground" type="MarginContainer" parent="GameManager/PauseMenu/StatusMenu"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 7
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 7
+
+[node name="Panel" type="Panel" parent="GameManager/PauseMenu/StatusMenu/StatBackground"]
+layout_mode = 2
+
+[node name="Stats" type="MarginContainer" parent="GameManager/PauseMenu/StatusMenu"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GameManager/PauseMenu/StatusMenu/Stats"]
+layout_mode = 2
+
+[node name="Stats" type="VBoxContainer" parent="GameManager/PauseMenu/StatusMenu/Stats/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="GameManager/PauseMenu/StatusMenu/Stats/HBoxContainer/Stats"]
+layout_mode = 2
+text = "Gumption"
+
+[node name="Label2" type="Label" parent="GameManager/PauseMenu/StatusMenu/Stats/HBoxContainer/Stats"]
+layout_mode = 2
+text = "Breath"
+
+[node name="Knowledge" type="Button" parent="GameManager/PauseMenu/StatusMenu/Stats/HBoxContainer/Stats"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_a6i5p")
+text = "Knowledge"
+
+[node name="Label" type="Label" parent="GameManager/PauseMenu/StatusMenu/Stats/HBoxContainer/Stats/Knowledge"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 15.0
+text = "Knowledge"
+
+[node name="Label3" type="Label" parent="GameManager/PauseMenu/StatusMenu/Stats/HBoxContainer/Stats"]
+layout_mode = 2
+text = "Sanity"
+
+[node name="Label4" type="Label" parent="GameManager/PauseMenu/StatusMenu/Stats/HBoxContainer/Stats"]
+layout_mode = 2
+text = "Bowels"
+
+[node name="StatsNum" type="VBoxContainer" parent="GameManager/PauseMenu/StatusMenu/Stats/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="GameManager/PauseMenu/StatusMenu/Stats/HBoxContainer/StatsNum"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.66451, 0.66451, 0.66451, 1)
+text = "5"
+
+[node name="Label2" type="Label" parent="GameManager/PauseMenu/StatusMenu/Stats/HBoxContainer/StatsNum"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.66451, 0.66451, 0.66451, 1)
+text = "10"
+
+[node name="Label3" type="Label" parent="GameManager/PauseMenu/StatusMenu/Stats/HBoxContainer/StatsNum"]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="GameManager/PauseMenu/StatusMenu/Stats/HBoxContainer/StatsNum"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.360784, 1, 0.25098, 1)
+text = "80"
+
+[node name="Label5" type="Label" parent="GameManager/PauseMenu/StatusMenu/Stats/HBoxContainer/StatsNum"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.683333, 0, 1)
+text = "34"
 
 [node name="Border" type="NinePatchRect" parent="GameManager/PauseMenu/StatusMenu"]
 layout_mode = 2
@@ -485,7 +570,6 @@ libraries = {
 autoplay = "Slide Down"
 
 [node name="PauseMenu" type="MarginContainer" parent="GameManager/PauseMenu"]
-visible = false
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -620,8 +704,8 @@ autoplay = true
 [node name="Transitions" parent="." instance=ExtResource("22_5suwd")]
 visible = false
 
+[connection signal="button_up" from="GameManager/HUD/PauseButton/PauseButton" to="GameManager/PauseMenu" method="_on_pause_button_button_up"]
+[connection signal="pressed" from="GameManager/HUD/PauseButton/PauseButton" to="GameManager/HUD/PauseButton/PauseButton" method="_on_pressed"]
 [connection signal="input_event" from="GameManager/PauseMenu/ScreenArea" to="GameManager/PauseMenu" method="_on_screen_area_input_event"]
-[connection signal="button_up" from="GameManager/PauseMenu/PauseButton/PauseButton" to="GameManager/PauseMenu" method="_on_pause_button_button_up"]
-[connection signal="pressed" from="GameManager/PauseMenu/PauseButton/PauseButton" to="GameManager/PauseMenu/PauseButton/PauseButton" method="_on_pressed"]
 [connection signal="button_up" from="GameManager/PauseMenu/PauseMenu/HBoxContainer/StatusButton/StatusButton" to="GameManager/PauseMenu" method="_on_status_button_button_up"]
 [connection signal="pressed" from="GameManager/PauseMenu/AspectRatio/Button" to="GameManager/PauseMenu" method="_on_button_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d6b1o4eui1ff"]
+[gd_scene load_steps=12 format=3 uid="uid://d6b1o4eui1ff"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_dufgh"]
 [ext_resource type="SpriteFrames" uid="uid://b1ox1aer6virl" path="res://art/sprite_sheets/player.tres" id="2_tqny2"]
@@ -7,11 +7,14 @@
 [ext_resource type="AudioStream" uid="uid://bbsgaxxqprkk8" path="res://audio/walk2.ogg" id="4_4p6ii"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rwhng"]
-radius = 7.0
-height = 14.0
+radius = 6.0
+height = 12.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w3jsi"]
-size = Vector2(32, 10)
+size = Vector2(12, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kkcvi"]
+size = Vector2(32, 14)
 
 [sub_resource type="Animation" id="Animation_mndq6"]
 resource_name = "Bang"
@@ -76,18 +79,31 @@ _data = {
 
 [node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true
+position = Vector2(0, -1)
+motion_mode = 1
 script = ExtResource("1_dufgh")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_rwhng")
 
 [node name="Direction" type="Marker2D" parent="."]
+position = Vector2(0, 1)
 
 [node name="Player" type="Area2D" parent="Direction"]
 
 [node name="Interact Area" type="CollisionShape2D" parent="Direction/Player"]
-position = Vector2(0, 1)
+position = Vector2(6, 0)
 shape = SubResource("RectangleShape2D_w3jsi")
+
+[node name="DoorArea" type="Area2D" parent="Direction"]
+collision_layer = 512
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/DoorArea"]
+visible = false
+shape = SubResource("RectangleShape2D_kkcvi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
@@ -122,4 +138,3 @@ volume_db = 14.055
 
 [connection signal="area_entered" from="Direction/Player" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Direction/Player" to="." method="_on_area_2d_area_exited"]
-[connection signal="body_entered" from="Direction/Player" to="." method="_on_area_2d_body_entered"]

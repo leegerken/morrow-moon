@@ -3,18 +3,12 @@ extends CharacterBody2D
 @onready var anim := $AnimatedSprite2D
 @onready var bang_anim := $Bang/AnimationPlayer
 
-#const SPEED = 4600.0
 const SPEED = 86
 var player_state :String
 var direction :String
 var target := position
 
-#func _input(_event):
-	#if event.is_action_pressed("click"):
-	
 func _physics_process(_delta :float) -> void:
-	#if not %GameManager.paused:
-	#player_movement()
 	move_and_slide()
 
 func _unhandled_input(_event :InputEvent) -> void:
@@ -25,28 +19,30 @@ func _unhandled_input(_event :InputEvent) -> void:
 		velocity.x = -SPEED
 		velocity.y = 0
 		direction = "left"
-		$Direction.rotation = 0
+		$Direction.set_rotation_degrees(180)
 		anim.play("walk_side")
 	elif Input.is_action_pressed("right"):
 		anim.flip_h = false
 		velocity.x = SPEED
 		velocity.y = 0
 		direction = "right"
-		$Direction.rotation = 0
+		$Direction.set_rotation_degrees(0)
+		#$Collision.set_rotation_degrees(270)
 		anim.play("walk_side")
 	elif Input.is_action_pressed("up"):
 		anim.flip_h = false
 		velocity.x = 0
 		velocity.y = -SPEED
 		direction = "up"
-		$Direction.rotation = -1.5708
+		$Direction.set_rotation_degrees(270)
+		#$Collision.set_rotation_degrees(180)
 		anim.play("walk_up")
 	elif Input.is_action_pressed("down"):
 		anim.flip_h = false
 		velocity.x = 0
 		velocity.y = SPEED
 		direction = "down"
-		$Direction.rotation = 1.5708
+		$Direction.set_rotation_degrees(90)
 		anim.play("walk_down")
 	else:
 		player_state = "idle"

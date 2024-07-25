@@ -23,5 +23,5 @@ shape = SubResource("RectangleShape2D_w7vs8")
 [node name="BedInteractArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BedInteractArea"]
-position = Vector2(8.5, 12.5)
+position = Vector2(8, 13)
 shape = SubResource("RectangleShape2D_cb2fl")
