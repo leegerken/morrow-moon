@@ -2,22 +2,22 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4awjn2tq2g52"
-path="res://.godot/imported/water3.png-32e2d8b4e2084f023b540b3c84426c54.ctex"
+uid="uid://bxt2y1jeivrgn"
+path="res://.godot/imported/wooden.png-a9d660cf4e4ec8e06febdd8c6cad41f4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/tilesets/water/water3.png"
-dest_files=["res://.godot/imported/water3.png-32e2d8b4e2084f023b540b3c84426c54.ctex"]
+source_file="res://art/tilesets/wooden.png"
+dest_files=["res://.godot/imported/wooden.png-a9d660cf4e4ec8e06febdd8c6cad41f4.ctex"]
 
 [params]
 
 compress/mode=0
 compress/high_quality=false
-compress/lossy_quality=0.0
+compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0

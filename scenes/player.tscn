@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://d6b1o4eui1ff"]
+[gd_scene load_steps=58 format=3 uid="uid://d6b1o4eui1ff"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_dufgh"]
 [ext_resource type="FontFile" uid="uid://brsuylqxpu63h" path="res://ui/fonts/hero-speak.ttf" id="2_hsg25"]
@@ -18,7 +18,6 @@
 [ext_resource type="FontFile" uid="uid://ccg85f7yskjil" path="res://ui/fonts/m5x7.ttf" id="14_tiypd"]
 [ext_resource type="AudioStream" uid="uid://dlw54fidv8fxy" path="res://audio/punch.wav" id="14_v6be8"]
 [ext_resource type="Texture2D" uid="uid://ddte5x1fwaioy" path="res://art/player/circle.png" id="17_whqdk"]
-[ext_resource type="Script" path="res://scripts/screen_transition.gd" id="18_4hwgh"]
 [ext_resource type="PackedScene" uid="uid://bhkuejyiqdhw1" path="res://ui/player_menu.tscn" id="19_aq0n5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rwhng"]
@@ -906,7 +905,6 @@ libraries = {
 }
 
 [node name="ScreenTransition" type="CanvasLayer" parent="."]
-script = ExtResource("18_4hwgh")
 
 [node name="ColorRect" type="ColorRect" parent="ScreenTransition"]
 anchors_preset = 15

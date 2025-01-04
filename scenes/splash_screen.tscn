@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://bjao4cnionolp"]
 
 [ext_resource type="Texture2D" uid="uid://b8nox4bofv1vb" path="res://art/splash_background.png" id="1_4jlgr"]
-[ext_resource type="Script" path="res://scenes/main_menu/splash_screen.gd" id="1_ppm4r"]
+[ext_resource type="Script" path="res://scripts/splash_screen.gd" id="1_ppm4r"]
 [ext_resource type="Texture2D" uid="uid://bhfhjktb6te1j" path="res://art/splash.png" id="2_krnhh"]
 [ext_resource type="FontFile" uid="uid://cu7q7bxjxyixg" path="res://ui/fonts/applegaramond-light.ttf" id="3_ast0m"]
 [ext_resource type="AudioStream" uid="uid://dcy4f7l71khe0" path="res://audio/splash1.wav" id="4_4o5jj"]
@@ -17,7 +17,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("WhiteDissolve:modulate")
+tracks/0/path = NodePath("White:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -33,7 +33,7 @@ length = 5.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("WhiteDissolve:modulate")
+tracks/0/path = NodePath("White:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -106,7 +106,7 @@ libraries = {
 }
 autoplay = "boot"
 
-[node name="WhiteDissolve" type="TextureRect" parent="."]
+[node name="White" type="TextureRect" parent="."]
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0

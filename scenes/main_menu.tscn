@@ -1,22 +1,22 @@
 [gd_scene load_steps=29 format=3 uid="uid://b5te2fsxf6fiv"]
 
-[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_imolf"]
-[ext_resource type="PackedScene" uid="uid://dktve4c2v3ca1" path="res://scenes/checkerboard.tscn" id="2_24qoh"]
-[ext_resource type="FontFile" uid="uid://cfut2f0td8o4n" path="res://ui/fonts/minimalpixel.fnt" id="4_f8wt8"]
-[ext_resource type="FontFile" uid="uid://ba51hssbtoj57" path="res://ui/fonts/tinypixel.otf" id="6_w8gse"]
-[ext_resource type="Texture2D" uid="uid://b2txrq5tyjtej" path="res://ui/player_mainmenu/frame_0.png" id="7_vnmxp"]
-[ext_resource type="Texture2D" uid="uid://13nmreix8idi" path="res://ui/player_mainmenu/frame_1.png" id="8_6llj6"]
-[ext_resource type="Texture2D" uid="uid://bd6kwmxyvlfuf" path="res://art/objects/sign.png" id="8_t3u6x"]
-[ext_resource type="AudioStream" uid="uid://yvd4xt1hlnjm" path="res://audio/main_menu_music.ogg" id="11_sfgjc"]
-[ext_resource type="Texture2D" uid="uid://c8l2w7tt70s1a" path="res://art/ui/border_screen.png" id="14_yao27"]
-[ext_resource type="Texture2D" uid="uid://ca2f1orv63jf3" path="res://art/ui/border_thick.png" id="26_nt51x"]
-[ext_resource type="FontFile" uid="uid://brsuylqxpu63h" path="res://ui/fonts/hero-speak.ttf" id="27_jeps2"]
-[ext_resource type="Texture2D" uid="uid://ctpog8vwrc8v5" path="res://art/ui/border3.png" id="28_plp5m"]
-[ext_resource type="PackedScene" uid="uid://clgahvmopdmuf" path="res://ui/menu_button.tscn" id="30_03f0v"]
-[ext_resource type="Script" path="res://ui/transitions.gd" id="31_re5yf"]
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_qhrkd"]
+[ext_resource type="PackedScene" uid="uid://dktve4c2v3ca1" path="res://scenes/checkerboard.tscn" id="2_tk2xy"]
+[ext_resource type="Texture2D" uid="uid://ca2f1orv63jf3" path="res://art/ui/border_thick.png" id="3_bpic2"]
+[ext_resource type="FontFile" uid="uid://cfut2f0td8o4n" path="res://ui/fonts/minimalpixel.fnt" id="4_4esp3"]
+[ext_resource type="Texture2D" uid="uid://ctpog8vwrc8v5" path="res://art/ui/border3.png" id="5_h1754"]
+[ext_resource type="FontFile" uid="uid://brsuylqxpu63h" path="res://ui/fonts/hero-speak.ttf" id="6_etqlc"]
+[ext_resource type="FontFile" uid="uid://ba51hssbtoj57" path="res://ui/fonts/tinypixel.otf" id="7_rl65g"]
+[ext_resource type="PackedScene" uid="uid://clgahvmopdmuf" path="res://ui/menu_button.tscn" id="8_oib2l"]
+[ext_resource type="Texture2D" uid="uid://b2txrq5tyjtej" path="res://ui/player_mainmenu/frame_0.png" id="9_acral"]
+[ext_resource type="Texture2D" uid="uid://13nmreix8idi" path="res://ui/player_mainmenu/frame_1.png" id="10_a4ai7"]
+[ext_resource type="Texture2D" uid="uid://bd6kwmxyvlfuf" path="res://art/objects/sign.png" id="11_5f6a0"]
+[ext_resource type="Texture2D" uid="uid://c8l2w7tt70s1a" path="res://art/ui/border_screen.png" id="12_wl2r0"]
+[ext_resource type="Script" path="res://ui/transitions.gd" id="13_p06o7"]
+[ext_resource type="AudioStream" uid="uid://yvd4xt1hlnjm" path="res://audio/main_menu_music.ogg" id="14_01alv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_66qyy"]
-font = ExtResource("4_f8wt8")
+font = ExtResource("4_4esp3")
 font_size = 35
 font_color = Color(0.635294, 0.94902, 0.952941, 1)
 shadow_size = 2
@@ -24,7 +24,7 @@ shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(-1, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_gbryf"]
-font = ExtResource("27_jeps2")
+font = ExtResource("6_etqlc")
 font_size = 14
 font_color = Color(0.635294, 0.94902, 0.952941, 1)
 shadow_color = Color(0, 0, 0, 1)
@@ -32,14 +32,14 @@ shadow_offset = Vector2(-1, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_f2toc"]
 line_spacing = 0.0
-font = ExtResource("6_w8gse")
+font = ExtResource("7_rl65g")
 font_size = 7
 font_color = Color(0.882353, 0.921569, 0.631373, 1)
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(-1, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_85t5b"]
-font = ExtResource("27_jeps2")
+font = ExtResource("6_etqlc")
 font_size = 14
 font_color = Color(0.333333, 0.921569, 0.631373, 1)
 shadow_color = Color(0, 0, 0, 1)
@@ -57,24 +57,24 @@ pressed = true
 events = [SubResource("InputEventKey_5060h"), SubResource("InputEventJoypadButton_ry88m")]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ueesj"]
-font = ExtResource("27_jeps2")
+font = ExtResource("6_etqlc")
 font_size = 14
 font_color = Color(0.882353, 0.921569, 0.631373, 1)
 shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_c34aw"]
-font = ExtResource("27_jeps2")
+font = ExtResource("6_etqlc")
 font_color = Color(0.882353, 0.921569, 0.631373, 1)
 shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_eevx2"]
 frames = 2
-frame_0/texture = ExtResource("7_vnmxp")
-frame_1/texture = ExtResource("8_6llj6")
+frame_0/texture = ExtResource("9_acral")
+frame_1/texture = ExtResource("10_a4ai7")
 frame_1/duration = 1.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v851e"]
-texture = ExtResource("14_yao27")
+texture = ExtResource("12_wl2r0")
 texture_margin_left = 8.0
 texture_margin_top = 8.0
 texture_margin_right = 8.0
@@ -143,9 +143,9 @@ _data = {
 }
 
 [node name="MainMenu" type="CanvasLayer"]
-script = ExtResource("1_imolf")
+script = ExtResource("1_qhrkd")
 
-[node name="Checkerboard" parent="." instance=ExtResource("2_24qoh")]
+[node name="Checkerboard" parent="." instance=ExtResource("2_tk2xy")]
 anchors_preset = 15
 anchor_left = 0.0
 anchor_top = 0.0
@@ -162,7 +162,7 @@ offset_left = 8.0
 offset_top = 14.0
 offset_right = 192.0
 offset_bottom = 61.0
-texture = ExtResource("26_nt51x")
+texture = ExtResource("3_bpic2")
 patch_margin_left = 16
 patch_margin_top = 16
 patch_margin_right = 16
@@ -178,7 +178,7 @@ theme_override_constants/margin_bottom = 0
 
 [node name="Box" type="NinePatchRect" parent="Title"]
 layout_mode = 2
-texture = ExtResource("26_nt51x")
+texture = ExtResource("3_bpic2")
 patch_margin_left = 16
 patch_margin_top = 16
 patch_margin_right = 16
@@ -224,7 +224,7 @@ theme_override_constants/margin_bottom = 10
 [node name="BuildNotesShadow" type="NinePatchRect" parent="BuildNotes/Margin"]
 modulate = Color(0.439216, 0.439216, 0.439216, 0.560784)
 layout_mode = 2
-texture = ExtResource("28_plp5m")
+texture = ExtResource("5_h1754")
 patch_margin_left = 16
 patch_margin_top = 16
 patch_margin_right = 16
@@ -232,7 +232,7 @@ patch_margin_bottom = 16
 
 [node name="Box" type="NinePatchRect" parent="BuildNotes/Margin"]
 layout_mode = 2
-texture = ExtResource("28_plp5m")
+texture = ExtResource("5_h1754")
 patch_margin_left = 16
 patch_margin_top = 16
 patch_margin_right = 16
@@ -307,7 +307,7 @@ grow_vertical = 0
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_bottom = 42
 
-[node name="StartButton" parent="Start" instance=ExtResource("30_03f0v")]
+[node name="StartButton" parent="Start" instance=ExtResource("8_oib2l")]
 custom_minimum_size = Vector2(2.08165e-12, 30)
 layout_mode = 2
 focus_neighbor_top = NodePath("../../Options/OptionsButton")
@@ -354,7 +354,7 @@ grow_vertical = 0
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_bottom = 10
 
-[node name="OptionsButton" parent="Options" instance=ExtResource("30_03f0v")]
+[node name="OptionsButton" parent="Options" instance=ExtResource("8_oib2l")]
 custom_minimum_size = Vector2(2.08165e-12, 30)
 layout_mode = 2
 focus_neighbor_top = NodePath("../../Start/StartButton")
@@ -409,7 +409,7 @@ offset_bottom = -47.0
 grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(3, 3)
-texture = ExtResource("8_t3u6x")
+texture = ExtResource("11_5f6a0")
 metadata/_edit_group_ = true
 
 [node name="Border" type="PanelContainer" parent="."]
@@ -423,7 +423,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_v851e")
 metadata/_edit_lock_ = true
 
 [node name="Transitions" type="CanvasLayer" parent="."]
-script = ExtResource("31_re5yf")
+script = ExtResource("13_p06o7")
 
 [node name="ColorRect" type="ColorRect" parent="Transitions"]
 anchors_preset = 15
@@ -441,7 +441,7 @@ libraries = {
 autoplay = "Fade Out"
 
 [node name="MainMenuMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("11_sfgjc")
+stream = ExtResource("14_01alv")
 volume_db = -20.254
 pitch_scale = 0.91
 autoplay = true
