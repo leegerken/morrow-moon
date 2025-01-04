@@ -1,7 +1,7 @@
 extends Sprite2D
 
-var shader_brightness = material.get_shader_parameter("brightness")
-var shader_width = material.get_shader_parameter("width")
+var shader_brightness :Variant = material.get_shader_parameter("brightness")
+var shader_width :Variant = material.get_shader_parameter("width")
 
 func _on_popup_button_mouse_entered() -> void:
 	shader_width = 1

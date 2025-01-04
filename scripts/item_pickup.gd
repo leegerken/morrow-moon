@@ -14,7 +14,7 @@ func _ready() -> void:
 		return
 	area_2d.body_entered.connect(_on_body_entered)
 	
-func _on_body_entered(b) -> void:
+func _on_body_entered(b :Variant) -> void:
 	if b is Player:
 		if item_data:
 			if PlayerManager.INVENTORY_DATA.add_item(item_data) == true:

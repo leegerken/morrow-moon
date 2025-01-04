@@ -70,7 +70,7 @@ func _on_button_pressed() -> void:
 	
 func update_date() -> void:
 	var suffix :String
-	var array = DateData.day_num_to_date(GlobalData.day_count)
+	var array :Array = DateData.day_num_to_date(GlobalData.day_count)
 	if array[0] > 10 and array[0] < 14:
 		suffix = "th"
 	else:

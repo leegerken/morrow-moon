@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://bjao4cnionolp"]
 
-[ext_resource type="Texture2D" uid="uid://b8nox4bofv1vb" path="res://art/splash2.png" id="1_4jlgr"]
+[ext_resource type="Texture2D" uid="uid://b8nox4bofv1vb" path="res://art/splash_background.png" id="1_4jlgr"]
 [ext_resource type="Script" path="res://scenes/main_menu/splash_screen.gd" id="1_ppm4r"]
 [ext_resource type="Texture2D" uid="uid://bhfhjktb6te1j" path="res://art/splash.png" id="2_krnhh"]
 [ext_resource type="FontFile" uid="uid://cu7q7bxjxyixg" path="res://ui/fonts/applegaramond-light.ttf" id="3_ast0m"]

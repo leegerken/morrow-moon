@@ -1,7 +1,7 @@
 class_name DateData extends Resource
 
-@export var month :String = "none"
-@export var day :int = 0
+#@export var month :String = "none"
+#@export var day :int = 0
 
 static func day_num_to_date(day_num :int) -> Array:
 	var date :int
@@ -57,6 +57,6 @@ static func day_num_to_date(day_num :int) -> Array:
 		date = day_num - month_dict["Nov"]
 		month = "Dec"
 		
-	var array = [date,month]
+	var array :Array = [date,month]
 
 	return array

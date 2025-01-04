@@ -1,7 +1,7 @@
 extends Sprite2D
 
-var brightness = material.get_shader_parameter("brightness")
-var width = material.get_shader_parameter("width")
+var brightness :Variant = material.get_shader_parameter("brightness")
+var width :Variant = material.get_shader_parameter("width")
 
 var player_near :bool = false
 
@@ -15,7 +15,7 @@ func _on_popup_button_mouse_exited() -> void:
 
 func _on_popup_button_button_down() -> void:
 	if player_near:
-		brightness = -0.5
+		brightness = -0.4
 		material.set_shader_parameter("brightness", brightness)
 
 func _on_popup_button_button_up() -> void:

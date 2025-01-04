@@ -2,7 +2,6 @@ class_name Player extends CharacterBody2D
 
 @onready var sprite :Sprite2D = $PlayerSprite
 @onready var anim := $PlayerSprite/PlayerAnimation
-@onready var bang_anim := $Bang/AnimationPlayer
 @onready var pop_up_box :Control = $PlayerSprite/PopupBox
 @onready var circle: TextureProgressBar = $CircleBar
 @onready var popup_button: Button = $PlayerSprite/PopupButton
