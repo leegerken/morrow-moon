@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dhw8luxrpboxo"
+path="res://.godot/imported/Untitled - 8:8:24, 6.04 PM.mp3-9350ff19f2c81c3b6c25e8db3432dea2.mp3str"
+
+[deps]
+
+source_file="res://audio/Untitled - 8:8:24, 6.04 PM.mp3"
+dest_files=["res://.godot/imported/Untitled - 8:8:24, 6.04 PM.mp3-9350ff19f2c81c3b6c25e8db3432dea2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

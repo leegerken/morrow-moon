@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://cecdx4wyxf2d5"
+path="res://.godot/imported/wounded_pidgeon.dialogue-d8c4a774b2f0f9a6dcf28a00a1289fab.tres"
+
+[deps]
+
+source_file="res://systems/dialogue_system/dialog/wounded_pidgeon.dialogue"
+dest_files=["res://.godot/imported/wounded_pidgeon.dialogue-d8c4a774b2f0f9a6dcf28a00a1289fab.tres"]
+
+[params]
+
+defaults=true

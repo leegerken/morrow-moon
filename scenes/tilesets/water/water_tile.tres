@@ -1,0 +1,21 @@
+[gd_resource type="AnimatedTexture" load_steps=6 format=3 uid="uid://cwfvwvupmkxd2"]
+
+[ext_resource type="Texture2D" uid="uid://cpgkyec3k27l6" path="res://scenes/tilesets/water/water1.png" id="1_5087k"]
+[ext_resource type="Texture2D" uid="uid://b4awjn2tq2g52" path="res://scenes/tilesets/water/water3.png" id="2_afv5u"]
+[ext_resource type="Texture2D" uid="uid://bexpt7bqc85da" path="res://scenes/tilesets/water/water4.png" id="3_68osy"]
+[ext_resource type="Texture2D" uid="uid://dq43u31a4dh02" path="res://scenes/tilesets/water/water5.png" id="4_fvhg4"]
+[ext_resource type="Texture2D" uid="uid://dcoh00m1b72dr" path="res://scenes/tilesets/water/water6.png" id="5_ipsj8"]
+
+[resource]
+frames = 6
+frame_0/texture = ExtResource("1_5087k")
+frame_1/texture = ExtResource("1_5087k")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("2_afv5u")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("3_68osy")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("4_fvhg4")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("5_ipsj8")
+frame_5/duration = 1.0

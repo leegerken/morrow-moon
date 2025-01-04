@@ -1,903 +1,368 @@
-[gd_scene load_steps=54 format=4 uid="uid://ciyfg8o3d0g84"]
+[gd_scene load_steps=37 format=3 uid="uid://ciyfg8o3d0g84"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_dm15a"]
-[ext_resource type="PackedScene" uid="uid://d6b1o4eui1ff" path="res://scenes/player.tscn" id="1_kwsod"]
-[ext_resource type="Script" path="res://scripts/pause_menu.gd" id="2_0qnqp"]
-[ext_resource type="Texture2D" uid="uid://cdmerft8retgu" path="res://art/tilesets/plains.png" id="2_x6pu8"]
-[ext_resource type="Texture2D" uid="uid://b5uk8hf63m63i" path="res://art/tilesets/walls.png" id="3_0whtg"]
-[ext_resource type="Theme" uid="uid://blvkaikbuwd0j" path="res://art/system/main_theme.tres" id="3_fxxc5"]
-[ext_resource type="Texture2D" uid="uid://bxt2y1jeivrgn" path="res://art/tilesets/wooden.png" id="4_8ikmf"]
-[ext_resource type="PackedScene" uid="uid://cysrkhlqioy6c" path="res://scenes/door.tscn" id="4_lw428"]
-[ext_resource type="PackedScene" uid="uid://klk1ayamayco" path="res://scenes/bed.tscn" id="5_lb31d"]
+[ext_resource type="PackedScene" uid="uid://crdftxlisdm36" path="res://scenes/tile_map.tscn" id="4_jfl4l"]
+[ext_resource type="Texture2D" uid="uid://dm1ul5vqkuxmv" path="res://art/entities/goblin/goblin_sprite.png" id="8_74ooj"]
 [ext_resource type="AudioStream" uid="uid://dsml4qnn2508q" path="res://audio/nature.mp3" id="8_jfvft"]
-[ext_resource type="Texture2D" uid="uid://bpn2l4l1p4lbg" path="res://art/ui/border_thick2.png" id="10_hpu0e"]
-[ext_resource type="AudioStream" uid="uid://b5bk5l38nesf7" path="res://audio/button_press.ogg" id="13_6hd2o"]
-[ext_resource type="Texture2D" uid="uid://dni2j12oau8rv" path="res://art/ui/border2.png" id="15_01r7o"]
-[ext_resource type="PackedScene" uid="uid://bokyu5ojdp1xw" path="res://scenes/sign.tscn" id="16_g7b0h"]
-[ext_resource type="Resource" uid="uid://ckhqokobb31mr" path="res://scripts/dialog/sign1.dialogue" id="16_uswer"]
-[ext_resource type="Resource" uid="uid://bq3ymscpnl83f" path="res://scripts/dialog/main.dialogue" id="17_hai44"]
-[ext_resource type="PackedScene" uid="uid://dqrlfsspvgut0" path="res://scenes/checkerboard.tscn" id="19_m1aqh"]
-[ext_resource type="PackedScene" uid="uid://b3ci77oa73u3x" path="res://scenes/transitions.tscn" id="22_5suwd"]
-[ext_resource type="AudioStream" uid="uid://dlbuls2o8tjih" path="res://audio/pause.wav" id="35_djtqh"]
-[ext_resource type="PackedScene" uid="uid://clgahvmopdmuf" path="res://scenes/menu_button.tscn" id="35_y0oq2"]
-[ext_resource type="AudioStream" uid="uid://y675eg7qyhe6" path="res://audio/unpause.wav" id="36_a88w7"]
-[ext_resource type="FontFile" uid="uid://brsuylqxpu63h" path="res://art/system/hero-speak.ttf" id="36_wnylu"]
+[ext_resource type="Resource" uid="uid://ckhqokobb31mr" path="res://systems/dialogue_system/dialog/sign1.dialogue" id="9_ylck8"]
+[ext_resource type="Resource" uid="uid://cqlqs7aqdgb8j" path="res://systems/dialogue_system/dialog/sign2.dialogue" id="10_fw1cu"]
+[ext_resource type="Resource" uid="uid://u7dj5slu6ixx" path="res://systems/dialogue_system/dialog/bed.dialogue" id="11_xelvf"]
+[ext_resource type="PackedScene" uid="uid://crmthdcsftcj6" path="res://scenes/objects/backpack.tscn" id="14_nlsj0"]
+[ext_resource type="Texture2D" uid="uid://o5pu3y6uoogn" path="res://art/objects/backpack.png" id="14_y0dg5"]
+[ext_resource type="Resource" uid="uid://mytwqbnwhf00" path="res://systems/dialogue_system/dialog/backpack_get.dialogue" id="15_2mrys"]
+[ext_resource type="PackedScene" uid="uid://c8lb2m8brhc5v" path="res://scenes/objects/table.tscn" id="15_is2x8"]
+[ext_resource type="PackedScene" uid="uid://tkxeckvlncot" path="res://scenes/objects/shovel.tscn" id="16_428rx"]
+[ext_resource type="Resource" uid="uid://bo25b2ci7ojbm" path="res://systems/dialogue_system/dialog/shovel_get.dialogue" id="17_0157y"]
+[ext_resource type="Texture2D" uid="uid://cesc6yyfmgn7y" path="res://art/objects/shovel.png" id="18_5lfj2"]
+[ext_resource type="PackedScene" uid="uid://b0mypv8bl54l7" path="res://scenes/item_pickup.tscn" id="21_uc75n"]
+[ext_resource type="Resource" uid="uid://uy313ghnla40" path="res://items/sunflower_seeds.tres" id="22_00b8a"]
+[ext_resource type="Resource" uid="uid://ctqxygtjemp7f" path="res://items/branch.tres" id="22_86lvj"]
+[ext_resource type="PackedScene" uid="uid://bokyu5ojdp1xw" path="res://scenes/objects/sign.tscn" id="22_nmmnf"]
+[ext_resource type="PackedScene" uid="uid://cysrkhlqioy6c" path="res://scenes/objects/door.tscn" id="25_2w4pu"]
+[ext_resource type="PackedScene" uid="uid://klk1ayamayco" path="res://scenes/objects/bed.tscn" id="26_i6eg1"]
+[ext_resource type="PackedScene" uid="uid://d6b1o4eui1ff" path="res://scenes/player.tscn" id="27_uharu"]
+[ext_resource type="PackedScene" uid="uid://caqhmbgluu4nv" path="res://scenes/interactable.tscn" id="28_6yvu6"]
+[ext_resource type="PackedScene" uid="uid://ijml23ti0tyc" path="res://scenes/entities/tiny_frog.tscn" id="28_gousu"]
+[ext_resource type="Script" path="res://ui/transitions.gd" id="29_etrcj"]
+[ext_resource type="PackedScene" uid="uid://c8tfe8v8l26ln" path="res://scenes/entities/frog.tscn" id="29_ljh7c"]
+[ext_resource type="Resource" uid="uid://diegiljfikcpr" path="res://systems/dialogue_system/dialog/frog.dialogue" id="30_wkhry"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_upp8k"]
-texture = ExtResource("2_x6pu8")
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-4:1/0 = 0
-5:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-4:2/0 = 0
-5:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-3:3/0 = 0
-0:4/0 = 0
-1:4/0 = 0
-2:4/0 = 0
-3:4/0 = 0
-4:4/0 = 0
-5:4/0 = 0
-0:5/0 = 0
-1:5/0 = 0
-2:5/0 = 0
-3:5/0 = 0
-4:5/0 = 0
-5:5/0 = 0
-0:6/0 = 0
-1:6/0 = 0
-2:6/0 = 0
-3:6/0 = 0
-4:6/0 = 0
-5:6/0 = 0
-0:7/0 = 0
-1:7/0 = 0
-2:7/0 = 0
-3:7/0 = 0
-4:7/0 = 0
-4:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 2.47487, -3.88909, -3.88909, 4.24264, -4.59619, 6.01041, -1.59099, 6.18719, 6.54074, -1.76777, 6.36396, -8, 6.01041)
-0:8/0 = 0
-1:8/0 = 0
-2:8/0 = 0
-3:8/0 = 0
-4:8/0 = 0
-0:9/size_in_atlas = Vector2i(3, 4)
-0:9/0 = 0
-0:9/0/y_sort_origin = 12
-0:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8.39689, 13.0815, 7.33624, 12.9047, 9.28078, 24.7487, -10.3414, 24.7487)
-3:9/size_in_atlas = Vector2i(2, 2)
-3:9/0 = 0
-3:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.026, 9.36917, -13.6118, 1.41421, 12.7279, 1.94454, 15.026, 7.95495, 9.8995, 14.4957, -9.72272, 15.2028)
-3:11/size_in_atlas = Vector2i(2, 3)
-3:11/0 = 0
-3:11/0/y_sort_origin = 13
-3:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5.65685, 17.8544, -3.35876, 16.2635, 4.41942, 16.7938, 5.83363, 19.6222, 0.176777, 21.9203, -5.48008, 20.6829)
+[sub_resource type="GDScript" id="GDScript_2dals"]
+script/source = "extends Node2D
+"
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qbeyw"]
-texture = ExtResource("3_0whtg")
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 1.41421, -8, 1.23744, 8, -8, 8)
-3:1/0 = 0
-3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-1.23744, -8, 8, -8, 8, 8, -1.06066, 8)
-4:1/0 = 0
-5:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 1.41421, -8, 1.23744, 8, -8, 8)
-2:2/0 = 0
-3:2/0 = 0
-3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-1.23744, -8, 8, -8, 8, 8, -1.06066, 8)
-0:3/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-3:3/0 = 0
-0:4/0 = 0
-1:4/0 = 0
-1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-2:4/0 = 0
-2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-3:4/0 = 0
-3:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-4:4/0 = 0
-5:4/0 = 0
-0:5/0 = 0
-1:5/0 = 0
-1:5/0/y_sort_origin = 7
-1:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-2:5/0 = 0
-2:5/0/y_sort_origin = 7
-2:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-3:5/0 = 0
-3:5/0/y_sort_origin = 7
-3:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-4:5/0 = 0
-5:5/0 = 0
-6:5/0 = 0
-6:5/0/y_sort_origin = 16
-7:5/0 = 0
-0:6/0 = 0
-0:6/0/y_sort_origin = 4
-1:6/0 = 0
-2:6/0 = 0
-3:6/0 = 0
-4:6/0 = 0
-4:6/0/y_sort_origin = 4
-5:6/0 = 0
-2:7/0 = 0
-2:7/0/y_sort_origin = 7
-2:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-1:7/0 = 0
-1:7/0/y_sort_origin = 7
-1:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-3:7/0 = 0
-3:7/0/y_sort_origin = 7
-3:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-5:7/0 = 0
-6:7/0 = 0
+[sub_resource type="CircleShape2D" id="CircleShape2D_aijmy"]
+radius = 12.0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sh0no"]
-texture = ExtResource("4_8ikmf")
-0:0/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_ut8q3"]
-physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_upp8k")
-sources/1 = SubResource("TileSetAtlasSource_qbeyw")
-sources/2 = SubResource("TileSetAtlasSource_sh0no")
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qf7yb"]
-size = Vector2(320, 200)
-
-[sub_resource type="InputEventKey" id="InputEventKey_rpapi"]
-device = -1
-pressed = true
-keycode = 80
-unicode = 112
-
-[sub_resource type="Shortcut" id="Shortcut_46wx7"]
-events = [SubResource("InputEventKey_rpapi")]
-
-[sub_resource type="LabelSettings" id="LabelSettings_mk4gv"]
-font = ExtResource("36_wnylu")
-font_size = 14
-font_color = Color(0.882353, 0.921569, 0.631373, 1)
-shadow_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_st2s4"]
-font = ExtResource("36_wnylu")
-font_color = Color(0.882353, 0.921569, 0.631373, 1)
-shadow_color = Color(0, 0, 0, 1)
-
-[sub_resource type="Animation" id="Animation_d1wtd"]
+[sub_resource type="Animation" id="Animation_71475"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 20)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_d3gu4"]
-resource_name = "Slide In"
-length = 0.2
+[sub_resource type="Animation" id="Animation_f6jqm"]
+resource_name = "hit"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.133333),
+"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5, 0.666667, 0.833333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 8, 9, 10, 11]
+}
+
+[sub_resource type="Animation" id="Animation_l0pcv"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5, 0.633333, 0.766667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7tlxs"]
+_data = {
+"RESET": SubResource("Animation_71475"),
+"hit": SubResource("Animation_f6jqm"),
+"idle": SubResource("Animation_l0pcv")
+}
+
+[sub_resource type="Animation" id="Animation_m3dhy"]
+resource_name = "Fade In"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.733333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 20), Vector2(-107, 20)]
+"values": [Color(1, 1, 1, 0), Color(0, 0, 0, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:visible")
+tracks/1/path = NodePath("ColorRect:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
+"times": PackedFloat32Array(0, 0.766667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+
+[sub_resource type="Animation" id="Animation_441oj"]
+resource_name = "Fade Out"
+length = 2.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 2.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
 }
 
-[sub_resource type="Animation" id="Animation_fuupi"]
-resource_name = "Slide Out"
-length = 0.2
+[sub_resource type="Animation" id="Animation_2j7oo"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath("ColorRect:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.133333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-107, 20), Vector2(0, 20)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_8bx6t"]
-_data = {
-"RESET": SubResource("Animation_d1wtd"),
-"Slide In": SubResource("Animation_d3gu4"),
-"Slide Out": SubResource("Animation_fuupi")
-}
-
-[sub_resource type="Theme" id="Theme_l0ub4"]
-Label/colors/font_color = Color(0.882353, 0.921569, 0.631373, 1)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dbhdw"]
-
-[sub_resource type="InputEventKey" id="InputEventKey_edsqw"]
-device = -1
-pressed = true
-keycode = 75
-unicode = 107
-
-[sub_resource type="Shortcut" id="Shortcut_lf36b"]
-events = [SubResource("InputEventKey_edsqw")]
-
-[sub_resource type="Animation" id="Animation_v078i"]
-resource_name = "Slide Down"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(2.08165e-12, 20), Vector2(2.08165e-12, 180)]
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:visible")
+tracks/1/path = NodePath("ColorRect:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:size")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(148, 130), Vector2(120, 2.08165e-12)]
-}
-
-[sub_resource type="Animation" id="Animation_nvdsa"]
-resource_name = "Slide Up"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(2.08165e-12, 180), Vector2(2.08165e-12, 20)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:size")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(120, 2.08165e-12), Vector2(148, 130)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_4sdwh"]
-_data = {
-"Slide Down": SubResource("Animation_v078i"),
-"Slide Up": SubResource("Animation_nvdsa")
-}
-
-[sub_resource type="InputEventKey" id="InputEventKey_1jxxq"]
-device = -1
-pressed = true
-keycode = 83
-unicode = 115
-
-[sub_resource type="Shortcut" id="Shortcut_a6x5x"]
-events = [SubResource("InputEventKey_1jxxq")]
-
-[sub_resource type="Animation" id="Animation_h6nd7"]
-resource_name = "Slide Down"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("..:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(2.08165e-12, 140), Vector2(2.08165e-12, 290)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("..:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-
-[sub_resource type="Animation" id="Animation_csujc"]
-resource_name = "Slide Up"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("..:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(2.08165e-12, 290), Vector2(2.08165e-12, 140)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("..:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.0666667),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_iy6y6"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wymux"]
 _data = {
-"Slide Down": SubResource("Animation_h6nd7"),
-"Slide Up": SubResource("Animation_csujc")
+"Fade In": SubResource("Animation_m3dhy"),
+"Fade Out": SubResource("Animation_441oj"),
+"RESET": SubResource("Animation_2j7oo")
 }
-
-[sub_resource type="LabelSettings" id="LabelSettings_edi7j"]
-font = ExtResource("36_wnylu")
-font_size = 14
-font_color = Color(0.752941, 1, 0.588235, 1)
-shadow_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bvoow"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_38y6i"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ynxi1"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6mule"]
-
-[sub_resource type="Theme" id="Theme_68r7a"]
-Button/colors/font_color = Color(0.752941, 1, 0.588235, 1)
-Button/colors/font_pressed_color = Color(0.52026, 0.69, 0.4071, 1)
-Button/font_sizes/font_size = 14
-Button/fonts/font = ExtResource("36_wnylu")
-Button/styles/focus = SubResource("StyleBoxEmpty_bvoow")
-Button/styles/hover = SubResource("StyleBoxEmpty_38y6i")
-Button/styles/normal = SubResource("StyleBoxEmpty_ynxi1")
-Button/styles/pressed = SubResource("StyleBoxEmpty_6mule")
 
 [node name="Game" type="Node2D"]
 process_mode = 1
 y_sort_enabled = true
-
-[node name="TileMap" type="Node2D" parent="."]
-z_as_relative = false
-y_sort_enabled = true
-metadata/_edit_lock_ = true
-
-[node name="0" type="TileMapLayer" parent="TileMap"]
-z_as_relative = false
-use_parent_material = true
-tile_map_data = PackedByteArray("AAAAAAAAAAAAAAgAAAAAAAEAAAAAAAgAAAABAAEAAAAAAAgAAAABAAAAAAAAAAgAAAACAAEAAAAAAAgAAAACAAAAAAAAAAgAAAAAAAIAAAAAAAgAAAAAAAMAAAAAAAgAAAAAAAQAAAAAAAgAAAAAAAUAAAACAAAAAAAAAAYAAAACAAIAAAAAAAcAAAAAAAgAAAABAAcAAAAAAAgAAAABAAgAAAAAAAgAAAABAAkAAAAAAAgAAAABAAoAAAAAAAgAAAAAAAoAAAADAAgAAAAAAAkAAAAAAAgAAAAAAAgAAAAAAAgAAAABAAYAAAACAAIAAAABAAUAAAACAAAAAAABAAQAAAADAAgAAAABAAMAAAAAAAgAAAABAAIAAAAAAAgAAAADAAAAAAAAAAgAAAAEAAAAAAAAAAgAAAAFAAAAAAAAAAgAAAAGAAAAAAAAAAgAAAAHAAAAAAAAAAgAAAAIAAAAAAAAAAgAAAAJAAAAAAAAAAgAAAAKAAAAAAAAAAgAAAALAAAAAAAAAAgAAAAMAAAAAAAAAAgAAAANAAAAAAAAAAgAAAAOAAAAAAAAAAgAAAAPAAAAAAAAAAgAAAAQAAAAAAAAAAgAAAARAAAAAAAAAAgAAAASAAAAAAAAAAgAAAATAAAAAAAAAAgAAAATAAEAAAAAAAgAAAATAAIAAAAAAAgAAAATAAMAAAAAAAgAAAATAAQAAAAEAAgAAAATAAUAAAACAAAAAAATAAYAAAACAAEAAAATAAcAAAACAAIAAAATAAgAAAAAAAgAAAATAAkAAAAAAAgAAAATAAoAAAAAAAgAAAASAAoAAAAAAAgAAAARAAoAAAAAAAgAAAAQAAoAAAAEAAgAAAAPAAoAAAADAAgAAAAOAAoAAAADAAIAAAANAAoAAAACAAIAAAAMAAoAAAAEAAAAAAALAAoAAAAFAAAAAAAKAAoAAAACAAIAAAAJAAoAAAABAAIAAAAIAAoAAAAAAAgAAAAHAAoAAAACAAgAAAAGAAoAAAAAAAgAAAAFAAoAAAAAAAgAAAAEAAoAAAAAAAgAAAADAAoAAAAAAAgAAAACAAoAAAAAAAgAAAACAAkAAAAAAAgAAAADAAkAAAAEAAgAAAAEAAkAAAAAAAgAAAAFAAkAAAADAAgAAAAGAAkAAAAAAAgAAAAHAAkAAAAAAAgAAAAIAAkAAAAAAAgAAAAJAAkAAAABAAEAAAAKAAkAAAACAAEAAAALAAkAAAACAAEAAAAMAAkAAAACAAEAAAANAAkAAAACAAEAAAAOAAkAAAADAAEAAAAPAAkAAAAAAAgAAAAQAAkAAAABAAgAAAARAAkAAAAAAAgAAAASAAkAAAAAAAgAAAASAAgAAAABAAgAAAARAAgAAAACAAgAAAAQAAgAAAADAAIAAAAPAAgAAAACAAIAAAAOAAgAAAAEAAAAAAANAAgAAAACAAEAAAAMAAgAAAACAAEAAAALAAgAAAACAAEAAAAKAAgAAAACAAEAAAAJAAgAAAAFAAAAAAAIAAgAAAACAAIAAAADAAgAAAAAAAgAAAACAAgAAAAAAAgAAAAEAAgAAAABAAIAAAAFAAgAAAACAAIAAAAGAAgAAAACAAIAAAAHAAgAAAACAAIAAAAOAAcAAAACAAAAAAAPAAcAAAAFAAEAAAAQAAcAAAAEAAAAAAARAAcAAAACAAIAAAASAAcAAAACAAIAAAANAAcAAAACAAAAAAAMAAcAAAACAAAAAAALAAcAAAACAAAAAAAKAAcAAAACAAAAAAAJAAcAAAACAAAAAAAIAAcAAAACAAAAAAAHAAcAAAACAAAAAAAGAAcAAAAEAAEAAAAFAAcAAAACAAEAAAAEAAcAAAABAAEAAAADAAcAAAABAAgAAAACAAcAAAAAAAgAAAACAAYAAAACAAIAAAADAAYAAAACAAIAAAAEAAYAAAAFAAAAAAAFAAYAAAACAAEAAAAGAAYAAAADAAEAAAAHAAYAAAABAAgAAAAOAAYAAAAAAAgAAAAPAAYAAAABAAAAAAAQAAYAAAAFAAEAAAARAAYAAAACAAEAAAASAAYAAAACAAEAAAASAAUAAAACAAAAAAARAAUAAAAEAAEAAAAQAAUAAAABAAEAAAAPAAUAAAAAAAgAAAAOAAUAAAADAAgAAAANAAUAAgAAAAAAAAAMAAUAAgAAAAAAAAALAAUAAgAAAAAAAAAKAAUAAgAAAAAAAAAHAAUAAAAEAAgAAAAGAAUAAAADAAEAAAAFAAUAAAACAAEAAAAEAAUAAAACAAEAAAADAAUAAAACAAEAAAACAAUAAAAFAAEAAAACAAQAAAABAAAAAAADAAQAAAACAAAAAAAEAAQAAAACAAAAAAAFAAQAAAACAAAAAAAGAAQAAAADAAAAAAAHAAQAAAAAAAgAAAAIAAQAAgAAAAAAAAAJAAQAAgAAAAAAAAAKAAQAAgAAAAAAAAALAAQAAgAAAAAAAAAMAAQAAgAAAAAAAAANAAQAAgAAAAAAAAAOAAQAAAABAAgAAAAPAAQAAAAEAAgAAAAQAAQAAAABAAAAAAARAAQAAAADAAAAAAASAAQAAAAAAAgAAAASAAMAAAAAAAgAAAARAAMAAAAEAAgAAAAQAAMAAAAAAAgAAAAPAAMAAAAAAAgAAAAOAAMAAAACAAgAAAANAAMAAgAAAAAAAAAMAAMAAgAAAAAAAAALAAMAAgAAAAAAAAAKAAMAAgAAAAAAAAAJAAMAAgAAAAAAAAAIAAMAAgAAAAAAAAAHAAMAAAABAAgAAAAGAAMAAAAAAAgAAAAFAAMAAAAAAAgAAAAEAAMAAAACAAgAAAADAAMAAAAAAAgAAAACAAMAAAAAAAgAAAACAAIAAAADAAgAAAADAAIAAAAAAAgAAAAEAAIAAAAAAAgAAAAFAAIAAAAEAAgAAAAGAAIAAAAAAAgAAAAHAAIAAAAAAAgAAAAIAAIAAgAAAAAAAAAJAAIAAgAAAAAAAAAKAAIAAgAAAAAAAAALAAIAAgAAAAAAAAAMAAIAAgAAAAAAAAANAAIAAgAAAAAAAAAOAAIAAAADAAgAAAAPAAIAAAAAAAgAAAAQAAIAAAAAAAgAAAARAAIAAAAAAAgAAAASAAIAAAAAAAgAAAASAAEAAAAAAAgAAAARAAEAAAAAAAgAAAAQAAEAAAAAAAgAAAAPAAEAAAAAAAgAAAAOAAEAAAAAAAgAAAAHAAEAAAAAAAgAAAAGAAEAAAAEAAgAAAAFAAEAAAAAAAgAAAAEAAEAAAAAAAgAAAADAAEAAAAAAAgAAAAAAAsAAAAAAAgAAAAAAAwAAAAAAAgAAAABAAwAAAACAAgAAAABAAsAAAAAAAgAAAAAAA0AAAAAAAgAAAABAA0AAAAAAAgAAAACAA0AAAAAAAgAAAADAA0AAAAAAAgAAAAEAA0AAAAAAAgAAAAFAA0AAAAAAAgAAAAGAA0AAAAAAAgAAAAHAA0AAAAAAAgAAAAIAAwAAAAAAAgAAAAJAAwAAAAAAAgAAAAKAAwAAAAAAAgAAAALAAwAAAABAAEAAAAMAAwAAAADAAEAAAATAAsAAAAAAAgAAAATAAwAAAAAAAgAAAATAA0AAAAAAAgAAAASAA0AAAAAAAgAAAARAA0AAAAAAAgAAAAQAA0AAAAAAAgAAAAPAA0AAAAAAAgAAAAOAA0AAAAAAAgAAAANAA0AAAAAAAgAAAAMAA0AAAADAAEAAAALAA0AAAABAAEAAAAKAA0AAAAAAAgAAAAJAA0AAAAAAAgAAAAIAA0AAAAAAAgAAAACAAwAAAAAAAgAAAADAAwAAAADAAgAAAAEAAwAAAAEAAgAAAAFAAwAAAAAAAgAAAAGAAwAAAAAAAgAAAAHAAwAAAABAAgAAAACAAsAAAAAAAgAAAADAAsAAAAAAAgAAAAEAAsAAAAAAAgAAAAFAAsAAAAAAAgAAAAGAAsAAAAAAAgAAAAHAAsAAAAAAAgAAAAIAAsAAAAEAAgAAAAJAAsAAAACAAgAAAAKAAsAAAAAAAgAAAANAAsAAAADAAgAAAAOAAsAAAAAAAgAAAAPAAsAAAAAAAgAAAAQAAsAAAACAAgAAAARAAsAAAAAAAgAAAASAAsAAAACAAgAAAASAAwAAAAAAAgAAAARAAwAAAAAAAgAAAAQAAwAAAAAAAgAAAAPAAwAAAABAAgAAAAOAAwAAAAAAAgAAAANAAwAAAAEAAgAAAAMAAsAAAADAAEAAAALAAsAAAABAAEAAAAUAAAAAAAAAAgAAAAUAAEAAAAAAAgAAAAUAAIAAAAAAAgAAAAUAAMAAAAAAAgAAAAUAAQAAAACAAgAAAAVAAQAAAABAAgAAAAVAAMAAAADAAgAAAAWAAMAAAAAAAgAAAAWAAIAAAAAAAgAAAAVAAIAAAAAAAgAAAAVAAEAAAAAAAgAAAAWAAEAAAAAAAgAAAAVAAAAAAAAAAgAAAAWAAAAAAAAAAgAAAAWAAQAAAAAAAgAAAAWAAUAAAACAAAAAAAWAAYAAAACAAIAAAAWAAcAAAAAAAgAAAAWAAgAAAACAAgAAAAWAAkAAAAAAAgAAAAWAAoAAAAAAAgAAAAWAAsAAAAAAAgAAAAWAAwAAAAAAAgAAAAWAA0AAAAAAAgAAAAVAA0AAAAAAAgAAAAUAA0AAAAAAAgAAAAUAAwAAAAAAAgAAAAVAAwAAAAEAAgAAAAVAAsAAAAAAAgAAAAUAAsAAAAAAAgAAAAUAAoAAAADAAgAAAAUAAkAAAAEAAgAAAAVAAkAAAADAAgAAAAVAAoAAAAAAAgAAAAVAAgAAAAAAAgAAAAUAAgAAAAAAAgAAAAUAAcAAAADAAIAAAAVAAcAAAAAAAgAAAAUAAUAAAACAAAAAAAVAAUAAAACAAAAAAAUAAYAAAAEAAAAAAAVAAYAAAACAAIAAAAIAAUAAgAAAAAAAAAJAAUAAgAAAAAAAAAKAAYAAAAAAAgAAAAJAAYAAAACAAgAAAAIAAYAAAADAAgAAAAMAAYAAAAAAAgAAAANAAYAAAAAAAgAAAALAAYAAAAAAAgAAAAAAP//AAAAAAgAAAAAAPf/AAAAAAgAAAAAAPj/AAAAAAgAAAAAAPn/AAAAAAgAAAAAAPr/AAAAAAgAAAAAAPv/AAAAAAgAAAAAAPz/AAAAAAgAAAAAAP3/AAAAAAgAAAAAAP7/AAAAAAgAAAABAPf/AAAAAAgAAAABAPj/AAAAAAgAAAABAPn/AAAAAAgAAAABAPr/AAAAAAgAAAABAPv/AAAAAAgAAAABAPz/AAAAAAgAAAABAP3/AAAAAAgAAAABAP7/AAAAAAgAAAABAP//AAAAAAgAAAACAPf/AAAAAAgAAAACAPj/AAAAAAgAAAACAPn/AAAAAAgAAAACAPr/AAAAAAgAAAACAPv/AAAAAAgAAAACAPz/AAAAAAgAAAACAP3/AAAAAAgAAAACAP7/AAAAAAgAAAACAP//AAAAAAgAAAADAPf/AAAAAAgAAAADAPj/AAAAAAgAAAADAPn/AAAAAAgAAAADAPr/AAAAAAgAAAADAPv/AAAAAAgAAAADAPz/AAAAAAgAAAADAP3/AAAAAAgAAAADAP7/AAAAAAgAAAADAP//AAAAAAgAAAAEAPf/AAAAAAgAAAAEAPj/AAAAAAgAAAAEAPn/AAAAAAgAAAAEAPr/AAAAAAgAAAAEAPv/AAAAAAgAAAAEAPz/AAAAAAgAAAAEAP3/AAAAAAgAAAAEAP7/AAAAAAgAAAAEAP//AAAAAAgAAAAFAPf/AAAAAAgAAAAFAPj/AAAAAAgAAAAFAPn/AAAAAAgAAAAFAPr/AAAAAAgAAAAFAPv/AAAAAAgAAAAFAPz/AAAAAAgAAAAFAP3/AAAAAAgAAAAFAP7/AAAAAAgAAAAFAP//AAAAAAgAAAAGAPf/AAAAAAgAAAAGAPj/AAAAAAgAAAAGAPn/AAAAAAgAAAAGAPr/AAAAAAgAAAAGAPv/AAAAAAgAAAAGAPz/AAAAAAgAAAAGAP3/AAAAAAgAAAAGAP7/AAAAAAgAAAAGAP//AAAAAAgAAAAHAPf/AAAAAAgAAAAHAPj/AAAAAAgAAAAHAPn/AAAAAAgAAAAHAPr/AAAAAAgAAAAHAPv/AAAAAAgAAAAHAPz/AAAAAAgAAAAHAP3/AAAAAAgAAAAHAP7/AAAAAAgAAAAHAP//AAAAAAgAAAAIAPf/AAAAAAgAAAAIAPj/AAAAAAgAAAAIAPn/AAAAAAgAAAAIAPr/AAAAAAgAAAAIAPv/AAAAAAgAAAAIAPz/AAAAAAgAAAAIAP3/AAAAAAgAAAAIAP7/AAAAAAgAAAAIAP//AAAAAAgAAAAJAPf/AAAAAAgAAAAJAPj/AAAAAAgAAAAJAPn/AAAAAAgAAAAJAPr/AAAAAAgAAAAJAPv/AAAAAAgAAAAJAPz/AAAAAAgAAAAJAP3/AAAAAAgAAAAJAP7/AAAAAAgAAAAJAP//AAAAAAgAAAAKAPf/AAAAAAgAAAAKAPj/AAAAAAgAAAAKAPn/AAAAAAgAAAAKAPr/AAAAAAgAAAAKAPv/AAAAAAgAAAAKAPz/AAAAAAgAAAAKAP3/AAAAAAgAAAAKAP7/AAAAAAgAAAAKAP//AAAAAAgAAAALAPf/AAAAAAgAAAALAPj/AAAAAAgAAAALAPn/AAAAAAgAAAALAPr/AAAAAAgAAAALAPv/AAAAAAgAAAALAPz/AAAAAAgAAAALAP3/AAAAAAgAAAALAP7/AAAAAAgAAAALAP//AAAAAAgAAAAMAPf/AAAAAAgAAAAMAPj/AAAAAAgAAAAMAPn/AAAAAAgAAAAMAPr/AAAAAAgAAAAMAPv/AAAAAAgAAAAMAPz/AAAAAAgAAAAMAP3/AAAAAAgAAAAMAP7/AAAAAAgAAAAMAP//AAAAAAgAAAANAPf/AAAAAAgAAAANAPj/AAAAAAgAAAANAPn/AAAAAAgAAAANAPr/AAAAAAgAAAANAPv/AAAAAAgAAAANAPz/AAAAAAgAAAANAP3/AAAAAAgAAAANAP7/AAAAAAgAAAANAP//AAAAAAgAAAAOAPf/AAAAAAgAAAAOAPj/AAAAAAgAAAAOAPn/AAAAAAgAAAAOAPr/AAAAAAgAAAAOAPv/AAAAAAgAAAAOAPz/AAAAAAgAAAAOAP3/AAAAAAgAAAAOAP7/AAAAAAgAAAAOAP//AAAAAAgAAAAPAPf/AAAAAAgAAAAPAPj/AAAAAAgAAAAPAPn/AAAAAAgAAAAPAPr/AAAAAAgAAAAPAPv/AAAAAAgAAAAPAPz/AAAAAAgAAAAPAP3/AAAAAAgAAAAPAP7/AAAAAAgAAAAPAP//AAAAAAgAAAAQAPf/AAAAAAgAAAAQAPj/AAAAAAgAAAAQAPn/AAAAAAgAAAAQAPr/AAAAAAgAAAAQAPv/AAAAAAgAAAAQAPz/AAAAAAgAAAAQAP3/AAAAAAgAAAAQAP7/AAAAAAgAAAAQAP//AAAAAAgAAAARAPf/AAAAAAgAAAARAPj/AAAAAAgAAAARAPn/AAAAAAgAAAARAPr/AAAAAAgAAAARAPv/AAAAAAgAAAARAPz/AAAAAAgAAAARAP3/AAAAAAgAAAARAP7/AAAAAAgAAAARAP//AAAAAAgAAAASAPf/AAAAAAgAAAASAPj/AAAAAAgAAAASAPn/AAAAAAgAAAASAPr/AAAAAAgAAAASAPv/AAAAAAgAAAASAPz/AAAAAAgAAAASAP3/AAAAAAgAAAASAP7/AAAAAAgAAAASAP//AAAAAAgAAAATAPf/AAAAAAgAAAATAPj/AAAAAAgAAAATAPn/AAAAAAgAAAATAPr/AAAAAAgAAAATAPv/AAAAAAgAAAATAPz/AAAAAAgAAAATAP3/AAAAAAgAAAATAP7/AAAAAAgAAAATAP//AAAAAAgAAAAUAPf/AAAAAAgAAAAUAPj/AAAAAAgAAAAUAPn/AAAAAAgAAAAUAPr/AAAAAAgAAAAUAPv/AAAAAAgAAAAUAPz/AAAAAAgAAAAUAP3/AAAAAAgAAAAUAP7/AAAAAAgAAAAUAP//AAAAAAgAAAAVAPf/AAAAAAgAAAAVAPj/AAAAAAgAAAAVAPn/AAAAAAgAAAAVAPr/AAAAAAgAAAAVAPv/AAAAAAgAAAAVAPz/AAAAAAgAAAAVAP3/AAAAAAgAAAAVAP7/AAAAAAgAAAAVAP//AAAAAAgAAAAWAPf/AAAAAAgAAAAWAPj/AAAAAAgAAAAWAPn/AAAAAAgAAAAWAPr/AAAAAAgAAAAWAPv/AAAAAAgAAAAWAPz/AAAAAAgAAAAWAP3/AAAAAAgAAAAWAP7/AAAAAAgAAAAWAP//AAAAAAgAAAA=")
-tile_set = SubResource("TileSet_ut8q3")
-metadata/_edit_lock_ = true
-
-[node name="1" type="TileMapLayer" parent="TileMap"]
-z_index = 1
-z_as_relative = false
-y_sort_enabled = true
-use_parent_material = true
-tile_map_data = PackedByteArray("AAALAPj/AAACAAUAAAAKAPj/AAACAAUAAAAJAPj/AAACAAUAAAAIAPj/AAACAAUAAAAHAPj/AAAFAAQAAAAGAPj/AAACAAYAAAAFAPj/AAACAAYAAAAEAPj/AAACAAYAAAADAPj/AAAEAAQAAAAMAPj/AAACAAUAAAANAPj/AAACAAUAAAAOAPj/AAACAAUAAAAPAPj/AAACAAUAAAAQAPj/AAACAAUAAAARAPj/AAAEAAQAAAASAPj/AAACAAYAAAATAPj/AAAFAAQAAAATAPn/AAABAAYAAAAVAPr/AAACAAYAAAAWAPv/AAABAAUAAAAWAPn/AAACAAUAAAAWAPj/AAACAAUAAAAVAPj/AAACAAUAAAAVAPf/AAACAAUAAAAWAPf/AAACAAUAAAAVAPn/AAACAAUAAAAUAPf/AAACAAUAAAATAPf/AAACAAUAAAASAPf/AAACAAUAAAARAPf/AAACAAUAAAAQAPf/AAACAAUAAAAPAPf/AAACAAUAAAAOAPf/AAACAAUAAAANAPf/AAACAAUAAAAMAPf/AAACAAUAAAALAPf/AAACAAUAAAAKAPf/AAACAAUAAAAJAPf/AAACAAUAAAAIAPf/AAACAAUAAAAHAPf/AAACAAUAAAAGAPf/AAACAAUAAAAFAPf/AAACAAUAAAAEAPf/AAACAAUAAAADAPf/AAACAAUAAAACAPf/AAACAAUAAAABAPf/AAACAAUAAAAAAPf/AAACAAUAAAAKAPn/AAACAAYAAAALAPn/AAACAAYAAAAMAPn/AAACAAYAAAANAPn/AAACAAYAAAAOAPn/AAACAAYAAAAPAPn/AAACAAYAAAAQAPn/AAACAAYAAAAJAPn/AAACAAYAAAAIAPn/AAACAAYAAAAHAPn/AAABAAYAAAARAPn/AAADAAYAAAACAPr/AAADAAYAAAABAPv/AAADAAYAAAAAAP3/AAADAAYAAAAAAPz/AAADAAUAAAAAAPv/AAAEAAQAAAABAPr/AAAEAAQAAAACAPn/AAAEAAQAAAACAPj/AAACAAUAAAADAPn/AAADAAYAAAAAAPr/AAACAAUAAAAAAPn/AAACAAUAAAAAAPj/AAACAAUAAAABAPj/AAACAAUAAAABAPn/AAACAAUAAAAUAPr/AAABAAYAAAAWAPr/AAAFAAQAAAAWAPz/AAABAAYAAAAUAPn/AAACAAUAAAAUAPj/AAACAAUAAAAJAAUAAQACAAUAAAAKAAUAAQACAAUAAAAMAAUAAQACAAUAAAAIAAUAAQABAAUAAAANAAUAAQADAAUAAAA=")
-tile_set = SubResource("TileSet_ut8q3")
-metadata/_edit_lock_ = true
-
-[node name="2" type="TileMapLayer" parent="TileMap"]
-z_index = 2
-z_as_relative = false
-y_sort_enabled = true
-use_parent_material = true
-tile_map_data = PackedByteArray("AAAIAAAAAQABAAAAAAANAAAAAQADAAAAAAAJAAAAAQACAAAAAAAKAAAAAQACAAAAAAALAAAAAQACAAAAAAAMAAAAAQACAAAAAAAGAAgAAAAAAAkAAAARAAkAAAADAAkAAAATAAoAAAADAAkAAAATAAgAAAADAAsAAAAGAAoAAAADAAsAAAAEAAkAAAADAAsAAAAEAAEAAAAAAAkAAAAPAAIAAAAAAAkAAAATAAMAAAADAAkAAAACAAsAAAAAAAkAAAAAAAgAAAADAAsAAAD//woAAAADAAsAAAAKAA0AAAADAAkAAAANAA0AAAADAAkAAAAIAA0AAAADAAsAAAAWAAwAAAADAAsAAAAXAAgAAAADAAsAAAAVAAcAAAADAAsAAAAWAAIAAAADAAsAAAAGAAIAAAADAAkAAAABAAMAAAAEAAcAAAACAAgAAAAAAAkAAAAPAAUAAAAEAAcAAAAVAAoAAAAEAAcAAAAQAAwAAAAEAAcAAAABAP3/AAAAAAkAAAAGAPv/AAAAAAkAAAACAAAAAAAAAAkAAAAAAAEAAAAAAAkAAAARAP7/AAAAAAkAAAASAAEAAAAAAAkAAAAVAP//AAAAAAkAAAAEAP3/AAADAAsAAAAGAP7/AAADAAsAAAAHAP3/AAADAAsAAAACAPv/AAADAAsAAAAEAPv/AAADAAkAAAAJAPz/AAADAAkAAAAVAPz/AAADAAkAAAARAPr/AAADAAkAAAANAPr/AAADAAkAAAASAPv/AAADAAsAAAALAPn/AAADAAsAAAAVAPf/AAADAAkAAAAJAPf/AAADAAkAAAABAPf/AAADAAkAAAAAAPj/AAADAAkAAAAOAPb/AAADAAkAAAAEAPb/AAADAAkAAAAXAPn/AAADAAkAAAAQAPb/AAAAAAkAAAD///n/AAAAAAkAAAAXAPf/AAAAAAkAAAALAPX/AAAAAAkAAAAHAPb/AAADAAsAAAATAPb/AAADAAsAAAACAPb/AAAAAAkAAAAUAPX/AAAAAAkAAAAJAPr/AAAAAAkAAAAPAPr/AAAAAAkAAAAOAPz/AAADAAkAAAAMAPv/AAAAAAkAAAAJAP//AAAAAAkAAAALAP7/AAAAAAkAAAAOAP//AAAAAAkAAAAMAP//AAAAAAkAAAAHAAAAAAAAAAkAAAAFAP//AAAAAAkAAAATAP//AAAAAAkAAAAQAAAAAAAAAAkAAAAXAAAAAAAAAAkAAAAFAPj/AAAAAAkAAAAEAPn/AAAAAAkAAAABAPn/AAADAAkAAAAMAPf/AAADAAkAAAAUAAAAAAAAAAkAAAATAPz/AAAAAAkAAAATAPn/AAAAAAkAAAANAPn/AAAAAAkAAAAUAPr/AAAAAAkAAAAXAP3/AAAAAAkAAAD/////AAAAAAkAAAD///v/AAAAAAkAAAD//wYAAAAAAAkAAAAAAAMAAAAAAAkAAAAWAAMAAAAAAAkAAAAPAAkAAAAAAAkAAAAIAAoAAAAAAAkAAAADAAYAAAAAAAkAAAAOAAsAAAAAAAkAAAAFAAwAAAAAAAkAAAARAAsAAAAAAAkAAAATAA0AAAADAAkAAAAIAAEAAQACAAQAAAAJAAEAAQACAAQAAAAKAAEAAQACAAQAAAALAAEAAQACAAQAAAAMAAEAAQACAAQAAAANAAEAAQACAAQAAAAKAAYAAQACAAYAAAAMAAYAAQACAAYAAAANAAYAAQADAAYAAAAIAAYAAQABAAYAAAAIAAUAAQAGAAUAAAAKAAUAAQAGAAUAAAAMAAUAAQAGAAUAAAANAAUAAQAGAAUAAAALAAYAAQACAAYAAAAJAAYAAQACAAYAAAAJAAUAAQAGAAUAAAALAAUAAQAGAAUAAAA=")
-tile_set = SubResource("TileSet_ut8q3")
-metadata/_edit_lock_ = true
-
-[node name="3" type="TileMapLayer" parent="TileMap"]
-z_index = 3
-z_as_relative = false
-use_parent_material = true
-tile_map_data = PackedByteArray("AAANAAEAAQAGAAUAAAAIAAEAAQAGAAUAAAAFAA0AAAACAAQAAAAGAA0AAAADAAQAAAAEAA0AAAACAAQAAAADAA0AAAACAAQAAAACAA0AAAACAAQAAAABAA0AAAACAAQAAAAAAAwAAAADAAQAAAAAAA0AAAAEAAUAAAASAA0AAAACAAUAAAARAA0AAAACAAUAAAAUAA0AAAADAAUAAAAPAA0AAAABAAQAAAAQAA0AAAAFAAUAAAATAA0AAAACAAUAAAARAAwAAAACAAQAAAASAAwAAAACAAQAAAATAAwAAAACAAQAAAAQAAwAAAABAAQAAAAUAAwAAAADAAQAAAAIAAIAAQABAAEAAAANAAIAAQADAAEAAAA=")
-tile_set = SubResource("TileSet_ut8q3")
-metadata/_edit_lock_ = true
-
-[node name="4" type="TileMapLayer" parent="TileMap"]
-z_index = 4
-z_as_relative = false
-use_parent_material = true
-tile_map_data = PackedByteArray("AAAJAAQAAQACAAIAAAAKAAQAAQACAAIAAAALAAQAAQACAAIAAAAMAAQAAQACAAIAAAAIAAQAAQABAAIAAAANAAQAAQADAAIAAAANAAMAAQADAAEAAAANAAIAAQAFAAcAAAANAAEAAQADAAEAAAAIAAMAAQABAAEAAAAIAAIAAQAGAAcAAAAIAAEAAQABAAEAAAAJAAIAAQACAAYAAAAKAAIAAQACAAYAAAALAAIAAQACAAYAAAAMAAIAAQACAAYAAAAJAAEAAQAGAAUAAAAKAAEAAQAGAAUAAAALAAEAAQAGAAUAAAAMAAEAAQAGAAUAAAA=")
-tile_set = SubResource("TileSet_ut8q3")
-metadata/_edit_lock_ = true
 
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true
 process_mode = 3
 script = ExtResource("1_dm15a")
 
-[node name="PauseMenu" type="CanvasLayer" parent="GameManager"]
-process_mode = 3
-script = ExtResource("2_0qnqp")
+[node name="Map" type="Node2D" parent="GameManager"]
+y_sort_enabled = true
+script = SubResource("GDScript_2dals")
 
-[node name="ScreenArea" type="Area2D" parent="GameManager/PauseMenu"]
-process_mode = 3
-position = Vector2(160, 100)
-collision_layer = 2
+[node name="TileMap" parent="GameManager/Map" instance=ExtResource("4_jfl4l")]
+metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GameManager/PauseMenu/ScreenArea"]
+[node name="Entities" type="Node2D" parent="GameManager/Map"]
+position = Vector2(728, 86)
+
+[node name="TinyFrog" parent="GameManager/Map/Entities" instance=ExtResource("28_gousu")]
+position = Vector2(-561, 99)
+motion_mode = 1
+
+[node name="Interactable" parent="GameManager/Map/Entities/TinyFrog" instance=ExtResource("28_6yvu6")]
+position = Vector2(0, 4)
+interact_name = "Fight"
+interact_type = "Fight"
+
+[node name="TinyFrog2" parent="GameManager/Map/Entities" instance=ExtResource("28_gousu")]
+position = Vector2(-434, 15)
+motion_mode = 1
+
+[node name="Interactable" parent="GameManager/Map/Entities/TinyFrog2" instance=ExtResource("28_6yvu6")]
+
+[node name="Frog" parent="GameManager/Map/Entities" instance=ExtResource("29_ljh7c")]
+position = Vector2(-366, 13)
+
+[node name="Interactable" parent="GameManager/Map/Entities/Frog" instance=ExtResource("28_6yvu6")]
+interact_name = "Frog"
+interact_type = "Dialogue"
+dialogue = ExtResource("30_wkhry")
+
+[node name="Goblin" type="CharacterBody2D" parent="GameManager/Map/Entities"]
+position = Vector2(-395, 23)
+motion_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameManager/Map/Entities/Goblin"]
+position = Vector2(0, -11)
+shape = SubResource("CircleShape2D_aijmy")
+
+[node name="Sprite" type="Sprite2D" parent="GameManager/Map/Entities/Goblin"]
+position = Vector2(0, -13)
+texture = ExtResource("8_74ooj")
+hframes = 6
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GameManager/Map/Entities/Goblin/Sprite"]
+libraries = {
+"": SubResource("AnimationLibrary_7tlxs")
+}
+autoplay = "idle"
+
+[node name="Interactable" parent="GameManager/Map/Entities/Goblin" instance=ExtResource("28_6yvu6")]
+interact_name = "Goblin"
+
+[node name="Objects" type="Node2D" parent="GameManager/Map"]
+
+[node name="Sign" parent="GameManager/Map/Objects" instance=ExtResource("22_nmmnf")]
+z_index = 2
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(443, 98)
+
+[node name="Interactable" parent="GameManager/Map/Objects/Sign" instance=ExtResource("28_6yvu6")]
+interact_name = "Sign"
+interact_type = "Dialogue"
+dialogue = ExtResource("9_ylck8")
+
+[node name="Sign2" parent="GameManager/Map/Objects" instance=ExtResource("22_nmmnf")]
+z_index = 2
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(552, 123)
+
+[node name="Interactable" parent="GameManager/Map/Objects/Sign2" instance=ExtResource("28_6yvu6")]
+interact_name = "Sign"
+interact_type = "Dialogue"
+dialogue = ExtResource("10_fw1cu")
+
+[node name="Bed" parent="GameManager/Map/Objects" instance=ExtResource("26_i6eg1")]
+z_index = 2
+position = Vector2(450, 40)
+
+[node name="Interactable" parent="GameManager/Map/Objects/Bed" instance=ExtResource("28_6yvu6")]
+interact_name = "Bed"
+interact_type = "Bed"
+dialogue = ExtResource("11_xelvf")
+
+[node name="Door" parent="GameManager/Map/Objects" instance=ExtResource("25_2w4pu")]
+z_index = 0
+position = Vector2(488, 88)
+
+[node name="Backpack" parent="GameManager/Map/Objects" instance=ExtResource("14_nlsj0")]
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(496, 41)
+metadata/_edit_group_ = true
+
+[node name="Interactable" parent="GameManager/Map/Objects/Backpack" instance=ExtResource("28_6yvu6")]
+interact_name = "Backpack"
+interact_type = "Item"
+interact_texture = ExtResource("14_y0dg5")
+dialogue = ExtResource("15_2mrys")
+
+[node name="Table" parent="GameManager/Map/Objects" instance=ExtResource("15_is2x8")]
+z_index = 1
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(502, 40)
+metadata/_edit_group_ = true
+
+[node name="Shovel" parent="GameManager/Map/Objects" instance=ExtResource("16_428rx")]
+z_index = 2
+position = Vector2(473, 29)
+
+[node name="Interactable" parent="GameManager/Map/Objects/Shovel" instance=ExtResource("28_6yvu6")]
+position = Vector2(0, 1)
+interact_name = "Shovel"
+interact_type = "Item"
+interact_texture = ExtResource("18_5lfj2")
+dialogue = ExtResource("17_0157y")
+
+[node name="Pickups" type="Node2D" parent="GameManager/Map"]
+
+[node name="ItemPickup" parent="GameManager/Map/Pickups" instance=ExtResource("21_uc75n")]
+z_index = 1
+z_as_relative = false
+position = Vector2(759, 180)
+item_data = ExtResource("22_86lvj")
+
+[node name="ItemPickup3" parent="GameManager/Map/Pickups" instance=ExtResource("21_uc75n")]
+z_index = 1
+z_as_relative = false
+position = Vector2(843, 96)
+item_data = ExtResource("22_00b8a")
+
+[node name="ItemPickup4" parent="GameManager/Map/Pickups" instance=ExtResource("21_uc75n")]
+z_index = 1
+z_as_relative = false
+position = Vector2(680, 134)
+item_data = ExtResource("22_00b8a")
+
+[node name="ItemPickup6" parent="GameManager/Map/Pickups" instance=ExtResource("21_uc75n")]
+z_index = 1
+z_as_relative = false
+position = Vector2(392, 67)
+item_data = ExtResource("22_00b8a")
+
+[node name="Player" parent="GameManager/Map" instance=ExtResource("27_uharu")]
+unique_name_in_owner = true
 visible = false
-shape = SubResource("RectangleShape2D_qf7yb")
+position = Vector2(476, 66)
 
-[node name="PauseButton" type="MarginContainer" parent="GameManager/PauseMenu"]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -41.0
-offset_right = 95.0
-grow_vertical = 0
-theme_override_constants/margin_left = 38
-theme_override_constants/margin_top = 0
-theme_override_constants/margin_bottom = 10
+[node name="Transitions" type="CanvasLayer" parent="GameManager"]
+process_mode = 3
+layer = 2
+visible = false
+script = ExtResource("29_etrcj")
 
-[node name="PauseButton" type="Button" parent="GameManager/PauseMenu/PauseButton"]
-layout_mode = 2
-theme = ExtResource("3_fxxc5")
-shortcut = SubResource("Shortcut_46wx7")
-
-[node name="ButtonSound" type="AudioStreamPlayer" parent="GameManager/PauseMenu/PauseButton/PauseButton"]
-stream = ExtResource("13_6hd2o")
-pitch_scale = 0.77
-mix_target = 2
-
-[node name="LabelMargin" type="MarginContainer" parent="GameManager/PauseMenu/PauseButton/PauseButton"]
-layout_mode = 1
+[node name="ColorRect" type="ColorRect" parent="GameManager/Transitions"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 2
-theme_override_constants/margin_top = 2
-theme_override_constants/margin_right = 0
-theme_override_constants/margin_bottom = 0
-
-[node name="PauseLabel" type="Label" parent="GameManager/PauseMenu/PauseButton/PauseButton/LabelMargin"]
-layout_mode = 2
-text = "Pause"
-label_settings = SubResource("LabelSettings_mk4gv")
-horizontal_alignment = 1
-
-[node name="Underline" type="Label" parent="GameManager/PauseMenu/PauseButton/PauseButton"]
-layout_mode = 0
-offset_left = 13.0
-offset_top = 15.0
-offset_right = 68.0
-offset_bottom = 33.0
-text = "-"
-label_settings = SubResource("LabelSettings_st2s4")
-
-[node name="KnowledgeMenu" type="MarginContainer" parent="GameManager/PauseMenu"]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -180.0
-offset_right = 246.0
-grow_vertical = 0
-theme_override_constants/margin_left = 147
-theme_override_constants/margin_top = 0
-theme_override_constants/margin_right = 0
-theme_override_constants/margin_bottom = 59
-
-[node name="Checkerboard" parent="GameManager/PauseMenu/KnowledgeMenu" instance=ExtResource("19_m1aqh")]
-layout_mode = 2
-theme_override_constants/margin_top = 2
-theme_override_constants/margin_bottom = 2
-
-[node name="Border" type="NinePatchRect" parent="GameManager/PauseMenu/KnowledgeMenu"]
-layout_mode = 2
-texture = ExtResource("15_01r7o")
-patch_margin_left = 14
-patch_margin_top = 32
-patch_margin_right = 14
-patch_margin_bottom = 32
 metadata/_edit_lock_ = true
 
-[node name="KnowledgeMenuAnim" type="AnimationPlayer" parent="GameManager/PauseMenu/KnowledgeMenu"]
+[node name="TransitionPlayer" type="AnimationPlayer" parent="GameManager/Transitions"]
 libraries = {
-"": SubResource("AnimationLibrary_8bx6t")
+"": SubResource("AnimationLibrary_wymux")
 }
-autoplay = "Slide In"
-
-[node name="StatusMenu" type="MarginContainer" parent="GameManager/PauseMenu"]
-clip_contents = true
-custom_minimum_size = Vector2(65, 2.08165e-12)
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -20.0
-offset_right = 148.0
-offset_bottom = 100.0
-grow_vertical = 0
-mouse_filter = 0
-theme = ExtResource("3_fxxc5")
-theme_override_constants/margin_left = 40
-theme_override_constants/margin_bottom = 9
-
-[node name="Checkerboard" parent="GameManager/PauseMenu/StatusMenu" instance=ExtResource("19_m1aqh")]
-layout_mode = 2
-theme_override_constants/margin_left = 2
-theme_override_constants/margin_top = 0
-theme_override_constants/margin_right = 2
-theme_override_constants/margin_bottom = 0
-
-[node name="StatBackground" type="MarginContainer" parent="GameManager/PauseMenu/StatusMenu"]
-layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 7
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 7
-
-[node name="Panel" type="Panel" parent="GameManager/PauseMenu/StatusMenu/StatBackground"]
-layout_mode = 2
-
-[node name="Stats" type="MarginContainer" parent="GameManager/PauseMenu/StatusMenu"]
-layout_mode = 2
-theme_override_constants/margin_left = 15
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 15
-theme_override_constants/margin_bottom = 10
-
-[node name="HBoxContainer" type="HBoxContainer" parent="GameManager/PauseMenu/StatusMenu/Stats"]
-layout_mode = 2
-
-[node name="Stats" type="VBoxContainer" parent="GameManager/PauseMenu/StatusMenu/Stats/HBoxContainer"]
-layout_mode = 2
-theme = SubResource("Theme_l0ub4")
-alignment = 1
-
-[node name="Label" type="Label" parent="GameManager/PauseMenu/StatusMenu/Stats/HBoxContainer/Stats"]
-layout_mode = 2
-text = "Gumption"
-
-[node name="Label2" type="Label" parent="GameManager/PauseMenu/StatusMenu/Stats/HBoxContainer/Stats"]
-layout_mode = 2
-text = "Breath"
-
-[node name="Knowledge" parent="GameManager/PauseMenu/StatusMenu/Stats/HBoxContainer/Stats" instance=ExtResource("35_y0oq2")]
-layout_mode = 2
-theme = null
-theme_override_styles/normal = SubResource("StyleBoxEmpty_dbhdw")
-shortcut = SubResource("Shortcut_lf36b")
-text = "Knowledge"
-alignment = 0
-
-[node name="Label" type="Label" parent="GameManager/PauseMenu/StatusMenu/Stats/HBoxContainer/Stats/Knowledge"]
-layout_mode = 0
-offset_right = 60.0
-offset_bottom = 15.0
-text = "Knowledge"
-
-[node name="Underline" type="Label" parent="GameManager/PauseMenu/StatusMenu/Stats/HBoxContainer/Stats/Knowledge"]
-layout_mode = 0
-offset_top = 6.0
-offset_right = 54.0
-offset_bottom = 24.0
-text = "-"
-label_settings = SubResource("LabelSettings_st2s4")
-
-[node name="Label3" type="Label" parent="GameManager/PauseMenu/StatusMenu/Stats/HBoxContainer/Stats"]
-layout_mode = 2
-text = "Sanity"
-
-[node name="Label4" type="Label" parent="GameManager/PauseMenu/StatusMenu/Stats/HBoxContainer/Stats"]
-layout_mode = 2
-text = "Bowels"
-
-[node name="StatsNum" type="VBoxContainer" parent="GameManager/PauseMenu/StatusMenu/Stats/HBoxContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="Label" type="Label" parent="GameManager/PauseMenu/StatusMenu/Stats/HBoxContainer/StatsNum"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.66451, 0.66451, 0.66451, 1)
-text = "5"
-
-[node name="Label2" type="Label" parent="GameManager/PauseMenu/StatusMenu/Stats/HBoxContainer/StatsNum"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.66451, 0.66451, 0.66451, 1)
-text = "10"
-
-[node name="Label3" type="Label" parent="GameManager/PauseMenu/StatusMenu/Stats/HBoxContainer/StatsNum"]
-layout_mode = 2
-
-[node name="Label4" type="Label" parent="GameManager/PauseMenu/StatusMenu/Stats/HBoxContainer/StatsNum"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.360784, 1, 0.25098, 1)
-text = "80"
-
-[node name="Label5" type="Label" parent="GameManager/PauseMenu/StatusMenu/Stats/HBoxContainer/StatsNum"]
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.683333, 0, 1)
-text = "34"
-
-[node name="Border" type="NinePatchRect" parent="GameManager/PauseMenu/StatusMenu"]
-layout_mode = 2
-texture = ExtResource("15_01r7o")
-patch_margin_left = 14
-patch_margin_top = 32
-patch_margin_right = 14
-patch_margin_bottom = 32
-metadata/_edit_lock_ = true
-
-[node name="StatusMenuAnim" type="AnimationPlayer" parent="GameManager/PauseMenu/StatusMenu"]
-libraries = {
-"": SubResource("AnimationLibrary_4sdwh")
-}
-autoplay = "Slide Down"
-
-[node name="PauseMenu" type="MarginContainer" parent="GameManager/PauseMenu"]
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -60.0
-offset_bottom = 2.0
-grow_horizontal = 2
-grow_vertical = 0
-mouse_filter = 0
-mouse_force_pass_scroll_events = false
-theme_override_constants/margin_left = 40
-theme_override_constants/margin_right = 40
-theme_override_constants/margin_bottom = 10
-
-[node name="Checkerboard" parent="GameManager/PauseMenu/PauseMenu" instance=ExtResource("19_m1aqh")]
-layout_mode = 2
-mouse_force_pass_scroll_events = false
-theme_override_constants/margin_left = 2
-theme_override_constants/margin_top = 0
-theme_override_constants/margin_right = 2
-theme_override_constants/margin_bottom = 0
-
-[node name="Border" type="NinePatchRect" parent="GameManager/PauseMenu/PauseMenu"]
-layout_mode = 2
-texture = ExtResource("10_hpu0e")
-patch_margin_left = 14
-patch_margin_top = 15
-patch_margin_right = 14
-patch_margin_bottom = 15
-metadata/_edit_lock_ = true
-
-[node name="HBoxContainer" type="HBoxContainer" parent="GameManager/PauseMenu/PauseMenu"]
-layout_mode = 2
-mouse_filter = 0
-mouse_force_pass_scroll_events = false
-
-[node name="StatusButton" type="MarginContainer" parent="GameManager/PauseMenu/PauseMenu/HBoxContainer"]
-custom_minimum_size = Vector2(70, 2.08165e-12)
-layout_mode = 2
-theme_override_constants/margin_left = 14
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="StatusButton" parent="GameManager/PauseMenu/PauseMenu/HBoxContainer/StatusButton" instance=ExtResource("35_y0oq2")]
-layout_mode = 2
-shortcut = SubResource("Shortcut_a6x5x")
-
-[node name="LabelMargin" type="MarginContainer" parent="GameManager/PauseMenu/PauseMenu/HBoxContainer/StatusButton/StatusButton"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 2
-theme_override_constants/margin_top = 2
-theme_override_constants/margin_right = 0
-theme_override_constants/margin_bottom = 0
-metadata/_edit_lock_ = true
-
-[node name="StatusLabel" type="Label" parent="GameManager/PauseMenu/PauseMenu/HBoxContainer/StatusButton/StatusButton/LabelMargin"]
-layout_mode = 2
-text = "Status"
-label_settings = SubResource("LabelSettings_mk4gv")
-horizontal_alignment = 1
-metadata/_edit_lock_ = true
-
-[node name="Underline" type="Label" parent="GameManager/PauseMenu/PauseMenu/HBoxContainer/StatusButton/StatusButton"]
-layout_mode = 2
-offset_left = 11.0
-offset_top = 15.0
-offset_right = 65.0
-offset_bottom = 33.0
-text = "-"
-label_settings = SubResource("LabelSettings_st2s4")
-
-[node name="PauseMenuAnim" type="AnimationPlayer" parent="GameManager/PauseMenu/PauseMenu"]
-root_node = NodePath(".")
-libraries = {
-"": SubResource("AnimationLibrary_iy6y6")
-}
-autoplay = "Slide Down"
-
-[node name="PauseSound" type="AudioStreamPlayer" parent="GameManager/PauseMenu/PauseMenu/PauseMenuAnim"]
-stream = ExtResource("35_djtqh")
-volume_db = -14.33
-
-[node name="UnpauseSound" type="AudioStreamPlayer" parent="GameManager/PauseMenu/PauseMenu/PauseMenuAnim"]
-stream = ExtResource("36_a88w7")
-volume_db = -14.716
-
-[node name="AspectRatio" type="MarginContainer" parent="GameManager/PauseMenu"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -58.0
-offset_bottom = 28.0
-grow_horizontal = 0
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 3
-
-[node name="AspectRatioLabel" type="Label" parent="GameManager/PauseMenu/AspectRatio"]
-layout_mode = 2
-size_flags_vertical = 8
-text = "16 : 10"
-label_settings = SubResource("LabelSettings_edi7j")
-
-[node name="Button" type="Button" parent="GameManager/PauseMenu/AspectRatio"]
-layout_mode = 2
-theme = SubResource("Theme_68r7a")
-
-[node name="Sign" parent="." instance=ExtResource("16_g7b0h")]
-z_index = 2
-position = Vector2(140, 98)
-Dialogue = ExtResource("16_uswer")
-
-[node name="Sign2" parent="." instance=ExtResource("16_g7b0h")]
-z_index = 2
-position = Vector2(84, 59)
-Dialogue = ExtResource("17_hai44")
-
-[node name="Door" parent="." instance=ExtResource("4_lw428")]
-z_as_relative = false
-position = Vector2(184, 88)
-
-[node name="Bed" parent="." instance=ExtResource("5_lb31d")]
-position = Vector2(144, 26)
-metadata/_edit_lock_ = true
-
-[node name="Player" parent="." instance=ExtResource("1_kwsod")]
-process_mode = 1
-z_index = 2
-z_as_relative = false
-position = Vector2(189, 105)
+autoplay = "Fade Out"
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("8_jfvft")
 volume_db = -21.55
-autoplay = true
 
-[node name="Transitions" parent="." instance=ExtResource("22_5suwd")]
-visible = false
-
-[connection signal="input_event" from="GameManager/PauseMenu/ScreenArea" to="GameManager/PauseMenu" method="_on_screen_area_input_event"]
-[connection signal="pressed" from="GameManager/PauseMenu/PauseButton/PauseButton" to="GameManager/PauseMenu" method="_on_pause_button_pressed"]
-[connection signal="pressed" from="GameManager/PauseMenu/StatusMenu/Stats/HBoxContainer/Stats/Knowledge" to="GameManager/PauseMenu" method="_on_knowledge_pressed"]
-[connection signal="button_up" from="GameManager/PauseMenu/PauseMenu/HBoxContainer/StatusButton/StatusButton" to="GameManager/PauseMenu" method="_on_status_button_button_up"]
-[connection signal="pressed" from="GameManager/PauseMenu/PauseMenu/HBoxContainer/StatusButton/StatusButton" to="GameManager/PauseMenu" method="_on_status_button_pressed"]
-[connection signal="pressed" from="GameManager/PauseMenu/AspectRatio/Button" to="GameManager/PauseMenu" method="_on_button_pressed"]
+[connection signal="frame_changed" from="GameManager/Map/Entities/Goblin/Sprite" to="GameManager/Map/Entities/Goblin" method="_on_sprite_frame_changed"]

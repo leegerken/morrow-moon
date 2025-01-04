@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://cwj34ogqp1i0x"]
+
+[ext_resource type="Script" path="res://ui/popup_box/popup_button.gd" id="2_hmdj8"]
+[ext_resource type="Texture2D" uid="uid://qj0tjpsn50ct" path="res://ui/popup_box/box2.png" id="2_ucm06"]
+[ext_resource type="FontFile" uid="uid://ba51hssbtoj57" path="res://ui/fonts/tinypixel.otf" id="3_xgv5g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rk2xu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fb87y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4vsx6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7dgl4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ipwcg"]
+
+[node name="PopUpButton" type="Button"]
+offset_right = 48.0
+offset_bottom = 20.0
+size_flags_vertical = 3
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rk2xu")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_fb87y")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_4vsx6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7dgl4")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ipwcg")
+script = ExtResource("2_hmdj8")
+
+[node name="Panel" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ucm06")
+
+[node name="ButtonText" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = -1
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = ExtResource("3_xgv5g")
+theme_override_font_sizes/font_size = 7
+text = "Backpack"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="button_up" from="." to="." method="_on_button_up"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

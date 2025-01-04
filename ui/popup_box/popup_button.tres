@@ -1,0 +1,9 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://0gwqhtve2vge"]
+
+[ext_resource type="Texture2D" uid="uid://bvwloijg0jw0" path="res://art/ui/box.png" id="1_phlon"]
+
+[resource]
+texture = ExtResource("1_phlon")
+texture_margin_top = 2.0
+texture_margin_bottom = 2.0
+expand_margin_left = 3.0

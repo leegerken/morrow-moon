@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://86alfa5p7l43"
+path="res://.godot/imported/error.dialogue-53d7259503fb5a85632e6db22975ecb5.tres"
+
+[deps]
+
+source_file="res://systems/dialogue_system/dialog/error.dialogue"
+dest_files=["res://.godot/imported/error.dialogue-53d7259503fb5a85632e6db22975ecb5.tres"]
+
+[params]
+
+defaults=true

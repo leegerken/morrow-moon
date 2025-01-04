@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://cqlqs7aqdgb8j"
+path="res://.godot/imported/sign2.dialogue-f329376c01b62ff21e06bc1f7afd2252.tres"
+
+[deps]
+
+source_file="res://systems/dialogue_system/dialog/sign2.dialogue"
+dest_files=["res://.godot/imported/sign2.dialogue-f329376c01b62ff21e06bc1f7afd2252.tres"]
+
+[params]
+
+defaults=true

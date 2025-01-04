@@ -1,0 +1,708 @@
+[gd_scene load_steps=28 format=3 uid="uid://bhkuejyiqdhw1"]
+
+[ext_resource type="Script" path="res://ui/player_menu.gd" id="1_swcak"]
+[ext_resource type="Theme" uid="uid://blvkaikbuwd0j" path="res://ui/main_theme.tres" id="2_5gf76"]
+[ext_resource type="PackedScene" uid="uid://dktve4c2v3ca1" path="res://scenes/checkerboard.tscn" id="3_i26mb"]
+[ext_resource type="Texture2D" uid="uid://bpn2l4l1p4lbg" path="res://art/ui/border_thick2.png" id="4_sgbdv"]
+[ext_resource type="Texture2D" uid="uid://dni2j12oau8rv" path="res://art/ui/border2.png" id="5_i61vv"]
+[ext_resource type="AudioStream" uid="uid://dlbuls2o8tjih" path="res://audio/pause.wav" id="6_6tssp"]
+[ext_resource type="PackedScene" uid="uid://clgahvmopdmuf" path="res://ui/menu_button.tscn" id="6_wmn73"]
+[ext_resource type="AudioStream" uid="uid://y675eg7qyhe6" path="res://audio/unpause.wav" id="7_n4rpx"]
+[ext_resource type="Texture2D" uid="uid://ctpog8vwrc8v5" path="res://art/ui/border3.png" id="9_urw1s"]
+[ext_resource type="Texture2D" uid="uid://de3melgnfc1qt" path="res://art/icons/magnifying.png" id="10_xds6l"]
+[ext_resource type="Script" path="res://scripts/bug_list.gd" id="10_ynmjl"]
+[ext_resource type="FontFile" uid="uid://brsuylqxpu63h" path="res://ui/fonts/hero-speak.ttf" id="11_tqhyy"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ppavb"]
+texture = ExtResource("4_sgbdv")
+texture_margin_left = 14.0
+texture_margin_top = 15.0
+texture_margin_right = 14.0
+texture_margin_bottom = 15.0
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6o2li"]
+texture = ExtResource("5_i61vv")
+texture_margin_left = 14.0
+texture_margin_top = 15.0
+texture_margin_right = 14.0
+texture_margin_bottom = 15.0
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="Animation" id="Animation_oca3d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menus/StatsMenu:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(89, 113)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Menus/StatsMenu:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Menus/BaseMenu:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_jm8xs"]
+resource_name = "hide_base_menu"
+length = 0.21
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menus/BaseMenu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(30, 147), Vector2(30, 205)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Menus/BaseMenu:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.21),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_mwy3b"]
+resource_name = "hide_stats_menu"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menus/StatsMenu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(30, 29), Vector2(30, 152)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Menus/StatsMenu:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(89, 113), Vector2(89, 30)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Menus/StatsMenu:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ggy47"]
+resource_name = "show_base_menu"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menus/BaseMenu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(30, 205), Vector2(30, 147)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Menus/BaseMenu:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_p4kks"]
+resource_name = "show_stats_menu"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menus/StatsMenu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(30, 152), Vector2(30, 29)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Menus/StatsMenu:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(89, 30), Vector2(89, 113)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Menus/StatsMenu:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cuc4b"]
+_data = {
+"RESET": SubResource("Animation_oca3d"),
+"hide_base_menu": SubResource("Animation_jm8xs"),
+"hide_stats_menu": SubResource("Animation_mwy3b"),
+"show_base_menu": SubResource("Animation_ggy47"),
+"show_stats_menu": SubResource("Animation_p4kks")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_amv45"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tcx7d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5nfey"]
+
+[sub_resource type="Animation" id="Animation_geyel"]
+resource_name = "show_bug_menu"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(350, 12), Vector2(190, 12)]
+}
+
+[sub_resource type="Animation" id="Animation_14glu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(350, 12)]
+}
+
+[sub_resource type="Animation" id="Animation_ckme5"]
+resource_name = "hide_bug_menu"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(190, 12), Vector2(350, 12)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8d0ya"]
+_data = {
+"RESET": SubResource("Animation_14glu"),
+"hide_bug_menu": SubResource("Animation_ckme5"),
+"show_bug_menu": SubResource("Animation_geyel")
+}
+
+[node name="Player_Menu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_swcak")
+
+[node name="Menus" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MenuButton" parent="Menus" instance=ExtResource("6_wmn73")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 68.0
+offset_top = -41.0
+offset_right = 114.0
+offset_bottom = -11.0
+grow_vertical = 0
+shortcut_in_tooltip = false
+default_button_sound = false
+
+[node name="Label2" type="Label" parent="Menus/MenuButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MenuOpenSound" type="AudioStreamPlayer" parent="Menus/MenuButton"]
+stream = ExtResource("6_6tssp")
+volume_db = -14.579
+
+[node name="MenuCloseSound" type="AudioStreamPlayer" parent="Menus/MenuButton"]
+stream = ExtResource("7_n4rpx")
+volume_db = -14.481
+
+[node name="BaseMenu" type="Control" parent="Menus"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -130.0
+offset_top = 5.0
+offset_right = 130.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_5gf76")
+
+[node name="Checkerboard" parent="Menus/BaseMenu" instance=ExtResource("3_i26mb")]
+layout_mode = 1
+anchors_preset = 15
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = -10.0
+grow_vertical = 2
+
+[node name="Shadow" type="PanelContainer" parent="Menus/BaseMenu/Checkerboard"]
+self_modulate = Color(0, 0, 0, 0.579)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = -1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ppavb")
+
+[node name="Border" type="PanelContainer" parent="Menus/BaseMenu/Checkerboard"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ppavb")
+
+[node name="StatsMenuButton" parent="Menus/BaseMenu" instance=ExtResource("6_wmn73")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -118.0
+offset_top = -45.0
+offset_right = -70.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+shortcut_in_tooltip = false
+
+[node name="Label" type="Label" parent="Menus/BaseMenu/StatsMenuButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Stats"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CloseButton" parent="Menus/BaseMenu" instance=ExtResource("6_wmn73")]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 5.0
+offset_right = 114.0
+offset_bottom = 34.0
+shortcut_in_tooltip = false
+default_button_sound = false
+
+[node name="Label" type="Label" parent="Menus/BaseMenu/CloseButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Close"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Date" parent="Menus/BaseMenu" instance=ExtResource("6_wmn73")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -89.0
+offset_top = -46.0
+offset_right = -19.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Menus/BaseMenu/Date"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 1.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Month" type="Label" parent="Menus/BaseMenu/Date/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5612, 0.79442, 0.92, 1)
+text = "Feb"
+
+[node name="Day" type="Label" parent="Menus/BaseMenu/Date/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "21st"
+horizontal_alignment = 2
+
+[node name="StatsMenu" type="Control" parent="Menus"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -130.0
+offset_top = -171.0
+offset_right = -41.0
+offset_bottom = -58.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Checkerboard" parent="Menus/StatsMenu" instance=ExtResource("3_i26mb")]
+layout_mode = 1
+anchors_preset = 15
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_vertical = 2
+
+[node name="Shadow" type="PanelContainer" parent="Menus/StatsMenu/Checkerboard"]
+self_modulate = Color(0, 0, 0, 0.57)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_6o2li")
+
+[node name="Border" type="PanelContainer" parent="Menus/StatsMenu/Checkerboard"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_6o2li")
+
+[node name="Checkerboard2" parent="Menus/StatsMenu" instance=ExtResource("3_i26mb")]
+layout_mode = 1
+anchors_preset = 15
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+offset_left = 93.0
+offset_top = 0.0
+offset_right = 171.0
+offset_bottom = 0.0
+grow_vertical = 2
+
+[node name="Shadow" type="PanelContainer" parent="Menus/StatsMenu/Checkerboard2"]
+self_modulate = Color(0, 0, 0, 0.57)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_6o2li")
+
+[node name="Border" type="PanelContainer" parent="Menus/StatsMenu/Checkerboard2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_6o2li")
+
+[node name="BuildNotes" type="MarginContainer" parent="Menus/StatsMenu/Checkerboard2/Border"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Box" type="NinePatchRect" parent="Menus/StatsMenu/Checkerboard2/Border/BuildNotes"]
+layout_mode = 2
+texture = ExtResource("9_urw1s")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="PlayerMenuAnim" type="AnimationPlayer" parent="Menus"]
+reset_on_save = false
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_cuc4b")
+}
+
+[node name="BugList" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("10_ynmjl")
+
+[node name="MenuButton" parent="BugList" instance=ExtResource("6_wmn73")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 272.0
+offset_top = 10.0
+offset_right = -18.0
+offset_bottom = -162.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="BugList/MenuButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_xds6l")
+stretch_mode = 3
+
+[node name="Background" parent="BugList" instance=ExtResource("3_i26mb")]
+layout_mode = 1
+anchors_preset = 15
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+offset_left = 350.0
+offset_top = 12.0
+offset_right = 140.0
+offset_bottom = -14.0
+grow_vertical = 2
+
+[node name="Shadow" type="PanelContainer" parent="BugList/Background"]
+self_modulate = Color(0, 0, 0, 0.57)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_6o2li")
+
+[node name="Border" type="PanelContainer" parent="BugList/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_6o2li")
+
+[node name="TextEntry" type="NinePatchRect" parent="BugList/Background"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = -8.0
+offset_bottom = 33.0
+grow_horizontal = 2
+texture = ExtResource("9_urw1s")
+patch_margin_left = 16
+patch_margin_top = 8
+patch_margin_right = 16
+patch_margin_bottom = 8
+
+[node name="LineEdit" type="LineEdit" parent="BugList/Background/TextEntry"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 3.0
+offset_right = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("11_tqhyy")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/focus = SubResource("StyleBoxEmpty_amv45")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_tcx7d")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5nfey")
+placeholder_text = "Enter..."
+
+[node name="BugList" type="NinePatchRect" parent="BugList/Background"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 7.0
+offset_top = 34.0
+offset_right = -8.0
+offset_bottom = 168.0
+grow_horizontal = 2
+texture = ExtResource("9_urw1s")
+patch_margin_left = 16
+patch_margin_top = 8
+patch_margin_right = 16
+patch_margin_bottom = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BugList/Background"]
+libraries = {
+"": SubResource("AnimationLibrary_8d0ya")
+}
+
+[connection signal="pressed" from="Menus/MenuButton" to="." method="show_base_menu"]
+[connection signal="pressed" from="Menus/BaseMenu/StatsMenuButton" to="." method="_on_stats_menu_button_pressed"]
+[connection signal="pressed" from="Menus/BaseMenu/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="button_up" from="Menus/BaseMenu/Date" to="." method="_on_date_button_up"]
+[connection signal="pressed" from="BugList/MenuButton" to="BugList" method="show_bug_list"]

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://ctqxygtjemp7f"]
+
+[ext_resource type="Script" path="res://scripts/item_data.gd" id="1_j4xwa"]
+[ext_resource type="Texture2D" uid="uid://c142nbgluemql" path="res://art/pickups/branch.png" id="2_nmvdk"]
+
+[resource]
+script = ExtResource("1_j4xwa")
+name = "Branch"
+description = "The branch of a tree."
+texture = ExtResource("2_nmvdk")

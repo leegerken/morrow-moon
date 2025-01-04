@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c1fuohgdvhn0c"
+path="res://.godot/imported/DAN DA DAN OST - Spoken Spell.mp3-791ed9b9aedbaa4519a9f30e2c89b08b.mp3str"
+
+[deps]
+
+source_file="res://audio/DAN DA DAN OST - Spoken Spell.mp3"
+dest_files=["res://.godot/imported/DAN DA DAN OST - Spoken Spell.mp3-791ed9b9aedbaa4519a9f30e2c89b08b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

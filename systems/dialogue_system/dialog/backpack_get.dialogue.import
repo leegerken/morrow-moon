@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://mytwqbnwhf00"
+path="res://.godot/imported/backpack_get.dialogue-c3b233b3d096cb567fabd092d3dd840c.tres"
+
+[deps]
+
+source_file="res://systems/dialogue_system/dialog/backpack_get.dialogue"
+dest_files=["res://.godot/imported/backpack_get.dialogue-c3b233b3d096cb567fabd092d3dd840c.tres"]
+
+[params]
+
+defaults=true

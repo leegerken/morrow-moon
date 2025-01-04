@@ -1,0 +1,145 @@
+[gd_scene load_steps=16 format=3 uid="uid://7msgvn756ja3"]
+
+[ext_resource type="Script" path="res://ui/text_button.gd" id="2_i2x5g"]
+[ext_resource type="AudioStream" uid="uid://b5bk5l38nesf7" path="res://audio/button_press.ogg" id="2_qm2am"]
+[ext_resource type="FontFile" uid="uid://brsuylqxpu63h" path="res://ui/fonts/hero-speak.ttf" id="3_6m6u7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hx0mx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_155fc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_omm41"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hpfma"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nqxci"]
+
+[sub_resource type="Theme" id="Theme_g8rfm"]
+Button/colors/font_color = Color(0.46016, 0.48, 0.3312, 1)
+Button/colors/font_focus_color = Color(0.46016, 0.48, 0.3312, 1)
+Button/colors/font_hover_color = Color(0.46016, 0.48, 0.3312, 1)
+Button/colors/font_hover_pressed_color = Color(0.46016, 0.48, 0.3312, 1)
+Button/colors/font_pressed_color = Color(0.46016, 0.48, 0.3312, 1)
+Button/font_sizes/font_size = 14
+Button/fonts/font = ExtResource("3_6m6u7")
+Button/styles/focus = SubResource("StyleBoxEmpty_hx0mx")
+Button/styles/hover = SubResource("StyleBoxEmpty_155fc")
+Button/styles/hover_pressed = SubResource("StyleBoxEmpty_omm41")
+Button/styles/normal = SubResource("StyleBoxEmpty_hpfma")
+Button/styles/pressed = SubResource("StyleBoxEmpty_nqxci")
+Label/colors/font_color = Color(0.882353, 0.921569, 0.631373, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 14
+Label/fonts/font = ExtResource("3_6m6u7")
+
+[sub_resource type="InputEventKey" id="InputEventKey_edsqw"]
+device = -1
+pressed = true
+keycode = 75
+unicode = 107
+
+[sub_resource type="Shortcut" id="Shortcut_lf36b"]
+events = [SubResource("InputEventKey_edsqw")]
+
+[sub_resource type="LabelSettings" id="LabelSettings_st2s4"]
+font = ExtResource("3_6m6u7")
+font_color = Color(0.882353, 0.921569, 0.631373, 1)
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_g1s07"]
+resource_name = "Pressed"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Underline:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_vt5jt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Underline:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sbgdv"]
+_data = {
+"Pressed": SubResource("Animation_g1s07"),
+"RESET": SubResource("Animation_vt5jt")
+}
+
+[node name="TextButton" type="Button"]
+theme = SubResource("Theme_g8rfm")
+shortcut = SubResource("Shortcut_lf36b")
+text = "Knowledge"
+alignment = 0
+script = ExtResource("2_i2x5g")
+label_text = "Knowledge"
+
+[node name="ButtonSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_qm2am")
+pitch_scale = 0.77
+mix_target = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 60.0
+offset_bottom = 15.0
+text = "Knowledge"
+
+[node name="Underline" type="Label" parent="."]
+layout_mode = 0
+offset_top = 6.0
+offset_right = 54.0
+offset_bottom = 24.0
+text = "-"
+label_settings = SubResource("LabelSettings_st2s4")
+
+[node name="AnimationTree" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_sbgdv")
+}
+autoplay = "RESET"
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="button_up" from="." to="." method="_on_button_up"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

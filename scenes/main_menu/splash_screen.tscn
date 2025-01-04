@@ -1,0 +1,115 @@
+[gd_scene load_steps=11 format=3 uid="uid://bjao4cnionolp"]
+
+[ext_resource type="Texture2D" uid="uid://b8nox4bofv1vb" path="res://art/splash2.png" id="1_4jlgr"]
+[ext_resource type="Script" path="res://scenes/main_menu/splash_screen.gd" id="1_ppm4r"]
+[ext_resource type="Texture2D" uid="uid://bhfhjktb6te1j" path="res://art/splash.png" id="2_krnhh"]
+[ext_resource type="FontFile" uid="uid://cu7q7bxjxyixg" path="res://ui/fonts/applegaramond-light.ttf" id="3_ast0m"]
+[ext_resource type="AudioStream" uid="uid://dcy4f7l71khe0" path="res://audio/splash1.wav" id="4_4o5jj"]
+[ext_resource type="Texture2D" uid="uid://6xo40xx57ko7" path="res://art/ui/white_screen.png" id="6_npws0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_e2ela"]
+font = ExtResource("3_ast0m")
+font_size = 29
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_7jrhr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WhiteDissolve:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_v41fb"]
+resource_name = "boot"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WhiteDissolve:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 3, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SplashSound")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rerak"]
+_data = {
+"RESET": SubResource("Animation_7jrhr"),
+"boot": SubResource("Animation_v41fb")
+}
+
+[node name="SplashScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ppm4r")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_4jlgr")
+expand_mode = 1
+
+[node name="SplashLogo" type="Sprite2D" parent="."]
+position = Vector2(156, 83)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_krnhh")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 149.0
+offset_right = 220.0
+offset_bottom = 183.0
+text = "DreamVision"
+label_settings = SubResource("LabelSettings_e2ela")
+
+[node name="SplashSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_4o5jj")
+volume_db = -7.548
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_rerak")
+}
+autoplay = "boot"
+
+[node name="WhiteDissolve" type="TextureRect" parent="."]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_npws0")

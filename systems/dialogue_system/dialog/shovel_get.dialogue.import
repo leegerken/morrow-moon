@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://bo25b2ci7ojbm"
+path="res://.godot/imported/shovel_get.dialogue-216b9d3ba25651fc72145dcbe43c1dc2.tres"
+
+[deps]
+
+source_file="res://systems/dialogue_system/dialog/shovel_get.dialogue"
+dest_files=["res://.godot/imported/shovel_get.dialogue-216b9d3ba25651fc72145dcbe43c1dc2.tres"]
+
+[params]
+
+defaults=true

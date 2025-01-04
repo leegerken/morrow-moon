@@ -1,0 +1,824 @@
+[gd_scene load_steps=48 format=3 uid="uid://dm3ugbgt0w1dw"]
+
+[ext_resource type="Script" path="res://ui/hud.gd" id="1_wocs2"]
+[ext_resource type="Theme" uid="uid://blvkaikbuwd0j" path="res://ui/main_theme.tres" id="2_fy0wn"]
+[ext_resource type="AudioStream" uid="uid://b5bk5l38nesf7" path="res://audio/button_press.ogg" id="3_fuxkk"]
+[ext_resource type="FontFile" uid="uid://brsuylqxpu63h" path="res://ui/fonts/hero-speak.ttf" id="4_gr818"]
+[ext_resource type="PackedScene" uid="uid://dktve4c2v3ca1" path="res://scenes/checkerboard.tscn" id="5_41g4q"]
+[ext_resource type="Texture2D" uid="uid://cj6nyuubrmwi6" path="res://ui/icons/literacy.png" id="6_6s7kg"]
+[ext_resource type="FontFile" uid="uid://b7ud2k3xyroie" path="res://ui/fonts/game over.ttf" id="7_urfub"]
+[ext_resource type="Texture2D" uid="uid://dj5maqfmwsesj" path="res://ui/icons/herbalism_16.png" id="8_8aj53"]
+[ext_resource type="Texture2D" uid="uid://d0ck1nsn1h7wu" path="res://ui/icons/dao.png" id="9_qmlmd"]
+[ext_resource type="Texture2D" uid="uid://1mysfq0drjku" path="res://ui/icons/textiles.png" id="10_y81oe"]
+[ext_resource type="Texture2D" uid="uid://dni2j12oau8rv" path="res://art/ui/border2.png" id="12_tyxra"]
+[ext_resource type="PackedScene" uid="uid://7msgvn756ja3" path="res://ui/text_button.tscn" id="13_yfweu"]
+[ext_resource type="Texture2D" uid="uid://bpn2l4l1p4lbg" path="res://art/ui/border_thick2.png" id="14_555dq"]
+[ext_resource type="PackedScene" uid="uid://clgahvmopdmuf" path="res://ui/menu_button.tscn" id="15_klsay"]
+[ext_resource type="AudioStream" uid="uid://dlbuls2o8tjih" path="res://audio/pause.wav" id="16_tk0fv"]
+[ext_resource type="AudioStream" uid="uid://y675eg7qyhe6" path="res://audio/unpause.wav" id="17_xar2b"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mk4gv"]
+font = ExtResource("4_gr818")
+font_size = 14
+font_color = Color(0.882353, 0.921569, 0.631373, 1)
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_st2s4"]
+font = ExtResource("4_gr818")
+font_color = Color(0.882353, 0.921569, 0.631373, 1)
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fa48x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v04h8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y8i30"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_blx2p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_suaei"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5bkpg"]
+
+[sub_resource type="Theme" id="Theme_xn23e"]
+Button/colors/font_color = Color(1, 0.683333, 0, 1)
+Button/font_sizes/font_size = 14
+Button/fonts/font = ExtResource("4_gr818")
+Button/styles/disabled = SubResource("StyleBoxEmpty_fa48x")
+Button/styles/focus = SubResource("StyleBoxEmpty_v04h8")
+Button/styles/hover = SubResource("StyleBoxEmpty_y8i30")
+Button/styles/hover_pressed = SubResource("StyleBoxEmpty_blx2p")
+Button/styles/normal = SubResource("StyleBoxEmpty_suaei")
+Button/styles/pressed = SubResource("StyleBoxEmpty_5bkpg")
+
+[sub_resource type="LabelSettings" id="LabelSettings_u5vim"]
+font = ExtResource("7_urfub")
+font_size = 8
+font_color = Color(0.882353, 0.921569, 0.631373, 1)
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_d1wtd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_d3gu4"]
+resource_name = "Slide In"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 20), Vector2(-105, 20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_fuupi"]
+resource_name = "Slide Out"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-105, 20), Vector2(0, 20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8bx6t"]
+_data = {
+"RESET": SubResource("Animation_d1wtd"),
+"Slide In": SubResource("Animation_d3gu4"),
+"Slide Out": SubResource("Animation_fuupi")
+}
+
+[sub_resource type="Theme" id="Theme_l0ub4"]
+Label/colors/font_color = Color(0.882353, 0.921569, 0.631373, 1)
+
+[sub_resource type="Animation" id="Animation_v078i"]
+resource_name = "Slide Down"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2.08165e-12, 20), Vector2(2.08165e-12, 180)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(148, 130), Vector2(120, 2.08165e-12)]
+}
+
+[sub_resource type="Animation" id="Animation_nvdsa"]
+resource_name = "Slide Up"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2.08165e-12, 180), Vector2(2.08165e-12, 20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(120, 2.08165e-12), Vector2(148, 130)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4sdwh"]
+_data = {
+"Slide Down": SubResource("Animation_v078i"),
+"Slide Up": SubResource("Animation_nvdsa")
+}
+
+[sub_resource type="InputEventKey" id="InputEventKey_1jxxq"]
+device = -1
+keycode = 83
+unicode = 115
+
+[sub_resource type="Shortcut" id="Shortcut_a6x5x"]
+events = [SubResource("InputEventKey_1jxxq")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_bnjp4"]
+device = -1
+keycode = 81
+unicode = 113
+
+[sub_resource type="Shortcut" id="Shortcut_yo3ot"]
+events = [SubResource("InputEventKey_bnjp4")]
+
+[sub_resource type="Animation" id="Animation_h6nd7"]
+resource_name = "Slide Down"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2.08165e-12, 140), Vector2(2.08165e-12, 290)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_csujc"]
+resource_name = "Slide Up"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2.08165e-12, 290), Vector2(2.08165e-12, 140)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iy6y6"]
+_data = {
+"Slide Down": SubResource("Animation_h6nd7"),
+"Slide Up": SubResource("Animation_csujc")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_edi7j"]
+font = ExtResource("4_gr818")
+font_size = 14
+font_color = Color(0.752941, 1, 0.588235, 1)
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bvoow"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_38y6i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ynxi1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6mule"]
+
+[sub_resource type="Theme" id="Theme_68r7a"]
+Button/colors/font_color = Color(0.752941, 1, 0.588235, 1)
+Button/colors/font_pressed_color = Color(0.52026, 0.69, 0.4071, 1)
+Button/font_sizes/font_size = 14
+Button/fonts/font = ExtResource("4_gr818")
+Button/styles/focus = SubResource("StyleBoxEmpty_bvoow")
+Button/styles/hover = SubResource("StyleBoxEmpty_38y6i")
+Button/styles/normal = SubResource("StyleBoxEmpty_ynxi1")
+Button/styles/pressed = SubResource("StyleBoxEmpty_6mule")
+
+[node name="HUD" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_wocs2")
+
+[node name="PauseButton" type="MarginContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -41.0
+offset_right = 95.0
+grow_vertical = 0
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_bottom = 10
+
+[node name="PauseButton" type="Button" parent="PauseButton"]
+layout_mode = 2
+theme = ExtResource("2_fy0wn")
+
+[node name="ButtonSound" type="AudioStreamPlayer" parent="PauseButton/PauseButton"]
+stream = ExtResource("3_fuxkk")
+pitch_scale = 0.77
+mix_target = 2
+
+[node name="LabelMargin" type="MarginContainer" parent="PauseButton/PauseButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="PauseLabel" type="Label" parent="PauseButton/PauseButton/LabelMargin"]
+layout_mode = 2
+text = "Pause"
+label_settings = SubResource("LabelSettings_mk4gv")
+horizontal_alignment = 1
+
+[node name="Underline" type="Label" parent="PauseButton/PauseButton"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 15.0
+offset_right = 68.0
+offset_bottom = 33.0
+text = "-"
+label_settings = SubResource("LabelSettings_st2s4")
+
+[node name="KnowledgeMenu" type="MarginContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -180.0
+offset_right = 247.0
+grow_vertical = 0
+theme = ExtResource("2_fy0wn")
+theme_override_constants/margin_left = 145
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 59
+
+[node name="Checkerboard" parent="KnowledgeMenu" instance=ExtResource("5_41g4q")]
+layout_mode = 2
+
+[node name="StatBackground" type="MarginContainer" parent="KnowledgeMenu"]
+layout_mode = 2
+theme_override_constants/margin_left = 7
+theme_override_constants/margin_top = 7
+theme_override_constants/margin_right = 7
+theme_override_constants/margin_bottom = 7
+
+[node name="Panel" type="Panel" parent="KnowledgeMenu/StatBackground"]
+layout_mode = 2
+
+[node name="Knowledge" type="MarginContainer" parent="KnowledgeMenu"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 13
+theme_override_constants/margin_bottom = 14
+
+[node name="GridContainer" type="GridContainer" parent="KnowledgeMenu/Knowledge"]
+layout_mode = 2
+theme_override_constants/h_separation = -3
+theme_override_constants/v_separation = 2
+columns = 3
+
+[node name="IconButton3" type="Control" parent="KnowledgeMenu/Knowledge/GridContainer"]
+custom_minimum_size = Vector2(27, 22)
+layout_mode = 2
+theme = SubResource("Theme_xn23e")
+
+[node name="Button" type="Button" parent="KnowledgeMenu/Knowledge/GridContainer/IconButton3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+icon = ExtResource("6_6s7kg")
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="Label" type="Label" parent="KnowledgeMenu/Knowledge/GridContainer/IconButton3"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Literacy"
+label_settings = SubResource("LabelSettings_u5vim")
+horizontal_alignment = 1
+
+[node name="IconButton" type="Control" parent="KnowledgeMenu/Knowledge/GridContainer"]
+custom_minimum_size = Vector2(27, 22)
+layout_mode = 2
+theme = SubResource("Theme_xn23e")
+
+[node name="Button" type="Button" parent="KnowledgeMenu/Knowledge/GridContainer/IconButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+icon = ExtResource("8_8aj53")
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="Label" type="Label" parent="KnowledgeMenu/Knowledge/GridContainer/IconButton"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Flora"
+label_settings = SubResource("LabelSettings_u5vim")
+horizontal_alignment = 1
+
+[node name="IconButton2" type="Control" parent="KnowledgeMenu/Knowledge/GridContainer"]
+custom_minimum_size = Vector2(20, 22)
+layout_mode = 2
+theme = SubResource("Theme_xn23e")
+
+[node name="Button" type="Button" parent="KnowledgeMenu/Knowledge/GridContainer/IconButton2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+icon = ExtResource("9_qmlmd")
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="Label" type="Label" parent="KnowledgeMenu/Knowledge/GridContainer/IconButton2"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Dao
+"
+label_settings = SubResource("LabelSettings_u5vim")
+horizontal_alignment = 1
+
+[node name="IconButton4" type="Control" parent="KnowledgeMenu/Knowledge/GridContainer"]
+custom_minimum_size = Vector2(27, 22)
+layout_mode = 2
+theme = SubResource("Theme_xn23e")
+
+[node name="Button" type="Button" parent="KnowledgeMenu/Knowledge/GridContainer/IconButton4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+icon = ExtResource("10_y81oe")
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="Label" type="Label" parent="KnowledgeMenu/Knowledge/GridContainer/IconButton4"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "textiles"
+label_settings = SubResource("LabelSettings_u5vim")
+horizontal_alignment = 1
+
+[node name="Border" type="NinePatchRect" parent="KnowledgeMenu"]
+layout_mode = 2
+texture = ExtResource("12_tyxra")
+patch_margin_left = 14
+patch_margin_top = 32
+patch_margin_right = 14
+patch_margin_bottom = 32
+
+[node name="KnowledgeMenuAnim" type="AnimationPlayer" parent="KnowledgeMenu"]
+libraries = {
+"": SubResource("AnimationLibrary_8bx6t")
+}
+autoplay = "Slide In"
+
+[node name="StatusMenu" type="MarginContainer" parent="."]
+clip_contents = true
+custom_minimum_size = Vector2(65, 2.08165e-12)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -180.0
+offset_right = 146.0
+offset_bottom = -50.0
+grow_vertical = 0
+mouse_filter = 0
+theme = ExtResource("2_fy0wn")
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_bottom = 9
+
+[node name="Checkerboard" parent="StatusMenu" instance=ExtResource("5_41g4q")]
+layout_mode = 2
+
+[node name="StatBackground" type="MarginContainer" parent="StatusMenu"]
+layout_mode = 2
+theme_override_constants/margin_left = 7
+theme_override_constants/margin_top = 7
+theme_override_constants/margin_right = 7
+theme_override_constants/margin_bottom = 7
+
+[node name="Panel" type="Panel" parent="StatusMenu/StatBackground"]
+layout_mode = 2
+
+[node name="Stats" type="MarginContainer" parent="StatusMenu"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="StatusMenu/Stats"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Stats" type="VBoxContainer" parent="StatusMenu/Stats/HBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_l0ub4")
+alignment = 1
+
+[node name="Gumption" type="Label" parent="StatusMenu/Stats/HBoxContainer/Stats"]
+layout_mode = 2
+text = "Gumption"
+
+[node name="Breath" type="Label" parent="StatusMenu/Stats/HBoxContainer/Stats"]
+layout_mode = 2
+text = "Breath"
+
+[node name="Knowledge" parent="StatusMenu/Stats/HBoxContainer/Stats" instance=ExtResource("13_yfweu")]
+layout_mode = 2
+
+[node name="Sanity" type="Label" parent="StatusMenu/Stats/HBoxContainer/Stats"]
+layout_mode = 2
+text = "Sanity"
+
+[node name="Bowel" type="Label" parent="StatusMenu/Stats/HBoxContainer/Stats"]
+layout_mode = 2
+text = "Bowels"
+
+[node name="StatsNum" type="VBoxContainer" parent="StatusMenu/Stats/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Gumption" type="Label" parent="StatusMenu/Stats/HBoxContainer/StatsNum"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.66451, 0.66451, 0.66451, 1)
+text = "5"
+
+[node name="Breath" type="Label" parent="StatusMenu/Stats/HBoxContainer/StatsNum"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.66451, 0.66451, 0.66451, 1)
+text = "10"
+
+[node name="Knowledge" type="Label" parent="StatusMenu/Stats/HBoxContainer/StatsNum"]
+layout_mode = 2
+
+[node name="Sanity" type="Label" parent="StatusMenu/Stats/HBoxContainer/StatsNum"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.360784, 1, 0.25098, 1)
+text = "80"
+
+[node name="Bowels" type="Label" parent="StatusMenu/Stats/HBoxContainer/StatsNum"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.683333, 0, 1)
+text = "34"
+
+[node name="Border" type="NinePatchRect" parent="StatusMenu"]
+layout_mode = 2
+texture = ExtResource("12_tyxra")
+patch_margin_left = 14
+patch_margin_top = 32
+patch_margin_right = 14
+patch_margin_bottom = 32
+metadata/_edit_lock_ = true
+
+[node name="StatusMenuAnim" type="AnimationPlayer" parent="StatusMenu"]
+libraries = {
+"": SubResource("AnimationLibrary_4sdwh")
+}
+autoplay = "Slide Down"
+
+[node name="PauseMenu" type="MarginContainer" parent="."]
+visible = false
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 90.0
+offset_bottom = 152.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 0
+mouse_force_pass_scroll_events = false
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 10
+
+[node name="Checkerboard" parent="PauseMenu" instance=ExtResource("5_41g4q")]
+layout_mode = 2
+mouse_force_pass_scroll_events = false
+
+[node name="Border" type="NinePatchRect" parent="PauseMenu"]
+layout_mode = 2
+texture = ExtResource("14_555dq")
+patch_margin_left = 14
+patch_margin_top = 15
+patch_margin_right = 14
+patch_margin_bottom = 15
+metadata/_edit_lock_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PauseMenu"]
+layout_mode = 2
+mouse_filter = 0
+mouse_force_pass_scroll_events = false
+
+[node name="StatusButton" type="MarginContainer" parent="PauseMenu/HBoxContainer"]
+custom_minimum_size = Vector2(70, 2.08165e-12)
+layout_mode = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="StatusButton" parent="PauseMenu/HBoxContainer/StatusButton" instance=ExtResource("15_klsay")]
+layout_mode = 2
+focus_neighbor_right = NodePath("../../../QuitButton/QuitButton")
+shortcut = SubResource("Shortcut_a6x5x")
+
+[node name="LabelMargin" type="MarginContainer" parent="PauseMenu/HBoxContainer/StatusButton/StatusButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+metadata/_edit_lock_ = true
+
+[node name="StatusLabel" type="Label" parent="PauseMenu/HBoxContainer/StatusButton/StatusButton/LabelMargin"]
+layout_mode = 2
+text = "Status"
+label_settings = SubResource("LabelSettings_mk4gv")
+horizontal_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Underline" type="Label" parent="PauseMenu/HBoxContainer/StatusButton/StatusButton"]
+layout_mode = 2
+offset_left = 11.0
+offset_top = 15.0
+offset_right = 65.0
+offset_bottom = 33.0
+text = "-"
+label_settings = SubResource("LabelSettings_st2s4")
+
+[node name="QuitButton" type="MarginContainer" parent="PauseMenu"]
+custom_minimum_size = Vector2(56, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 10
+
+[node name="QuitButton" parent="PauseMenu/QuitButton" instance=ExtResource("15_klsay")]
+layout_mode = 2
+focus_neighbor_left = NodePath("../../HBoxContainer/StatusButton/StatusButton")
+shortcut = SubResource("Shortcut_yo3ot")
+
+[node name="LabelMargin" type="MarginContainer" parent="PauseMenu/QuitButton/QuitButton"]
+layout_mode = 2
+offset_right = 42.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+metadata/_edit_lock_ = true
+
+[node name="StatusLabel" type="Label" parent="PauseMenu/QuitButton/QuitButton/LabelMargin"]
+layout_mode = 2
+text = "Quit"
+label_settings = SubResource("LabelSettings_mk4gv")
+horizontal_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Underline" type="Label" parent="PauseMenu/QuitButton/QuitButton"]
+layout_mode = 2
+offset_left = 11.0
+offset_top = 15.0
+offset_right = 53.0
+offset_bottom = 33.0
+text = "-"
+label_settings = SubResource("LabelSettings_st2s4")
+
+[node name="PauseMenuAnim" type="AnimationPlayer" parent="PauseMenu"]
+root_node = NodePath(".")
+libraries = {
+"": SubResource("AnimationLibrary_iy6y6")
+}
+autoplay = "Slide Down"
+
+[node name="PauseSound" type="AudioStreamPlayer" parent="PauseMenu/PauseMenuAnim"]
+stream = ExtResource("16_tk0fv")
+volume_db = -14.33
+
+[node name="UnpauseSound" type="AudioStreamPlayer" parent="PauseMenu/PauseMenuAnim"]
+stream = ExtResource("17_xar2b")
+volume_db = -14.716
+
+[node name="AspectRatio" type="MarginContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -58.0
+offset_bottom = 28.0
+grow_horizontal = 0
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 3
+
+[node name="AspectRatioLabel" type="Label" parent="AspectRatio"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "16 : 10"
+label_settings = SubResource("LabelSettings_edi7j")
+
+[node name="Button" type="Button" parent="AspectRatio"]
+layout_mode = 2
+theme = SubResource("Theme_68r7a")
+
+[connection signal="pressed" from="PauseButton/PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="StatusMenu/Stats/HBoxContainer/Stats/Knowledge" to="." method="_on_knowledge_pressed"]
+[connection signal="button_up" from="PauseMenu/HBoxContainer/StatusButton/StatusButton" to="." method="_on_status_button_button_up"]
+[connection signal="pressed" from="PauseMenu/HBoxContainer/StatusButton/StatusButton" to="." method="_on_status_button_pressed"]
+[connection signal="pressed" from="PauseMenu/QuitButton/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="AspectRatio/Button" to="." method="_on_button_pressed"]

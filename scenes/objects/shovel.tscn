@@ -1,0 +1,70 @@
+[gd_scene load_steps=13 format=3 uid="uid://tkxeckvlncot"]
+
+[ext_resource type="Shader" path="res://scripts/shaders/sprite_outline.gdshader" id="1_1c2iw"]
+[ext_resource type="Texture2D" uid="uid://cesc6yyfmgn7y" path="res://art/objects/shovel.png" id="1_p2g8g"]
+[ext_resource type="Script" path="res://scripts/sprite_outline.gd" id="2_x5mot"]
+[ext_resource type="Shortcut" uid="uid://bo3c8ebj6unxp" path="res://systems/shortcuts/interact.tres" id="4_tkoul"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6c7v8"]
+shader = ExtResource("1_1c2iw")
+shader_parameter/width = 0
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/flickering_speed = null
+shader_parameter/minimal_flickering_alpha = 0.9
+shader_parameter/brightness = null
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qd7tf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t7ogx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i46em"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ymeua"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_83ed2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fltgw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cfx0q"]
+size = Vector2(12, 16)
+
+[node name="Shovel" type="Sprite2D"]
+material = SubResource("ShaderMaterial_6c7v8")
+position = Vector2(0, -6)
+texture = ExtResource("1_p2g8g")
+script = ExtResource("2_x5mot")
+
+[node name="PopupButton" type="Button" parent="."]
+z_index = 8
+z_as_relative = false
+offset_left = -3.0
+offset_top = -6.0
+offset_right = 4.0
+offset_bottom = 6.0
+focus_mode = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qd7tf")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_t7ogx")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_i46em")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ymeua")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_83ed2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fltgw")
+disabled = true
+shortcut = ExtResource("4_tkoul")
+shortcut_in_tooltip = false
+
+[node name="PlayerChecker" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerChecker"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_cfx0q")
+
+[connection signal="button_down" from="PopupButton" to="." method="_on_popup_button_button_down"]
+[connection signal="button_up" from="PopupButton" to="." method="_on_popup_button_button_up"]
+[connection signal="mouse_entered" from="PopupButton" to="." method="_on_popup_button_mouse_entered"]
+[connection signal="mouse_exited" from="PopupButton" to="." method="_on_popup_button_mouse_exited"]
+[connection signal="pressed" from="PopupButton" to="." method="_on_popup_button_pressed"]
+[connection signal="area_entered" from="PlayerChecker" to="." method="_on_player_checker_area_entered"]
+[connection signal="area_exited" from="PlayerChecker" to="." method="_on_player_checker_area_exited"]

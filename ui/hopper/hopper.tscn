@@ -1,0 +1,264 @@
+[gd_scene load_steps=23 format=3 uid="uid://dujs3xvul2mpm"]
+
+[ext_resource type="Script" path="res://ui/hopper/hopper.gd" id="1_l4c1o"]
+[ext_resource type="Texture2D" uid="uid://b1a2jfu384tok" path="res://art/ui/hopper.png" id="2_4r8hc"]
+[ext_resource type="FontFile" uid="uid://brsuylqxpu63h" path="res://ui/fonts/hero-speak.ttf" id="2_uqr6r"]
+[ext_resource type="Texture2D" uid="uid://eoee8hajgf0g" path="res://art/ui/whiteborder.png" id="3_8f6ij"]
+[ext_resource type="Texture2D" uid="uid://bxli3drgt5gah" path="res://art/ui/single_border.png" id="4_mrjtu"]
+
+[sub_resource type="Theme" id="Theme_47x57"]
+Label/colors/font_color = Color(0.333333, 0.921569, 0.631373, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 14
+Label/fonts/font = ExtResource("2_uqr6r")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g2a3t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ugxpv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gkidb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7thab"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a3elk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vui5e"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nlf7v"]
+texture = ExtResource("4_mrjtu")
+texture_margin_top = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t1tvi"]
+texture = ExtResource("4_mrjtu")
+texture_margin_top = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jjd1x"]
+texture = ExtResource("2_4r8hc")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hhl1m"]
+load_path = "res://.godot/imported/border2.png-ca4582288947dcfc847ecad870f436fd.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_73fm1"]
+texture = SubResource("CompressedTexture2D_hhl1m")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_esas3"]
+texture = ExtResource("3_8f6ij")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+
+[sub_resource type="Animation" id="Animation_dlqle"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/TextureRect:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.785398]
+}
+
+[sub_resource type="Animation" id="Animation_t4h8t"]
+resource_name = "Rotate_90"
+length = 0.5
+loop_mode = 1
+
+[sub_resource type="Animation" id="Animation_3j5a7"]
+resource_name = "Rotate_180"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.433333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.785398, 2.35619, 4.13643, 3.92699]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_08pnp"]
+_data = {
+"RESET": SubResource("Animation_dlqle"),
+"Rotate_180": SubResource("Animation_3j5a7"),
+"Rotate_90": SubResource("Animation_t4h8t")
+}
+
+[node name="Hopper" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_l4c1o")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.785398
+pivot_offset = Vector2(40, 40)
+mouse_filter = 2
+theme = SubResource("Theme_47x57")
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g2a3t")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ugxpv")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_gkidb")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7thab")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_a3elk")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vui5e")
+flat = true
+
+[node name="Control" type="Control" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Outline2" type="PanelContainer" parent="Control/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 38.0
+offset_right = -24.0
+offset_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.785398
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_nlf7v")
+
+[node name="Outline3" type="PanelContainer" parent="Control/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 42.0
+offset_top = 4.0
+offset_right = 14.0
+offset_bottom = -71.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 2.35619
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_nlf7v")
+
+[node name="Outline4" type="PanelContainer" parent="Control/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 76.0
+offset_top = 43.0
+offset_right = 51.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 3.92699
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_nlf7v")
+
+[node name="Outline5" type="PanelContainer" parent="Control/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 38.0
+offset_top = 76.0
+offset_right = 10.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 5.49779
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_t1tvi")
+
+[node name="TextureRect" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_jjd1x")
+
+[node name="Border" type="PanelContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_73fm1")
+
+[node name="Outline" type="PanelContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_esas3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_08pnp")
+}
+
+[connection signal="mouse_entered" from="Control/Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Control/Button" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="Control/Button" to="." method="rotate_180"]

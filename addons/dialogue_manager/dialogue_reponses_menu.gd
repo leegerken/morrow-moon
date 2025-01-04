@@ -32,9 +32,12 @@ var responses: Array = []:
 		if responses.size() > 0:
 			for response in responses:
 				var item: Control
+				var text: Label
 				if is_instance_valid(response_template):
 					item = response_template.duplicate(DUPLICATE_GROUPS | DUPLICATE_SCRIPTS | DUPLICATE_SIGNALS)
+					text = item.get_child(0)
 					item.show()
+					
 				else:
 					item = Button.new()
 				item.name = "Response%d" % get_child_count()
@@ -47,7 +50,8 @@ var responses: Array = []:
 					item.response = response
 				# Otherwise assume we can just set the text
 				else:
-					item.text = response.text
+					text.text = response.text
+					#item.text = response.text
 
 				item.set_meta("response", response)
 
@@ -123,13 +127,12 @@ func _configure_focus() -> void:
 
 func _on_response_mouse_entered(item: Control) -> void:
 	if "Disallowed" in item.name: return
-
 	item.grab_focus()
 
 
 func _on_response_gui_input(event: InputEvent, item: Control, response) -> void:
 	if "Disallowed" in item.name: return
-
+	
 	get_viewport().set_input_as_handled()
 
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:

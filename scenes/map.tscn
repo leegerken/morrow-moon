@@ -1,0 +1,71 @@
+[gd_scene load_steps=14 format=3 uid="uid://cktm022lec0c8"]
+
+[ext_resource type="PackedScene" uid="uid://crdftxlisdm36" path="res://scenes/tile_map.tscn" id="1_06kyj"]
+[ext_resource type="Script" path="res://scripts/map.gd" id="1_r6l3d"]
+[ext_resource type="PackedScene" uid="uid://bokyu5ojdp1xw" path="res://scenes/objects/sign.tscn" id="3_a56nt"]
+[ext_resource type="PackedScene" uid="uid://caqhmbgluu4nv" path="res://scenes/interactable.tscn" id="4_t7s3c"]
+[ext_resource type="Resource" uid="uid://ckhqokobb31mr" path="res://systems/dialogue_system/dialog/sign1.dialogue" id="5_j1voy"]
+[ext_resource type="PackedScene" uid="uid://klk1ayamayco" path="res://scenes/objects/bed.tscn" id="6_n84qf"]
+[ext_resource type="PackedScene" uid="uid://cysrkhlqioy6c" path="res://scenes/objects/door.tscn" id="7_pyatk"]
+[ext_resource type="PackedScene" uid="uid://d6b1o4eui1ff" path="res://scenes/player.tscn" id="8_kf7cw"]
+[ext_resource type="PackedScene" uid="uid://ijml23ti0tyc" path="res://scenes/entities/tiny_frog.tscn" id="9_lorui"]
+[ext_resource type="PackedScene" uid="uid://crmthdcsftcj6" path="res://scenes/objects/backpack.tscn" id="10_68lai"]
+[ext_resource type="Resource" uid="uid://mytwqbnwhf00" path="res://systems/dialogue_system/dialog/backpack_get.dialogue" id="11_ib7im"]
+[ext_resource type="PackedScene" uid="uid://c8tfe8v8l26ln" path="res://scenes/entities/frog.tscn" id="12_70atr"]
+[ext_resource type="Resource" uid="uid://diegiljfikcpr" path="res://systems/dialogue_system/dialog/frog.dialogue" id="13_p1sk4"]
+
+[node name="Map" type="Node2D"]
+z_as_relative = false
+y_sort_enabled = true
+script = ExtResource("1_r6l3d")
+
+[node name="TileMap" parent="." instance=ExtResource("1_06kyj")]
+
+[node name="Sign" parent="." instance=ExtResource("3_a56nt")]
+z_index = 1
+position = Vector2(140, 98)
+
+[node name="Interactable" parent="Sign" instance=ExtResource("4_t7s3c")]
+interact_name = "Sign"
+interact_type = "Dialogue"
+dialogue = ExtResource("5_j1voy")
+
+[node name="Bed1" parent="." instance=ExtResource("6_n84qf")]
+position = Vector2(151, 44)
+
+[node name="Interactable" parent="Bed1" instance=ExtResource("4_t7s3c")]
+interact_name = "Bed1"
+interact_type = "Bed"
+
+[node name="Door" parent="." instance=ExtResource("7_pyatk")]
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(184, 88)
+
+[node name="Player" parent="." instance=ExtResource("8_kf7cw")]
+unique_name_in_owner = true
+position = Vector2(347, 93)
+
+[node name="TinyFrog" parent="." instance=ExtResource("9_lorui")]
+position = Vector2(148, 123)
+motion_mode = 1
+
+[node name="TinyFrog2" parent="." instance=ExtResource("9_lorui")]
+position = Vector2(294, 101)
+motion_mode = 1
+
+[node name="Backpack" parent="." instance=ExtResource("10_68lai")]
+position = Vector2(314, 83)
+
+[node name="Interactable" parent="Backpack" instance=ExtResource("4_t7s3c")]
+interact_name = "Backpack"
+interact_type = "Item"
+dialogue = ExtResource("11_ib7im")
+
+[node name="Frog" parent="." instance=ExtResource("12_70atr")]
+position = Vector2(275, 66)
+
+[node name="Interactable" parent="Frog" instance=ExtResource("4_t7s3c")]
+interact_name = "Frog"
+interact_type = "Dialogue"
+dialogue = ExtResource("13_p1sk4")

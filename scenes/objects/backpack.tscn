@@ -1,0 +1,88 @@
+[gd_scene load_steps=15 format=3 uid="uid://crmthdcsftcj6"]
+
+[ext_resource type="Texture2D" uid="uid://dhqauh685alom" path="res://art/shadow.png" id="1_f5a22"]
+[ext_resource type="Texture2D" uid="uid://o5pu3y6uoogn" path="res://art/objects/backpack.png" id="1_wvo0r"]
+[ext_resource type="Shader" path="res://scripts/shaders/sprite_outline.gdshader" id="2_fgfyt"]
+[ext_resource type="Script" path="res://scripts/sprite_outline.gd" id="4_k5g0n"]
+[ext_resource type="Shortcut" uid="uid://bo3c8ebj6unxp" path="res://systems/shortcuts/interact.tres" id="5_iw0el"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1ky67"]
+shader = ExtResource("2_fgfyt")
+shader_parameter/width = 0
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/flickering_speed = null
+shader_parameter/minimal_flickering_alpha = 0.9
+shader_parameter/brightness = null
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_en2bd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kjbkx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kkpm6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2qnwt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_px8xh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kdttu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k3g0l"]
+size = Vector2(15, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_04af5"]
+size = Vector2(12, 19)
+
+[node name="Backpack" type="StaticBody2D"]
+z_index = 2
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(-0.781065, 0)
+scale = Vector2(1.25444, 1)
+texture = ExtResource("1_f5a22")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_1ky67")
+position = Vector2(0, -7)
+texture = ExtResource("1_wvo0r")
+script = ExtResource("4_k5g0n")
+
+[node name="PopupButton" type="Button" parent="Sprite"]
+z_index = 8
+z_as_relative = false
+offset_left = -8.0
+offset_top = -6.0
+offset_right = 8.0
+offset_bottom = 8.0
+focus_mode = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_en2bd")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_kjbkx")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_kkpm6")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_2qnwt")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_px8xh")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_kdttu")
+disabled = true
+action_mode = 0
+shortcut = ExtResource("5_iw0el")
+shortcut_in_tooltip = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_k3g0l")
+
+[node name="PlayerChecker" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerChecker"]
+position = Vector2(0, -4.5)
+shape = SubResource("RectangleShape2D_04af5")
+
+[connection signal="button_down" from="Sprite/PopupButton" to="Sprite" method="_on_popup_button_button_down"]
+[connection signal="button_up" from="Sprite/PopupButton" to="Sprite" method="_on_popup_button_button_up"]
+[connection signal="mouse_entered" from="Sprite/PopupButton" to="Sprite" method="_on_popup_button_mouse_entered"]
+[connection signal="mouse_exited" from="Sprite/PopupButton" to="Sprite" method="_on_popup_button_mouse_exited"]
+[connection signal="pressed" from="Sprite/PopupButton" to="Sprite" method="_on_popup_button_pressed"]
+[connection signal="area_entered" from="PlayerChecker" to="Sprite" method="_on_player_checker_area_entered"]
+[connection signal="area_exited" from="PlayerChecker" to="Sprite" method="_on_player_checker_area_exited"]

@@ -1,0 +1,82 @@
+[gd_scene load_steps=15 format=3 uid="uid://ihdeyluc8365"]
+
+[ext_resource type="FontFile" uid="uid://8il07tdxertj" path="res://ui/fonts/MinimalPixel v2.ttf" id="1_mlym3"]
+[ext_resource type="Texture2D" uid="uid://ctpog8vwrc8v5" path="res://art/ui/border3.png" id="2_2ntgt"]
+[ext_resource type="FontFile" uid="uid://brsuylqxpu63h" path="res://ui/fonts/hero-speak.ttf" id="3_sn7ei"]
+[ext_resource type="Script" path="res://scripts/battle_menu.gd" id="4_2dvtd"]
+[ext_resource type="AudioStream" uid="uid://lakv4sl30ngj" path="res://audio/Final_Fantasy_00076.wav" id="5_3etyi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7eurt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fcvam"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ehofy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_amkhg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c3dsx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s0fou"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_inwca"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_toah8"]
+texture = ExtResource("2_2ntgt")
+texture_margin_left = 15.0
+texture_margin_top = 20.0
+texture_margin_right = 15.0
+texture_margin_bottom = 20.0
+
+[sub_resource type="Theme" id="Theme_ej23i"]
+Button/colors/font_color = Color(0.882353, 0.921569, 0.631373, 1)
+Button/font_sizes/font_size = 14
+Button/fonts/font = ExtResource("1_mlym3")
+Button/styles/disabled = SubResource("StyleBoxEmpty_7eurt")
+Button/styles/disabled_mirrored = SubResource("StyleBoxEmpty_fcvam")
+Button/styles/focus = SubResource("StyleBoxEmpty_ehofy")
+Button/styles/hover = SubResource("StyleBoxEmpty_amkhg")
+Button/styles/hover_pressed = SubResource("StyleBoxEmpty_c3dsx")
+Button/styles/normal = SubResource("StyleBoxEmpty_s0fou")
+Button/styles/pressed = SubResource("StyleBoxEmpty_inwca")
+Label/colors/font_color = Color(0.882353, 0.921569, 0.631373, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 1)
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/font_sizes/font_size = 7
+Label/fonts/font = ExtResource("1_mlym3")
+Panel/styles/panel = SubResource("StyleBoxTexture_toah8")
+RichTextLabel/colors/default_color = Color(0.882353, 0.921569, 0.631373, 1)
+RichTextLabel/colors/font_shadow_color = Color(0, 0, 0, 1)
+RichTextLabel/constants/shadow_offset_x = 1
+RichTextLabel/constants/shadow_offset_y = 2
+RichTextLabel/font_sizes/normal_font_size = 14
+RichTextLabel/fonts/normal_font = ExtResource("3_sn7ei")
+
+[node name="Text Button" type="Button"]
+offset_left = 10.0
+offset_top = 11.0
+offset_right = 29.0
+offset_bottom = 19.0
+theme = SubResource("Theme_ej23i")
+flat = true
+alignment = 0
+script = ExtResource("4_2dvtd")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Text"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Menu" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_3etyi")
+volume_db = -24.444
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_focus_exited"]

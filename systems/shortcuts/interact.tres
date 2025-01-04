@@ -1,0 +1,18 @@
+[gd_resource type="Shortcut" load_steps=4 format=3 uid="uid://bo3c8ebj6unxp"]
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_hrist"]
+button_index = 1
+pressed = true
+
+[sub_resource type="InputEventKey" id="InputEventKey_88fdp"]
+device = -1
+keycode = 74
+unicode = 106
+
+[sub_resource type="InputEventKey" id="InputEventKey_5cwxu"]
+device = -1
+keycode = 69
+unicode = 101
+
+[resource]
+events = [SubResource("InputEventJoypadButton_hrist"), SubResource("InputEventKey_88fdp"), SubResource("InputEventKey_5cwxu")]

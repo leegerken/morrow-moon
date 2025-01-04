@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://bafylritdodv3"]
+
+[ext_resource type="Shader" path="res://scripts/shaders/splash_screen.gdshader" id="1_eyfcw"]
+[ext_resource type="Texture2D" uid="uid://6xo40xx57ko7" path="res://art/ui/white_screen.png" id="2_1qewe"]
+[ext_resource type="Script" path="res://scripts/white_dissolve.gd" id="3_ahweo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wv3af"]
+shader = ExtResource("1_eyfcw")
+shader_parameter/sensitivity = 0.0
+
+[node name="WhiteDissolve" type="TextureRect"]
+material = SubResource("ShaderMaterial_wv3af")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_1qewe")
+script = ExtResource("3_ahweo")

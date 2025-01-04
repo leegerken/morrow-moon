@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cyku20usju7g2"]
 
 [ext_resource type="Texture2D" uid="uid://ca2f1orv63jf3" path="res://art/ui/border_thick.png" id="1_2570o"]
-[ext_resource type="FontFile" uid="uid://brsuylqxpu63h" path="res://art/system/hero-speak.ttf" id="2_hb5w6"]
+[ext_resource type="FontFile" uid="uid://brsuylqxpu63h" path="res://ui/fonts/hero-speak.ttf" id="2_hb5w6"]
 
 [sub_resource type="Animation" id="Animation_byiw8"]
 resource_name = "Intro"

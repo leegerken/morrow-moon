@@ -1,0 +1,216 @@
+[gd_scene load_steps=12 format=3 uid="uid://cd7uxxuiekkkf"]
+
+[ext_resource type="Script" path="res://scripts/item_get.gd" id="1_rpd57"]
+[ext_resource type="PackedScene" uid="uid://dktve4c2v3ca1" path="res://scenes/checkerboard.tscn" id="2_gugep"]
+[ext_resource type="Texture2D" uid="uid://o5pu3y6uoogn" path="res://art/objects/backpack.png" id="3_1vssc"]
+[ext_resource type="Texture2D" uid="uid://dni2j12oau8rv" path="res://art/ui/border2.png" id="4_lcgg5"]
+[ext_resource type="AudioStream" uid="uid://dvbj1g5wvenga" path="res://audio/item_get.wav" id="5_iyovm"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_363hg"]
+content_margin_left = 7.0
+content_margin_top = 11.0
+content_margin_right = 7.0
+content_margin_bottom = 7.0
+texture = ExtResource("4_lcgg5")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7rnfg"]
+texture = ExtResource("4_lcgg5")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="Animation" id="Animation_xmyf6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Item_Image:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(126, 65)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_gulxc"]
+resource_name = "hide_image"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Item_Image:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(20, 65), Vector2(-100, 65)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_1qqlo"]
+resource_name = "show_image"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Item_Image:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.4, 1.06667, 1.26667, 1.475),
+"transitions": PackedFloat32Array(0.554, 1.88, 1.39, 1, 1.87, 1.38),
+"update": 0,
+"values": [Vector2(126, 200), Vector2(126, 50), Vector2(126, 65), Vector2(126, 65), Vector2(40, 65), Vector2(55, 65)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer/AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.191268,
+"start_offset": 0.0,
+"stream": ExtResource("5_iyovm")
+}],
+"times": PackedFloat32Array(1.5)
+}
+tracks/2/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sk3kb"]
+_data = {
+"RESET": SubResource("Animation_xmyf6"),
+"hide_image": SubResource("Animation_gulxc"),
+"show_image": SubResource("Animation_1qqlo")
+}
+
+[node name="Item_Get" type="CanvasLayer"]
+script = ExtResource("1_rpd57")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Item_Image" type="Control" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.0
+offset_top = -35.0
+offset_right = -37.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(34, 35)
+
+[node name="Checkerboard" parent="Control/Item_Image" instance=ExtResource("2_gugep")]
+layout_mode = 1
+anchors_preset = 15
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/Item_Image"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_363hg")
+
+[node name="Item_Texture" type="TextureRect" parent="Control/Item_Image/PanelContainer"]
+layout_mode = 2
+texture = ExtResource("3_1vssc")
+stretch_mode = 5
+
+[node name="Shadow" type="PanelContainer" parent="Control/Item_Image"]
+self_modulate = Color(0, 0, 0, 0.492)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.5
+offset_top = 2.0
+offset_right = -1.5
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_363hg")
+
+[node name="Border" type="PanelContainer" parent="Control/Item_Image"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7rnfg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
+libraries = {
+"": SubResource("AnimationLibrary_sk3kb")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AnimationPlayer"]
+pitch_scale = 0.83
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

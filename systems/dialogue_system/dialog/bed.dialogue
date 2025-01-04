@@ -1,0 +1,8 @@
+~ main
+
+Go to sleep?
+- yes
+	do PlayerManager.sleep()
+- no
+
+=> END

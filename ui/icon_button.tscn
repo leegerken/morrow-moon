@@ -1,0 +1,66 @@
+[gd_scene load_steps=12 format=3 uid="uid://b47tlg5ddpqd"]
+
+[ext_resource type="FontFile" uid="uid://brsuylqxpu63h" path="res://ui/fonts/hero-speak.ttf" id="1_lowej"]
+[ext_resource type="Texture2D" uid="uid://dj5maqfmwsesj" path="res://ui/icons/herbalism_16.png" id="2_l7hop"]
+[ext_resource type="FontFile" uid="uid://b7ud2k3xyroie" path="res://ui/fonts/game over.ttf" id="3_ccm03"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fa48x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v04h8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y8i30"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_blx2p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_suaei"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5bkpg"]
+
+[sub_resource type="Theme" id="Theme_xn23e"]
+Button/colors/font_color = Color(1, 0.683333, 0, 1)
+Button/font_sizes/font_size = 14
+Button/fonts/font = ExtResource("1_lowej")
+Button/styles/disabled = SubResource("StyleBoxEmpty_fa48x")
+Button/styles/focus = SubResource("StyleBoxEmpty_v04h8")
+Button/styles/hover = SubResource("StyleBoxEmpty_y8i30")
+Button/styles/hover_pressed = SubResource("StyleBoxEmpty_blx2p")
+Button/styles/normal = SubResource("StyleBoxEmpty_suaei")
+Button/styles/pressed = SubResource("StyleBoxEmpty_5bkpg")
+
+[sub_resource type="LabelSettings" id="LabelSettings_u5vim"]
+font = ExtResource("3_ccm03")
+font_size = 8
+font_color = Color(0.882353, 0.921569, 0.631373, 1)
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="IconButton" type="Control"]
+custom_minimum_size = Vector2(27, 22)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 27.0
+offset_bottom = 22.0
+theme = SubResource("Theme_xn23e")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+icon = ExtResource("2_l7hop")
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Literacy"
+label_settings = SubResource("LabelSettings_u5vim")
+horizontal_alignment = 1

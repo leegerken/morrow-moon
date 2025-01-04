@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://cxw044yfcxaih"]
+
+[ext_resource type="Script" path="res://scripts/inventory_slot_ui.gd" id="1_1hhev"]
+[ext_resource type="Texture2D" uid="uid://eoee8hajgf0g" path="res://art/ui/whiteborder.png" id="1_4n1hl"]
+[ext_resource type="Texture2D" uid="uid://c7ya64jv766vt" path="res://art/pickups/sunflower_seeds.png" id="1_uhc6u"]
+[ext_resource type="FontFile" uid="uid://ba51hssbtoj57" path="res://ui/fonts/tinypixel.otf" id="2_m3kre"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p5b13"]
+texture = ExtResource("1_4n1hl")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+modulate_color = Color(0.882353, 0.921569, 0.631373, 1)
+
+[sub_resource type="Theme" id="Theme_ao4jo"]
+Button/styles/focus = SubResource("StyleBoxTexture_p5b13")
+
+[sub_resource type="LabelSettings" id="LabelSettings_r7pa3"]
+font = ExtResource("2_m3kre")
+font_size = 7
+font_color = Color(0.752941, 1, 0.588235, 1)
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(-1, 1)
+
+[node name="InventorySlot" type="Button"]
+custom_minimum_size = Vector2(16, 16)
+offset_right = 16.0
+offset_bottom = 16.0
+theme = SubResource("Theme_ao4jo")
+script = ExtResource("1_1hhev")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_uhc6u")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -11.0
+offset_top = -8.0
+offset_right = -2.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "1"
+label_settings = SubResource("LabelSettings_r7pa3")
+horizontal_alignment = 2

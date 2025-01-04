@@ -1,0 +1,365 @@
+[gd_scene load_steps=25 format=3 uid="uid://dufiiox35o86s"]
+
+[ext_resource type="FontFile" uid="uid://brsuylqxpu63h" path="res://ui/fonts/hero-speak.ttf" id="1_6teg4"]
+[ext_resource type="Script" path="res://scripts/popup_box.gd" id="2_25ggx"]
+[ext_resource type="PackedScene" uid="uid://cwj34ogqp1i0x" path="res://ui/popup_box/popup_button.tscn" id="3_52cp3"]
+[ext_resource type="Texture2D" uid="uid://bnugf0gnwxo64" path="res://ui/popup_box/popup_box.png" id="4_rdta4"]
+[ext_resource type="Texture2D" uid="uid://dni2j12oau8rv" path="res://art/ui/border2.png" id="5_17hwy"]
+[ext_resource type="FontFile" uid="uid://ccg85f7yskjil" path="res://ui/fonts/m5x7.ttf" id="6_ioqdt"]
+[ext_resource type="Script" path="res://scripts/inventory_ui.gd" id="7_ng2ff"]
+[ext_resource type="Resource" uid="uid://5f1g220qk2xr" path="res://items/player_inventory.tres" id="8_oppim"]
+[ext_resource type="Texture2D" uid="uid://eoee8hajgf0g" path="res://art/ui/whiteborder.png" id="9_c8wwx"]
+[ext_resource type="PackedScene" uid="uid://cxw044yfcxaih" path="res://scenes/inventory_slot.tscn" id="9_ijppx"]
+[ext_resource type="FontFile" uid="uid://ba51hssbtoj57" path="res://ui/fonts/tinypixel.otf" id="10_le1i2"]
+
+[sub_resource type="Theme" id="Theme_4fjmh"]
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 1)
+Label/constants/shadow_offset_x = -1
+Label/constants/shadow_offset_y = 1
+Label/constants/shadow_outline_size = 1
+Label/font_sizes/font_size = 14
+Label/fonts/font = ExtResource("1_6teg4")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_32p6k"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+texture = ExtResource("4_rdta4")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="Animation" id="Animation_egt3m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_okb1h"]
+resource_name = "hide_popup"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(20, -25), Vector2(-20, -25)]
+}
+
+[sub_resource type="Animation" id="Animation_lsjbh"]
+resource_name = "show_popup"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(10, -25), Vector2(30, -25), Vector2(20, -25)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n6aye"]
+_data = {
+"RESET": SubResource("Animation_egt3m"),
+"hide_popup": SubResource("Animation_okb1h"),
+"show_popup": SubResource("Animation_lsjbh")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_te2j3"]
+bg_color = Color(0.545098, 0.337255, 0.258824, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lm2g1"]
+texture = ExtResource("5_17hwy")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7ect5"]
+texture = ExtResource("5_17hwy")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="Theme" id="Theme_o5g5e"]
+ItemList/fonts/font = ExtResource("6_ioqdt")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p5b13"]
+texture = ExtResource("9_c8wwx")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+modulate_color = Color(0.882353, 0.921569, 0.631373, 1)
+
+[sub_resource type="Theme" id="Theme_ao4jo"]
+Button/styles/focus = SubResource("StyleBoxTexture_p5b13")
+
+[sub_resource type="LabelSettings" id="LabelSettings_ldpbp"]
+font = ExtResource("10_le1i2")
+font_size = 7
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(-1, 1)
+
+[node name="PopupBox" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 55.0
+offset_bottom = 41.0
+theme = SubResource("Theme_4fjmh")
+script = ExtResource("2_25ggx")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 4.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = -1
+alignment = 1
+
+[node name="Backpack" parent="VBoxContainer" instance=ExtResource("3_52cp3")]
+layout_mode = 2
+button_text = "Backpack"
+
+[node name="Friends" parent="VBoxContainer" instance=ExtResource("3_52cp3")]
+layout_mode = 2
+button_text = "+Friend"
+flip_v = true
+
+[node name="Shadow" type="PanelContainer" parent="."]
+self_modulate = Color(0, 0, 0, 0.611765)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_32p6k")
+
+[node name="Border" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_32p6k")
+
+[node name="AnimationTree" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_n6aye")
+}
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_left = -1.0
+offset_top = -32.0
+offset_right = 64.0
+offset_bottom = -2.0
+
+[node name="Background" type="PanelContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_te2j3")
+
+[node name="Shadow" type="PanelContainer" parent="Control"]
+self_modulate = Color(0, 0, 0, 0.611765)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_lm2g1")
+
+[node name="Border" type="PanelContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7ect5")
+
+[node name="Pocket_Grid2" type="GridContainer" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 8.0
+offset_right = -2.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_o5g5e")
+theme_override_constants/h_separation = 1
+columns = 4
+
+[node name="InventorySlot" type="Button" parent="Control/Pocket_Grid2"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+theme = SubResource("Theme_ao4jo")
+
+[node name="InventorySlot2" type="Button" parent="Control/Pocket_Grid2"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+theme = SubResource("Theme_ao4jo")
+
+[node name="InventorySlot3" type="Button" parent="Control/Pocket_Grid2"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+theme = SubResource("Theme_ao4jo")
+
+[node name="Pocket_Grid" type="GridContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 8.0
+offset_right = -2.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_o5g5e")
+theme_override_constants/h_separation = 1
+columns = 4
+script = ExtResource("7_ng2ff")
+data = ExtResource("8_oppim")
+
+[node name="InventorySlot" parent="Control/Pocket_Grid" instance=ExtResource("9_ijppx")]
+layout_mode = 2
+
+[node name="InventorySlot2" parent="Control/Pocket_Grid" instance=ExtResource("9_ijppx")]
+layout_mode = 2
+
+[node name="InventorySlot3" parent="Control/Pocket_Grid" instance=ExtResource("9_ijppx")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = -8.0
+offset_right = 44.0
+offset_bottom = 7.0
+text = "Pockets"
+label_settings = SubResource("LabelSettings_ldpbp")

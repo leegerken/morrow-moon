@@ -1,0 +1,156 @@
+[gd_scene load_steps=20 format=3 uid="uid://ijml23ti0tyc"]
+
+[ext_resource type="Script" path="res://scripts/tiny_frog.gd" id="1_fpxil"]
+[ext_resource type="Texture2D" uid="uid://sr1ahejfespr" path="res://art/entities/tiny_frog/tinyfrog_sprite.png" id="1_xk8ea"]
+[ext_resource type="Shader" path="res://scripts/shaders/sprite_outline.gdshader" id="2_bheli"]
+[ext_resource type="Texture2D" uid="uid://dhqauh685alom" path="res://art/shadow.png" id="3_qrunp"]
+[ext_resource type="Shortcut" uid="uid://bo3c8ebj6unxp" path="res://systems/shortcuts/interact.tres" id="4_lirli"]
+[ext_resource type="Script" path="res://scripts/sprite_outline.gd" id="4_vcpbm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c64e6"]
+resource_local_to_scene = true
+shader = ExtResource("2_bheli")
+shader_parameter/width = null
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/flickering_speed = null
+shader_parameter/minimal_flickering_alpha = 0.9
+shader_parameter/brightness = null
+
+[sub_resource type="Animation" id="Animation_t68wl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_jml1u"]
+resource_name = "hopping"
+length = 0.75
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.5, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 0]
+}
+
+[sub_resource type="Animation" id="Animation_rwbng"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1m1ad"]
+_data = {
+"RESET": SubResource("Animation_t68wl"),
+"hopping": SubResource("Animation_jml1u"),
+"idle": SubResource("Animation_rwbng")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_17wq5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h346j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vidjk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u1tl2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cwbc3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hsq0m"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_muuju"]
+radius = 7.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ma7by"]
+size = Vector2(16, 12)
+
+[node name="TinyFrog" type="CharacterBody2D"]
+position = Vector2(267, 106)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_fpxil")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_c64e6")
+texture = ExtResource("1_xk8ea")
+hframes = 3
+script = ExtResource("4_vcpbm")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
+libraries = {
+"": SubResource("AnimationLibrary_1m1ad")
+}
+autoplay = "idle"
+
+[node name="Shadow" type="Sprite2D" parent="Sprite"]
+show_behind_parent = true
+position = Vector2(-0.615381, 6)
+scale = Vector2(1.23077, 1)
+texture = ExtResource("3_qrunp")
+
+[node name="PopupButton" type="Button" parent="Sprite"]
+z_index = 8
+z_as_relative = false
+offset_left = -9.0
+offset_top = -5.0
+offset_right = 8.0
+offset_bottom = 7.0
+focus_mode = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_17wq5")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_h346j")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_vidjk")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_u1tl2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_cwbc3")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hsq0m")
+disabled = true
+shortcut = ExtResource("4_lirli")
+shortcut_in_tooltip = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_muuju")
+
+[node name="MoveTimer" type="Timer" parent="."]
+
+[node name="PlayerChecker" type="Area2D" parent="."]
+position = Vector2(0, 8)
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerChecker"]
+position = Vector2(0, -7)
+shape = SubResource("RectangleShape2D_ma7by")
+
+[connection signal="button_down" from="Sprite/PopupButton" to="Sprite" method="_on_popup_button_button_down"]
+[connection signal="button_up" from="Sprite/PopupButton" to="Sprite" method="_on_popup_button_button_up"]
+[connection signal="mouse_entered" from="Sprite/PopupButton" to="Sprite" method="_on_popup_button_mouse_entered"]
+[connection signal="mouse_exited" from="Sprite/PopupButton" to="Sprite" method="_on_popup_button_mouse_exited"]
+[connection signal="pressed" from="Sprite/PopupButton" to="Sprite" method="_on_popup_button_pressed"]
+[connection signal="timeout" from="MoveTimer" to="." method="_on_move_timer_timeout"]
+[connection signal="area_entered" from="PlayerChecker" to="Sprite" method="_on_player_checker_area_entered"]
+[connection signal="area_exited" from="PlayerChecker" to="Sprite" method="_on_player_checker_area_exited"]

@@ -1,25 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqrlfsspvgut0"]
+[gd_scene load_steps=4 format=3 uid="uid://dktve4c2v3ca1"]
 
-[ext_resource type="Shader" path="res://art/shaders/checkerboard.gdshader" id="1_hhrnb"]
-[ext_resource type="Texture2D" uid="uid://bao73gfsaldo0" path="res://art/ui/checkerboard.png" id="2_xll5e"]
+[ext_resource type="Shader" path="res://scripts/shaders/checkerboard.gdshader" id="1_111ad"]
+[ext_resource type="Texture2D" uid="uid://bao73gfsaldo0" path="res://art/ui/checkerboard.png" id="2_aivvo"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_av8qc"]
-shader = ExtResource("1_hhrnb")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lpg07"]
+shader = ExtResource("1_111ad")
 shader_parameter/motion = Vector2(30, 30)
 shader_parameter/scale = 1.0
 shader_parameter/offset = Vector2(0, 0)
 
-[node name="Checkerboard" type="MarginContainer"]
-anchors_preset = 15
-anchor_right = 1.0
+[node name="Checkerboard" type="TextureRect"]
+material = SubResource("ShaderMaterial_lpg07")
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = -130.0
+offset_top = -64.0
+offset_right = 130.0
+offset_bottom = -12.0
 grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 0
-
-[node name="TextureRect" type="TextureRect" parent="."]
-material = SubResource("ShaderMaterial_av8qc")
-layout_mode = 2
-texture = ExtResource("2_xll5e")
+grow_vertical = 0
+texture = ExtResource("2_aivvo")
 expand_mode = 1
 stretch_mode = 1
