@@ -6,8 +6,9 @@ var width :Variant = material.get_shader_parameter("width")
 var player_near :bool = false
 
 func _on_popup_button_mouse_entered() -> void:
-	width = 1
-	material.set_shader_parameter("width", width)
+	if player_near: #Added to remove outlining all interactables regardless if player is near. Added to fix other bugs.
+		width = 1
+		material.set_shader_parameter("width", width)
 
 func _on_popup_button_mouse_exited() -> void:
 	width = 0

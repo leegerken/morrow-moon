@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bhkuejyiqdhw1"]
+[gd_scene load_steps=30 format=3 uid="uid://bhkuejyiqdhw1"]
 
 [ext_resource type="Script" path="res://ui/player_menu.gd" id="1_swcak"]
 [ext_resource type="Theme" uid="uid://blvkaikbuwd0j" path="res://ui/main_theme.tres" id="2_5gf76"]
@@ -11,7 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://ctpog8vwrc8v5" path="res://art/ui/border3.png" id="9_urw1s"]
 [ext_resource type="Texture2D" uid="uid://de3melgnfc1qt" path="res://art/icons/magnifying.png" id="10_xds6l"]
 [ext_resource type="Script" path="res://scripts/bug_list.gd" id="10_ynmjl"]
-[ext_resource type="FontFile" uid="uid://brsuylqxpu63h" path="res://ui/fonts/hero-speak.ttf" id="11_tqhyy"]
+[ext_resource type="FontFile" uid="uid://derdu1pl4vuke" path="res://ui/fonts/m3x6.ttf" id="12_i0x8p"]
+[ext_resource type="PackedScene" uid="uid://dej824406fjhy" path="res://scenes/bug_entry.tscn" id="13_82vsr"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ppavb"]
 texture = ExtResource("4_sgbdv")
@@ -225,6 +226,13 @@ _data = {
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5nfey"]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_usnw6"]
+texture = ExtResource("5_i61vv")
+texture_margin_left = 7.0
+texture_margin_top = 7.0
+texture_margin_right = 7.0
+texture_margin_bottom = 7.0
+
 [sub_resource type="Animation" id="Animation_14glu"]
 length = 0.001
 tracks/0/type = "value"
@@ -253,7 +261,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(190, 12), Vector2(350, 12)]
+"values": [Vector2(170, 12), Vector2(350, 12)]
 }
 
 [sub_resource type="Animation" id="Animation_geyel"]
@@ -269,7 +277,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(350, 12), Vector2(190, 12)]
+"values": [Vector2(350, 12), Vector2(170, 12)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8d0ya"]
@@ -585,22 +593,24 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
 script = ExtResource("10_ynmjl")
 
-[node name="MenuButton" parent="BugList" instance=ExtResource("6_wmn73")]
+[node name="BugButton" parent="BugList" instance=ExtResource("6_wmn73")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 272.0
-offset_top = 10.0
-offset_right = -18.0
-offset_bottom = -162.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 105.0
+offset_top = -90.0
+offset_right = 136.0
+offset_bottom = -61.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_mode = 0
 
-[node name="TextureRect" type="TextureRect" parent="BugList/MenuButton"]
+[node name="TextureRect" type="TextureRect" parent="BugList/BugButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -622,7 +632,7 @@ anchor_top = 0.0
 anchor_right = 1.0
 offset_left = 350.0
 offset_top = 12.0
-offset_right = 140.0
+offset_right = 170.0
 offset_bottom = -14.0
 grow_vertical = 2
 
@@ -656,7 +666,7 @@ anchor_right = 1.0
 offset_left = 7.0
 offset_top = 7.0
 offset_right = -8.0
-offset_bottom = 33.0
+offset_bottom = 38.0
 grow_horizontal = 2
 texture = ExtResource("9_urw1s")
 patch_margin_left = 16
@@ -672,21 +682,25 @@ anchor_bottom = 1.0
 offset_left = 8.0
 offset_top = 3.0
 offset_right = -8.0
+offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("11_tqhyy")
-theme_override_font_sizes/font_size = 14
+theme_override_fonts/font = ExtResource("12_i0x8p")
+theme_override_font_sizes/font_size = 16
 theme_override_styles/focus = SubResource("StyleBoxEmpty_amv45")
 theme_override_styles/read_only = SubResource("StyleBoxEmpty_tcx7d")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_5nfey")
 placeholder_text = "Enter..."
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+caret_blink = true
 
 [node name="BugList" type="NinePatchRect" parent="BugList/Background"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_left = 7.0
-offset_top = 34.0
+offset_top = 43.0
 offset_right = -8.0
 offset_bottom = 168.0
 grow_horizontal = 2
@@ -695,6 +709,58 @@ patch_margin_left = 16
 patch_margin_top = 8
 patch_margin_right = 16
 patch_margin_bottom = 8
+
+[node name="Panel" type="PanelContainer" parent="BugList/Background/BugList"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_usnw6")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="BugList/Background/BugList"]
+layout_mode = 2
+offset_right = 125.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+follow_focus = true
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="BugList/Background/BugList/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 7
+theme_override_constants/margin_top = 7
+theme_override_constants/margin_right = 7
+theme_override_constants/margin_bottom = 7
+
+[node name="BugEntryContainer" type="VBoxContainer" parent="BugList/Background/BugList/ScrollContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 3
+
+[node name="BugEntry" parent="BugList/Background/BugList/ScrollContainer/MarginContainer/BugEntryContainer" instance=ExtResource("13_82vsr")]
+layout_mode = 2
+
+[node name="BugEntry2" parent="BugList/Background/BugList/ScrollContainer/MarginContainer/BugEntryContainer" instance=ExtResource("13_82vsr")]
+layout_mode = 2
+
+[node name="BugEntry3" parent="BugList/Background/BugList/ScrollContainer/MarginContainer/BugEntryContainer" instance=ExtResource("13_82vsr")]
+layout_mode = 2
+
+[node name="BugEntry4" parent="BugList/Background/BugList/ScrollContainer/MarginContainer/BugEntryContainer" instance=ExtResource("13_82vsr")]
+layout_mode = 2
+
+[node name="BugEntry5" parent="BugList/Background/BugList/ScrollContainer/MarginContainer/BugEntryContainer" instance=ExtResource("13_82vsr")]
+layout_mode = 2
+
+[node name="BugEntry6" parent="BugList/Background/BugList/ScrollContainer/MarginContainer/BugEntryContainer" instance=ExtResource("13_82vsr")]
+layout_mode = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BugList/Background"]
 libraries = {
@@ -705,4 +771,7 @@ libraries = {
 [connection signal="pressed" from="Menus/BaseMenu/StatsMenuButton" to="." method="_on_stats_menu_button_pressed"]
 [connection signal="pressed" from="Menus/BaseMenu/CloseButton" to="." method="_on_close_button_pressed"]
 [connection signal="button_up" from="Menus/BaseMenu/Date" to="." method="_on_date_button_up"]
-[connection signal="pressed" from="BugList/MenuButton" to="BugList" method="show_bug_list"]
+[connection signal="gui_input" from="BugList" to="BugList" method="_on_gui_input"]
+[connection signal="pressed" from="BugList/BugButton" to="BugList" method="_on_bug_button_pressed"]
+[connection signal="text_submitted" from="BugList/Background/TextEntry/LineEdit" to="BugList" method="_on_line_edit_text_submitted"]
+[connection signal="child_order_changed" from="BugList/Background/BugList/ScrollContainer/MarginContainer/BugEntryContainer" to="BugList" method="_on_bug_entry_container_child_order_changed"]

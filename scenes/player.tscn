@@ -775,7 +775,6 @@ collision_layer = 4
 collision_mask = 514
 
 [node name="Collision2D" type="CollisionShape2D" parent="Direction/InteractArea"]
-visible = false
 position = Vector2(6, 0)
 shape = SubResource("RectangleShape2D_w3jsi")
 

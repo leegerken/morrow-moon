@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Morrow Moon"
 config/version="10"
-run/main_scene="res://scenes/splash_screen.tscn"
+run/main_scene="res://scenes/game.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 run/max_fps=120
 run/delta_smoothing=false
@@ -27,7 +27,8 @@ DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 MapManager="*res://scripts/map_manager.gd"
 PlayerManager="*res://scripts/player_manager.gd"
 GlobalData="*res://scripts/global_data.gd"
-GlobalFunctions="*res://scripts/global_functions.gd"
+SaveManager="*res://scripts/save_manager.gd"
+BugManager="*res://scripts/bug_manager.gd"
 
 [debug]
 
@@ -42,8 +43,8 @@ general/new_with_template=false
 
 window/size/viewport_width=320
 window/size/viewport_height=200
-window/size/window_width_override=1440
-window/size/window_height_override=900
+window/size/window_width_override=1280
+window/size/window_height_override=800
 window/subwindows/embed_subwindows=false
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"

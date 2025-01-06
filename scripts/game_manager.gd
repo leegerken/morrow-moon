@@ -2,11 +2,9 @@ extends Node
 
 @onready var ground: Node2D = $Map/TileMap/Ground
 
-var unpauseable :bool = false
-
 func _unhandled_input(_event :InputEvent) -> void:	
 	if Input.is_action_just_pressed("cancel") and %Player.player_state == "sleeping":
-		get_tree().paused = false
+		unpause_game()
 		%Player.exit_sleep()
 
 func update_tile_selector(position :Vector2) -> Vector2i:
@@ -21,3 +19,9 @@ func dig_position(tile_position :Vector2i) -> void:
 	print(cell)
 	ground.change_to_dirt(cell)
 	
+
+func pause_game() -> void:
+	get_tree().paused = true
+	
+func unpause_game() -> void:
+	get_tree().paused = false
